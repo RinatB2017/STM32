@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F030F4P6 -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\STM32F030F4P6 -I..\..\..\workspace -I..\..\..\workspace\STM32F030F4P6\stm32_lib -I..\..\..\workspace\STM32F030F4P6\stm32_lib\inc -I..\..\..\workspace\STM32F030F4P6\cmsis_core -I..\..\..\workspace\STM32F030F4P6\cmsis_boot">
+      <target file="stm32f0xx_gpio.o" lastModified="15f7272d19d">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="15f725eb442"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="15f7272cf8a">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="15f725eb471"/>
+      </target>
+      <target file="stm32f0xx_flash.o" lastModified="15f7272d343">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_flash.c" lastModified="15f7265476d"/>
+      </target>
+      <target file="stm32f0xx_usart.o" lastModified="15f7272d21a">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_usart.c" lastModified="15f725ebd79"/>
+      </target>
+      <target file="stm32f0xx_misc.o" lastModified="15f7272d381">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_misc.c" lastModified="15f7264ba8e"/>
+      </target>
+      <target file="main.o" lastModified="15f72753d5d">
+         <source file="..\..\..\main.c" lastModified="15f727537ee"/>
+      </target>
+      <target file="stm32f0xx_tim.o" lastModified="15f7272d2d5">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_tim.c" lastModified="15f7264648f"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="15f7272d0c2">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="15f725eb490"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="15f7272d110">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="15f725eb4bf"/>
+      </target>
+   </processor>
+</history>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="6.3.1 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=STM32F030F4P6.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\STM32F030F4P6 -TC:\CooCox\CoIDE\configuration\ProgramData\STM32F030F4P6/link.ld -g">
+      <target file="STM32F030F4P6.elf" lastModified="15f72753f60">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="15f7272cf8a"/>
+         <source file="..\obj\main.o" lastModified="15f72753d5d"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="15f7272d0c2"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="15f7272d110"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="15f7272d19d"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="15f7272d21a"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="15f7272d2d5"/>
+         <source file="..\obj\stm32f0xx_flash.o" lastModified="15f7272d343"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="15f7272d381"/>
+      </target>
+   </processor>
+</history>

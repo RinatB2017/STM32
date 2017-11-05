@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F030F4P6 -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DMIF -I..\..\..\..\.. -I..\..\..\..\..\workspace -I..\..\..\..\..\workspace\stm32f030_usv_v1\stm32_lib -I..\..\..\..\..\workspace\stm32f030_usv_v1 -I..\..\..\..\..\workspace\stm32f030_usv_v1\stm32_lib\inc -I..\..\..\..\..\workspace\stm32f030_usv_v1\cmsis_core -I..\..\..\..\..\workspace\stm32f030_usv_v1\upu -I..\..\..\..\..\workspace\stm32f030_usv_v1\cmsis_boot">
+      <target file="stm32f0xx_adc.o" lastModified="15eb4eef73a">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_adc.c" lastModified="15c1bac5da0"/>
+      </target>
+      <target file="stm32f0xx_gpio.o" lastModified="15eb4eefcc2">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="15b90789000"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="15eb4eef6ba">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="15b90780360"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="15eb4eefc1f">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="15b7ab78820"/>
+      </target>
+      <target file="syscalls.o" lastModified="15eb4eefdf7">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="15b7ab768e0"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="15eb4eefb33">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="15b7ab78820"/>
+      </target>
+      <target file="main.o" lastModified="15eb4eefafc">
+         <source file="..\..\..\main.c" lastModified="15e9c1bff33"/>
+      </target>
+      <target file="upu.o" lastModified="15eb4eefba0">
+         <source file="..\..\..\upu\upu.c" lastModified="15e9684d53f"/>
+      </target>
+   </processor>
+</history>
