@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F100RB -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\User\workspace\Test_stm32-discovery\stm_lib\inc -I..\..\..\..\..\Users\User\workspace\Test_stm32-discovery\cmsis -I..\..\..\..\..\Users\User\workspace\Test_stm32-discovery\stm_lib -I..\..\..\..\..\Users\User\workspace\Test_stm32-discovery\cmsis_boot -I..\..\..\..\..\Users\User\workspace -I..\..\..\..\..\Users\User\workspace\Test_stm32-discovery">
+      <target file="startup_stm32f10x_md_vl.o" lastModified="15f92eb9ef4">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md_vl.c" lastModified="15f8bb12bc8"/>
+      </target>
+      <target file="syscalls.o" lastModified="15f92eba359">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="15f9102fcc8"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="15f92eb9faf">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="15f8bb12bc8"/>
+      </target>
+      <target file="stm32f10x_flash.o" lastModified="15f92eba3d5">
+         <source file="..\..\..\stm_lib\src\stm32f10x_flash.c" lastModified="15f8bb13f50"/>
+      </target>
+      <target file="main.o" lastModified="15f92eba1c2">
+         <source file="..\..\..\main.c" lastModified="15f92e6f49e"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="15f92eba02c">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="15f8bb12bc8"/>
+      </target>
+      <target file="stm32f10x_usart.o" lastModified="15f92eba2fb">
+         <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="15f8bb14338"/>
+      </target>
+      <target file="flash.o" lastModified="15f92eb9f51">
+         <source file="..\..\..\flash.c" lastModified="15f923824f2"/>
+      </target>
+      <target file="stm32f10x_rcc.o" lastModified="15f92eba240">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="15f8bb12bc8"/>
+      </target>
+      <target file="usart.o" lastModified="15f92eba491">
+         <source file="..\..\..\usart.c" lastModified="15f922353f7"/>
+      </target>
+      <target file="misc.o" lastModified="15f92eba433">
+         <source file="..\..\..\stm_lib\src\misc.c" lastModified="15f8bc0c3f8"/>
+      </target>
+   </processor>
+</history>

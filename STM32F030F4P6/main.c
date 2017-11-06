@@ -45,6 +45,9 @@ void send_data();
 void work();
 void command();
 
+void run_wiper(void);
+void wash(bool value);
+
 uint8_t convert_ascii_to_value(uint8_t hi, uint8_t lo);
 void convert_data_to_ascii(uint8_t data, uint8_t *hi_str, uint8_t *lo_str);
 //--------------------------------------------------------------------------------
@@ -59,6 +62,8 @@ uint32_t    time_washout_32 = 0;            // время помывки
 uint32_t    time_pause_washout_32 = 0;      // время между помывками
 uint32_t    preset_washout_32 = 0;          // пресет помывки
 uint32_t    time_preset_washout_32 = 0;     // времен помывки
+//--------------------------------------------------------------------------------
+long cnt_second = 0;
 //--------------------------------------------------------------------------------
 /*
  * если пошел дождь, то поведение такое же, как и при помывке, только не дергаем камерой
@@ -202,35 +207,73 @@ void USART1_IRQHandler()
 //--------------------------------------------------------------------------------
 void work()
 {
-	//int n = 0;
-	bool flag_lvl = check_LEVEL();
+	bool flag_lvl  = check_LEVEL();
 	bool flag_rain = check_RAIN();
 
+	// мало воды
 	if(flag_lvl)
 	{
+		pump_ON();
 	}
 	else
 	{
+		pump_OFF();
 	}
 
 	if(flag_rain)
 	{
+		state = STATUS_RAIN;
 	}
 	else
 	{
+		state = STATUS_IDLE;
 	}
 
 	switch(state)
 	{
 	case STATUS_IDLE:
+		cnt_second = 0;
+		state = STATUS_WASHOUT;
 		break;
+
 	case STATUS_RAIN:			// дождь
+		if(cnt_second < time_interval_16)
+		{
+			cnt_second++;
+		}
+		else
+		{
+			run_wiper();
+			cnt_second = 0;
+		}
 		break;
+
 	case STATUS_WASHOUT:		// моемся
+		wash(true);
+		if(!(cnt_second % time_interval_16))
+		{
+			run_wiper();
+		}
+		if(cnt_second >= time_washout_32)
+		{
+			cnt_second = 0;
+			state = STATUS_WASHOUT_PAUSE;
+		}
+		cnt_second++;
 		break;
+
 	case STATUS_WASHOUT_PAUSE:	// пауза
+		wash(false);
+		if(cnt_second >= time_pause_washout_32)
+		{
+			cnt_second = 0;
+			state = STATUS_WASHOUT;
+		}
+		cnt_second++;
 		break;
+
 	default:
+		state = STATUS_IDLE;
 		break;
 	}
 }
@@ -275,6 +318,17 @@ void command()
 		//logging(String("unknown cmd ") + String(cmd, HEX));
 		break;
 	}
+}
+//--------------------------------------------------------------------------------
+void run_wiper(void)
+{
+	// запустим цикл дворника
+	int a = 0;
+}
+//--------------------------------------------------------------------------------
+void wash(bool state)
+{
+	int b = 0;
 }
 //--------------------------------------------------------------------------------
 void SysTick_Handler(void)

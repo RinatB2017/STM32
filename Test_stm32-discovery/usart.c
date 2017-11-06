@@ -9,10 +9,12 @@
 #include "usart.h"
 //--------------------------------------------------------------------------------
 volatile char RX_FLAG_END_LINE = 0;
-volatile char RXi;
-volatile char RXc;
-volatile char RX_BUF[RX_BUF_SIZE] = {'\0'};
-volatile char buffer[RX_BUF_SIZE] = {'\0'};
+
+volatile char RX_buffer_len = 0;
+volatile char RX_buffer[RX_BUF_SIZE] = {'\0'};
+
+volatile char TX_buffer_len = 0;
+volatile char TX_buffer[RX_BUF_SIZE] = {'\0'};
 //--------------------------------------------------------------------------------
 void usart_init(void)
 {
@@ -47,7 +49,7 @@ void usart_init(void)
 
 	/* USART1 configuration ------------------------------------------------------*/
 	/* USART1 configured as follow:
-        - BaudRate = 115200 baud
+        - BaudRate = 9600 baud
         - Word Length = 8 Bits
         - One Stop Bit
         - No parity
@@ -59,10 +61,10 @@ void usart_init(void)
         - USART LastBit: The clock pulse of the last data bit is not output to
             the SCLK pin
 	 */
-	USART_InitStructure.USART_BaudRate = 115200;
-	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
-	USART_InitStructure.USART_StopBits = USART_StopBits_1;
-	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_BaudRate 		= 9600;
+	USART_InitStructure.USART_WordLength 	= USART_WordLength_8b;
+	USART_InitStructure.USART_StopBits 		= USART_StopBits_1;
+	USART_InitStructure.USART_Parity 		= USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 
@@ -74,13 +76,16 @@ void usart_init(void)
 	/* Enable the USART1 Receive interrupt: this interrupt is generated when the
         USART1 receive data register is not empty */
 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
+	NVIC_EnableIRQ (USART1_IRQn);           		// разрешить прерывания от USART1
 }
 //--------------------------------------------------------------------------------
 void clear_RXBuffer(void)
 {
-	for (RXi=0; RXi<RX_BUF_SIZE; RXi++)
-		RX_BUF[RXi] = '\0';
-	RXi = 0;
+	int n=0;
+	for (n=0; n<RX_BUF_SIZE; n++)
+		RX_buffer[n] = '\0';
+	RX_buffer_len = 0;
 }
 //--------------------------------------------------------------------------------
 void USARTSend(const unsigned char *pucBuffer)

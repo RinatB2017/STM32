@@ -6,6 +6,14 @@
 //--------------------------------------------------------------------------------
 #define MY_FLASH_PAGE_ADDR 0x800FC00
 #define SETTINGS_WORDS sizeof(settings)/4
+
+//--------------------------------------------------------------------------------
+extern uint32_t    addr_cam_32;                // адрес камеры
+extern uint16_t    time_interval_16;           // интервал дворника
+extern uint32_t    time_washout_32;            // время помывки
+extern uint32_t    time_pause_washout_32;      // время между помывками
+extern uint32_t    preset_washout_32;          // пресет помывки
+extern uint32_t    time_preset_washout_32;     // времен помывки
 //--------------------------------------------------------------------------------
 void FLASH_Init(void)
 {
@@ -52,12 +60,11 @@ void write_FLASH(void)
     FLASH_Init();
     FLASH_ReadSettings();
 
-    settings.Parameter1 = 1;
-    settings.Parameter2 = 2;
-    settings.Parameter3 = 3;
-    settings.Parameter4 = 4;
-
-    settings.Parameter5 = 1000000;
+    settings.time_interval_16 = time_interval_16;
+    settings.time_washout_32 = time_washout_32;
+    settings.time_pause_washout_32 = time_pause_washout_32;
+    settings.preset_washout_32 = preset_washout_32;
+    settings.time_preset_washout_32 = time_preset_washout_32;
 
     FLASH_WriteSettings();
 }
@@ -66,5 +73,11 @@ void read_FLASH(void)
 {
     FLASH_Init();
     FLASH_ReadSettings();
+
+    time_interval_16 = settings.time_interval_16;
+    time_washout_32 = settings.time_washout_32;
+    time_pause_washout_32 = settings.time_pause_washout_32;
+    preset_washout_32 = settings.preset_washout_32;
+    time_preset_washout_32 = settings.time_preset_washout_32;
 }
 //--------------------------------------------------------------------------------
