@@ -34,7 +34,8 @@ macx {
     DESTDIR = bin
 }
 win32 {
-    DESTDIR = C:/Programming/my_programm_bin/$$FOLDER/$$TARGET
+    #DESTDIR = C:/Programming/my_programm_bin/$$FOLDER/$$TARGET
+    DESTDIR = bin
 }
 
 

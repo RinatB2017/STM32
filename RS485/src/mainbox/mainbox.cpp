@@ -211,12 +211,12 @@ bool MainBox::check_answer_test(QByteArray data)
         return false;
     }
 
-    emit info(QString("prefix_16 %1").arg(prefix, 0, 16));
-    emit info(QString("addr_8 %1").arg(answer->body.header.addr_8));
-    emit info(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
-    emit info(QString("len_16 %1").arg(answer->body.header.len_16));
+    emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
+    emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
+    emit debug(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
+    emit debug(QString("len_16 %1").arg(answer->body.header.len_16));
 
-    emit info(QString("data %1").arg(answer->body.data));
+    emit debug(QString("data %1").arg(answer->body.data));
 
     return true;
 }
@@ -248,12 +248,12 @@ bool MainBox::check_answer_reset(QByteArray data)
         return false;
     }
 
-    emit info(QString("prefix_16 %1").arg(prefix, 0, 16));
-    emit info(QString("addr_8 %1").arg(answer->body.header.addr_8));
-    emit info(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
-    emit info(QString("len_16 %1").arg(answer->body.header.len_16));
+    emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
+    emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
+    emit debug(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
+    emit debug(QString("len_16 %1").arg(answer->body.header.len_16));
 
-    emit info(QString("data %1").arg(answer->body.data));
+    emit debug(QString("data %1").arg(answer->body.data));
 
     return true;
 }
@@ -301,17 +301,17 @@ bool MainBox::check_answer_read(QByteArray data)
     ui->sb_preset_washout->setValue(preset_washout_32);             // пресет помывки
     ui->sb_time_preset_washout->setValue(time_preset_washout_32);   // времен помывки
 
-    emit info(QString("prefix_16 %1").arg(prefix, 0, 16));
-    emit info(QString("addr_8 %1").arg(answer->body.header.addr_8));
-    emit info(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
-    emit info(QString("len_16 %1").arg(answer->body.header.len_16));
+    emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
+    emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
+    emit debug(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
+    emit debug(QString("len_16 %1").arg(answer->body.header.len_16));
 
-    emit info(QString("addr_cam_32 %1").arg(addr_cam_32));
-    emit info(QString("time_interval_16 %1").arg(time_interval_16));
-    emit info(QString("time_washout_32 %1").arg(time_washout_32));
-    emit info(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
-    emit info(QString("preset_washout_32 %1").arg(preset_washout_32));
-    emit info(QString("time_preset_washout_32 %1").arg(time_preset_washout_32));
+    emit debug(QString("addr_cam_32 %1").arg(addr_cam_32));
+    emit debug(QString("time_interval_16 %1").arg(time_interval_16));
+    emit debug(QString("time_washout_32 %1").arg(time_washout_32));
+    emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
+    emit debug(QString("preset_washout_32 %1").arg(preset_washout_32));
+    emit debug(QString("time_preset_washout_32 %1").arg(time_preset_washout_32));
 
     return true;
 }
@@ -357,17 +357,17 @@ bool MainBox::check_answer_write(QByteArray data)
     ui->sb_preset_washout->setValue(preset_washout_32);             // пресет помывки
     ui->sb_time_preset_washout->setValue(time_preset_washout_32);   // времен помывки
 
-    emit info(QString("prefix_16 %1").arg(prefix, 0, 16));
-    emit info(QString("addr_8 %1").arg(answer->body.header.addr_8));
-    emit info(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
-    emit info(QString("len_16 %1").arg(answer->body.header.len_16));
+    emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
+    emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
+    emit debug(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
+    emit debug(QString("len_16 %1").arg(answer->body.header.len_16));
 
-    emit info(QString("addr_cam_32 %1").arg(addr_cam_32));
-    emit info(QString("time_interval_16 %1").arg(time_interval_16));
-    emit info(QString("time_washout_32 %1").arg(time_washout_32));
-    emit info(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
-    emit info(QString("preset_washout_32 %1").arg(preset_washout_32));
-    emit info(QString("time_preset_washout_32 %1").arg(time_preset_washout_32));
+    emit debug(QString("addr_cam_32 %1").arg(addr_cam_32));
+    emit debug(QString("time_interval_16 %1").arg(time_interval_16));
+    emit debug(QString("time_washout_32 %1").arg(time_washout_32));
+    emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
+    emit debug(QString("preset_washout_32 %1").arg(preset_washout_32));
+    emit debug(QString("time_preset_washout_32 %1").arg(time_preset_washout_32));
 
     return true;
 }
