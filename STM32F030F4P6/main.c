@@ -13,43 +13,7 @@
 
 #include "pelco.h"
 #include "packets.h"
-//--------------------------------------------------------------------------------
-#define bool	char
-#define true	1
-#define false	0
-//--------------------------------------------------------------------------------
-/* Private typedef -----------------------------------------------------------*/
-typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;
-/* Private define ------------------------------------------------------------*/
-#define FLASH_PAGE_SIZE         ((uint32_t)0x00000400)   /* FLASH Page Size */
-#define FLASH_USER_START_ADDR   ((uint32_t)0x08006000)   /* Start @ of user Flash area */
-#define FLASH_USER_END_ADDR     ((uint32_t)0x08007000)   /* End @ of user Flash area */
-#define DATA_32                 ((uint32_t)0x12345678)
-
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-uint32_t EraseCounter = 0x00, Address = 0x00;
-uint32_t Data = 0x3210ABCD;
-uint32_t NbrOfPage = 0x00;
-__IO FLASH_Status FLASHStatus = FLASH_COMPLETE;
-__IO TestStatus MemoryProgramStatus = PASSED;
-//--------------------------------------------------------------------------------
-void f_test();
-void f_reset();
-void f_read();
-void f_write();
-
-void send_byte(uint8_t data);
-void send_data();
-
-void work();
-void command();
-
-void run_wiper(void);
-void wash(bool value);
-
-uint8_t convert_ascii_to_value(uint8_t hi, uint8_t lo);
-void convert_data_to_ascii(uint8_t data, uint8_t *hi_str, uint8_t *lo_str);
+#include "main.h"
 //--------------------------------------------------------------------------------
 #define MAX_BUF	100
 uint8_t		dirty_buf[MAX_BUF]; // текстовый буфер AABBCC
@@ -233,6 +197,7 @@ void work()
 	{
 	case STATUS_IDLE:
 		cnt_second = 0;
+		camera_move_position();
 		state = STATUS_WASHOUT;
 		break;
 
@@ -243,30 +208,30 @@ void work()
 		}
 		else
 		{
-			run_wiper();
+			camera_wiper();
 			cnt_second = 0;
 		}
 		break;
 
 	case STATUS_WASHOUT:		// моемся
-		wash(true);
 		if(!(cnt_second % time_interval_16))
 		{
-			run_wiper();
+			camera_wiper();
 		}
 		if(cnt_second >= time_washout_32)
 		{
 			cnt_second = 0;
+			camera_return();
 			state = STATUS_WASHOUT_PAUSE;
 		}
 		cnt_second++;
 		break;
 
 	case STATUS_WASHOUT_PAUSE:	// пауза
-		wash(false);
 		if(cnt_second >= time_pause_washout_32)
 		{
 			cnt_second = 0;
+			camera_move_position();
 			state = STATUS_WASHOUT;
 		}
 		cnt_second++;
@@ -320,17 +285,6 @@ void command()
 	}
 }
 //--------------------------------------------------------------------------------
-void run_wiper(void)
-{
-	// запустим цикл дворника
-	int a = 0;
-}
-//--------------------------------------------------------------------------------
-void wash(bool state)
-{
-	int b = 0;
-}
-//--------------------------------------------------------------------------------
 void SysTick_Handler(void)
 {
 	sys_tick_cnt++;
@@ -351,13 +305,6 @@ void SysTick_Handler(void)
 			blink_OFF();
 		}
 	}
-
-#if 0
-	if(cnt_flash > 60)
-	{
-		pump_ON();
-	}
-#endif
 }
 //--------------------------------------------------------------------------------
 void f_read()
@@ -734,82 +681,89 @@ void send_data()
 	read_RS485();
 }
 //--------------------------------------------------------------------------------
-void Program(void)
+void camera_save_position (void)
 {
-	/*!< At this stage the microcontroller clock setting is already configured,
-       this is done through SystemInit() function which is called from startup
-       file (startup_stm32f0xx.s) before to branch to application main.
-       To reconfigure the default setting of SystemInit() function, refer to
-       system_stm32f0xx.c file
-	 */
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
-	/* Unlock the Flash to enable the flash control register access *************/
-	FLASH_Unlock();
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_move_position (void)
+{
+	// 59 пресет помывки
+	// 59 сохранить положение камеры до помывки
 
-	/* Erase the user Flash area
-    (area defined by FLASH_USER_START_ADDR and FLASH_USER_END_ADDR) ***********/
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
-	/* Clear pending flags (if any) */
-	FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR);
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_return (void)
+{
+	// 59 пресет помывки
+	// 59 сохранить положение камеры до помывки
 
-	/* Define the number of page to be erased */
-	NbrOfPage = (FLASH_USER_END_ADDR - FLASH_USER_START_ADDR) / FLASH_PAGE_SIZE;
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
-	/* Erase the FLASH pages */
-	for(EraseCounter = 0; (EraseCounter < NbrOfPage) && (FLASHStatus == FLASH_COMPLETE); EraseCounter++)
-	{
-		if (FLASH_ErasePage(FLASH_USER_START_ADDR + (FLASH_PAGE_SIZE * EraseCounter))!= FLASH_COMPLETE)
-		{
-			/* Error occurred while sector erase.
-         User can add here some code to deal with this error  */
-			while (1)
-			{
-			}
-		}
-	}
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_wiper (void)
+{
+	relay_ON();
+	Delay_ms(200);
+	relay_OFF();
 
-	/* Program the user Flash area word by word
-    (area defined by FLASH_USER_START_ADDR and FLASH_USER_END_ADDR) ***********/
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
-	Address = FLASH_USER_START_ADDR;
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_Run_Tur_1 (void)
+{
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
-	while (Address < FLASH_USER_END_ADDR)
-	{
-		if (FLASH_ProgramWord(Address, DATA_32) == FLASH_COMPLETE)
-		{
-			Address = Address + 4;
-		}
-		else
-		{
-			/* Error occurred while writing data in Flash memory.
-         User can add here some code to deal with this error */
-			while (1)
-			{
-			}
-		}
-	}
-
-	/* Lock the Flash to disable the flash control register access (recommended
-     to protect the FLASH memory against possible unwanted operation) *********/
-	FLASH_Lock();
-
-	/* Check if the programmed data is OK
-      MemoryProgramStatus = 0: data programmed correctly
-      MemoryProgramStatus != 0: number of words not programmed correctly ******/
-	Address = FLASH_USER_START_ADDR;
-	MemoryProgramStatus = PASSED;
-
-	while (Address < FLASH_USER_END_ADDR)
-	{
-		Data = *(__IO uint32_t *)Address;
-
-		if (Data != DATA_32)
-		{
-			MemoryProgramStatus = FAILED;
-		}
-
-		Address = Address + 4;
-	}
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
 }
 //--------------------------------------------------------------------------------
 int main(void)

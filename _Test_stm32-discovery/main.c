@@ -11,41 +11,7 @@
 
 #include "usart.h"
 #include "flash.h"
-//--------------------------------------------------------------------------------
-#define	true	1
-#define false	!true
-#define	bool	char
-//--------------------------------------------------------------------------------
-uint8_t convert_ascii_to_value(uint8_t hi, uint8_t lo);
-uint16_t crc16(uint8_t *pcBlock, uint8_t len);
-uint8_t get_address(void);
-void send_data(void);
-void send_byte(uint8_t b);
-void blink_ON(void);
-void blink_OFF(void);
-void pump_ON(void);
-void pump_OFF(void);
-void relay_ON(void);
-void relay_OFF(void);
-void wash(bool value);
-bool check_LEVEL(void);
-bool check_RAIN(void);
-void Delay_ms(uint32_t ms);
-void command(void);
-void work(void);
-void f_read(void);
-void f_write(void);
-void f_test(void);
-void f_reset(void);
-void run_wiper(void);
-void camera_Save_position (char preset);
-void camera_Move_position (char preset);
-void camera_Wiper (void);
-void camera_Run_Tur_1 (void);
-void write_RS485(void);
-void read_RS485(void);
-void write_FLASH(void);
-void read_FLASH(void);
+#include "main.h"
 //--------------------------------------------------------------------------------
 long sys_tick_cnt = 0;
 char flag = 0;
@@ -180,6 +146,7 @@ void work()
 	{
 	case STATUS_IDLE:
 		cnt_second = 0;
+		camera_move_position();
 		state = STATUS_WASHOUT;
 		break;
 
@@ -195,7 +162,7 @@ void work()
 		}
 		else
 		{
-			run_wiper();
+			camera_wiper();
 			cnt_second = 0;
 		}
 		break;
@@ -204,11 +171,12 @@ void work()
 		wash(true);
 		if(!(cnt_second % time_interval_16))
 		{
-			run_wiper();
+			camera_wiper();
 		}
 		if(cnt_second >= time_washout_32)
 		{
 			cnt_second = 0;
+			camera_move_position();
 			state = STATUS_WASHOUT_PAUSE;
 		}
 		cnt_second++;
@@ -219,6 +187,7 @@ void work()
 		if(cnt_second >= time_pause_washout_32)
 		{
 			cnt_second = 0;
+			camera_move_position();
 			state = STATUS_WASHOUT;
 		}
 		cnt_second++;
@@ -439,46 +408,45 @@ void f_reset()
 	send_data();
 }
 //--------------------------------------------------------------------------------
-void run_wiper(void)
+void camera_Save_position (void)
 {
-	// запустим цикл дворника
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
+
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_move_position (void)
+{
+	// 59 пресет помывки
+	// 59 сохранить положение камеры до помывки
+
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
+
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_wiper (void)
+{
 	relay_ON();
 	Delay_ms(200);
 	relay_OFF();
-}
-//--------------------------------------------------------------------------------
-void camera_Save_position (char preset)
-{
-	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
-	write_RS485();
-	send_byte(0xFF);
-	send_byte(Pelco[1]);
-	send_byte(Pelco[2]);
-	send_byte(Pelco[3]);
-	send_byte(Pelco[4]);
-	send_byte(Pelco[5]);
-	send_byte(Pelco[6]);
-	read_RS485();
-}
-//--------------------------------------------------------------------------------
-void camera_Move_position (char preset)
-{
-	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
-
-	write_RS485();
-	send_byte(0xFF);
-	send_byte(Pelco[1]);
-	send_byte(Pelco[2]);
-	send_byte(Pelco[3]);
-	send_byte(Pelco[4]);
-	send_byte(Pelco[5]);
-	send_byte(Pelco[6]);
-	read_RS485();
-}
-//--------------------------------------------------------------------------------
-void camera_Wiper (void)
-{
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
 	write_RS485();

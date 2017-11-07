@@ -14,9 +14,7 @@ extern void write_RS485();
  ---------- ------------ ---------- ---------- -------- -------- --------
  //|Sync 0xFF | Cam Adress | Command1 | Command2 | Data 1 | Data 2 |Checksum|
 
- */
-//char Pelco_D [7]={0xFF,ADDR,Com_1,Com_2,PAN,TILT,0};		//структура
-//char Pelco [20];//={0xFF,ADDR,Com_1,Com_2,PAN,TILT,0};		//структура
+*/
 char Pelco[20] = { 0xFF, 0, 0, 0, 0, 0 }; //структура
 
 //; =============================	подпрограмма вычислени€ контрольной суммы	==================================================
@@ -24,7 +22,8 @@ void xor_csum(char Buffer[], int lench)
 {
 	long n;
 	char crc = 0; // инициализаци€ €чейки контрольной суммы
-	for (n = 0; n < lench; n++) {
+	for (n = 0; n < lench; n++)
+	{
 		crc = crc ^ Buffer[n];
 	} // вычисление контрольной суммы
 	Buffer[lench] = crc;

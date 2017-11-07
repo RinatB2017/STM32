@@ -31,6 +31,7 @@ void f_test(void);
 void f_reset(void);
 void camera_save_position (void);
 void camera_move_position (void);
+void camera_return (void);
 void camera_wiper (void);
 void camera_Run_Tur_1 (void);
 void write_RS485(void);

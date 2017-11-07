@@ -176,7 +176,7 @@ void work()
 		if(cnt_second >= time_washout_32)
 		{
 			cnt_second = 0;
-			camera_move_position();
+			camera_return();
 			state = STATUS_WASHOUT_PAUSE;
 		}
 		cnt_second++;
@@ -408,7 +408,7 @@ void f_reset()
 	send_data();
 }
 //--------------------------------------------------------------------------------
-void camera_Save_position (void)
+void camera_save_position (void)
 {
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
@@ -424,6 +424,24 @@ void camera_Save_position (void)
 }
 //--------------------------------------------------------------------------------
 void camera_move_position (void)
+{
+	// 59 пресет помывки
+	// 59 сохранить положение камеры до помывки
+
+	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
+
+	write_RS485();
+	send_byte(0xFF);
+	send_byte(Pelco[1]);
+	send_byte(Pelco[2]);
+	send_byte(Pelco[3]);
+	send_byte(Pelco[4]);
+	send_byte(Pelco[5]);
+	send_byte(Pelco[6]);
+	read_RS485();
+}
+//--------------------------------------------------------------------------------
+void camera_return (void)
 {
 	// 59 пресет помывки
 	// 59 сохранить положение камеры до помывки
