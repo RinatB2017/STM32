@@ -60,6 +60,7 @@ void write_FLASH(void)
     FLASH_Init();
     FLASH_ReadSettings();
 
+    settings.addr_cam_32	=	addr_cam_32;
     settings.time_interval_16 = time_interval_16;
     settings.time_washout_32 = time_washout_32;
     settings.time_pause_washout_32 = time_pause_washout_32;
@@ -74,6 +75,7 @@ void read_FLASH(void)
     FLASH_Init();
     FLASH_ReadSettings();
 
+    addr_cam_32 = settings.addr_cam_32;
     time_interval_16 = settings.time_interval_16;
     time_washout_32 = settings.time_washout_32;
     time_pause_washout_32 = settings.time_pause_washout_32;

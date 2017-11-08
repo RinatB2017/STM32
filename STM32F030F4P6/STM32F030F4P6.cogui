@@ -26,16 +26,17 @@
 </info>
 </editorArea>
 <editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
+<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="0" verticalPosition="0"/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/workspace/STM32F030F4P6/main.c" title="main.c" tooltip="C:/Users/User/workspace/STM32F030F4P6/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/STM32-master/STM32F030F4P6/main.c" title="main.c" tooltip="C:/Users/User/STM32-master/STM32F030F4P6/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32F030F4P6/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="481" selectionOffset="19985" selectionTopPixel="11900"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="17021" selectionTopPixel="10360"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" partName="main.h" title="main.h" tooltip="C:\Users\User\workspace\STM32F030F4P6\main.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\Users\User\workspace\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
-<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="652" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.coocox.builder.ui.editors.ConfigEditor" name="" partName="Configuration" title="Configuration" tooltip="" workbook="DefaultEditorWorkbook">
+<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</input>
 </editor>
 </editors>
 <views>
@@ -70,7 +71,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspectives activePart="org.coocox.builder.ui.editors.ConfigEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
@@ -105,7 +106,7 @@
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@15ebe2d" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.27736318"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.27662957"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -255,137 +256,57 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/main.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\workspace\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/flash.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/stm32_lib/src/stm32f0xx_flash.c"/>
-<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
-<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
-</editor>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/stm32_lib/inc/stm32f0xx_flash.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/flash.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\workspace\STM32F030F4P6\flash.h" project="STM32F030F4P6"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/stm32_lib/src/stm32f0xx_flash.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/stm32_lib/inc/stm32f0xx_flash.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/cmsis_boot/stm32f0xx.h"/>
 <editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\workspace\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
 <editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\workspace\STM32F030F4P6\pelco.h" project="STM32F030F4P6"/>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="0" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\workspace\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\STM32-master\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/flash.c"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\User\STM32-master\STM32F030F4P6\flash.h" project="STM32F030F4P6"/>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/main.c"/>
 </editors>
-<item historyLabel="main.h" index="1">
-<position info="not_deleted" x="307" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="19152" y="0"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="220" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="19152" y="0"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="220" y="0"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="190" y="0"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="1172" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.c" index="3">
-<position/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="1172" y="0"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="1257" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.c" index="3">
-<position/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="1257" y="0"/>
-</item>
-<item historyLabel="Repository" index="4"/>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="193" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.h" index="5">
-<position/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="193" y="0"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="1258" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.c" index="3">
-<position info="not_deleted" x="5793" y="16"/>
-</item>
-<item historyLabel="flash.c" index="2">
-<position info="not_deleted" x="190" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.h" index="5">
-<position info="not_deleted" x="10113" y="16"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="flash.c" index="6">
-<position info="not_deleted" x="216" y="0"/>
-</item>
-<item historyLabel="flash.h" index="7">
-<position info="not_deleted" x="768" y="0"/>
-</item>
-<item historyLabel="flash.c" index="6">
-<position info="not_deleted" x="1175" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.c" index="8">
-<position/>
-</item>
-<item historyLabel="flash.c" index="6">
-<position info="not_deleted" x="1175" y="0"/>
-</item>
-<item historyLabel="flash.c" index="6">
-<position info="not_deleted" x="1190" y="0"/>
-</item>
-<item historyLabel="flash.c" index="6">
-<position info="not_deleted" x="1238" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.c" index="8">
-<position info="not_deleted" x="5793" y="16"/>
-</item>
-<item historyLabel="flash.c" index="6">
-<position info="not_deleted" x="1254" y="0"/>
-</item>
-<item historyLabel="stm32f0xx_flash.h" index="9">
+<item historyLabel="stm32f0xx_flash.h" index="2">
 <position info="not_deleted" x="2180" y="0"/>
 </item>
-<item historyLabel="stm32f0xx.h" index="10">
+<item historyLabel="stm32f0xx.h" index="3">
 <position info="not_deleted" x="100022" y="17"/>
 </item>
-<item historyLabel="stm32f0xx_flash.h" index="9">
+<item historyLabel="stm32f0xx_flash.h" index="2">
 <position info="not_deleted" x="2180" y="0"/>
 </item>
-<item historyLabel="flash.c" index="6">
+<item historyLabel="flash.c" index="1">
 <position info="not_deleted" x="1222" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="449" y="0"/>
 </item>
-<item historyLabel="main.h" index="11">
+<item historyLabel="main.h" index="4">
 <position info="not_deleted" x="733" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="19002" y="0"/>
 </item>
-<item historyLabel="main.h" index="11">
+<item historyLabel="main.h" index="4">
 <position info="not_deleted" x="733" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="20632" y="0"/>
 </item>
-<item historyLabel="pelco.h" index="12">
+<item historyLabel="pelco.h" index="5">
 <position info="not_deleted" x="91" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -394,7 +315,7 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="5831" y="0"/>
 </item>
-<item historyLabel="main.h" index="11">
+<item historyLabel="main.h" index="4">
 <position info="not_deleted" x="577" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -406,7 +327,7 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="5941" y="0"/>
 </item>
-<item historyLabel="main.h" index="11">
+<item historyLabel="main.h" index="4">
 <position info="not_deleted" x="652" y="13"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -415,9 +336,89 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="6028" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="19584" y="20"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1435" y="0"/>
 </item>
+<item historyLabel="Repository" index="6"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.h" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="425" y="0"/>
+</item>
+<item historyLabel="main.h" index="8">
+<position info="not_deleted" x="659" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="20492" y="13"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1425" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="19409" y="26"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="19505" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1421" y="4"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1884" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="19491" y="19"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="21160" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="615" y="0"/>
+</item>
+<item historyLabel="flash.c" index="9">
+<position info="not_deleted" x="2399" y="0"/>
+</item>
+<item historyLabel="flash.h" index="10">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="738" y="11"/>
+</item>
+<item historyLabel="flash.h" index="10">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="773" y="12"/>
+</item>
+<item historyLabel="flash.h" index="10">
+<position info="not_deleted" x="743" y="0"/>
+</item>
+<item historyLabel="flash.c" index="9">
+<position info="not_deleted" x="2887" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="773" y="12"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="22179" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="17021" y="0"/>
+</item>
+<item historyLabel="Configuration" index="11"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="17021" y="0"/>
+</item>
+<item historyLabel="Configuration" index="12"/>
+<item historyLabel="Configuration" index="13"/>
+<item historyLabel="main.c" index="14">
+<position info="not_deleted" x="17021" y="0"/>
+</item>
+<item active="true" historyLabel="Configuration" index="13"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -425,37 +426,40 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pelco.h" tooltip="C:\Users\User\workspace\STM32F030F4P6\pelco.h">
-<persistable path="C:\Users\User\workspace\STM32F030F4P6\pelco.h" project="STM32F030F4P6"/>
-</file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\workspace\STM32F030F4P6\main.h">
-<persistable path="C:\Users\User\workspace\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx.h" tooltip="STM32F030F4P6/cmsis_boot/stm32f0xx.h">
-<persistable path="/STM32F030F4P6/cmsis_boot/stm32f0xx.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_flash.h" tooltip="STM32F030F4P6/stm32_lib/inc/stm32f0xx_flash.h">
-<persistable path="/STM32F030F4P6/stm32_lib/inc/stm32f0xx_flash.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_flash.c" tooltip="STM32F030F4P6/stm32_lib/src/stm32f0xx_flash.c">
-<persistable path="/STM32F030F4P6/stm32_lib/src/stm32f0xx_flash.c"/>
-</file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="C:\Users\User\workspace\STM32F030F4P6\flash.h">
-<persistable path="C:\Users\User\workspace\STM32F030F4P6\flash.h" project="STM32F030F4P6"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F030F4P6/flash.c">
-<persistable path="/STM32F030F4P6/flash.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
 <file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
 <persistable>
 <org.coocox.welcome.ui.WelcomePage/>
 </persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\workspace\Test_stm32-discovery\main.h">
-<persistable path="C:\Users\User\workspace\Test_stm32-discovery\main.h" project="Test_stm32-discovery"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="C:\Users\User\workspace\Test_stm32-discovery\usart.h">
-<persistable path="C:\Users\User\workspace\Test_stm32-discovery\usart.h" project="Test_stm32-discovery"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
+</persistable>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="C:\Users\User\STM32-master\STM32F030F4P6\flash.h">
+<persistable path="C:\Users\User\STM32-master\STM32F030F4P6\flash.h" project="STM32F030F4P6"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F030F4P6/flash.c">
+<persistable path="/STM32F030F4P6/flash.c"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\STM32-master\STM32F030F4P6\main.h">
+<persistable path="C:\Users\User\STM32-master\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F030F4P6/main.c">
+<persistable path="/STM32F030F4P6/main.c"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\STM32-master\Test_stm32-discovery\main.h">
+<persistable path="C:\Users\User\STM32-master\Test_stm32-discovery\main.h" project="Test_stm32-discovery"/>
 </file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="packets.h" tooltip="C:\Users\User\workspace\Test_stm32-discovery\packets.h">
 <persistable path="C:\Users\User\workspace\Test_stm32-discovery\packets.h" project="Test_stm32-discovery"/>
@@ -463,14 +467,17 @@
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="C:\Users\User\workspace\Test_stm32-discovery\flash.h">
 <persistable path="C:\Users\User\workspace\Test_stm32-discovery\flash.h" project="Test_stm32-discovery"/>
 </file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="C:\Users\User\workspace\Test_stm32-discovery\usart.h">
+<persistable path="C:\Users\User\workspace\Test_stm32-discovery\usart.h" project="Test_stm32-discovery"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="Test_stm32-discovery/flash.h">
 <persistable path="/Test_stm32-discovery/flash.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="Test_stm32-discovery/usart.h">
 <persistable path="/Test_stm32-discovery/usart.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Test_stm32-discovery/main.c">
-<persistable path="/Test_stm32-discovery/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="Test_stm32-discovery/usart.c">
+<persistable path="/Test_stm32-discovery/usart.c"/>
 </file>
 </mruList>
 </workbench>

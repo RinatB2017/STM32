@@ -74,11 +74,9 @@ void MainBox::init(void)
 
     ui->sb_addr_cam->setRange(0, 0xFFFF);
     ui->sb_addr_upu->setRange(0, 0xFFFF);
-    ui->sb_time_washout->setRange(0, 0xFFFF);
+    ui->sb_time_washout->setRange(5, 0xFFFF);
     ui->sb_preset_washout->setRange(0, 0xFFFF);
-    ui->sb_time_interval->setRange(0, 0xFFFF);
-    ui->sb_time_preset_washout->setRange(0, 0xFFFF);
-    ui->sb_time_pause_washout->setRange(0, 0xFFF);
+    ui->sb_time_interval->setRange(3, 0xFFFF);
 
     connect(ui->btn_read,   SIGNAL(clicked(bool)),  this,   SLOT(cmd_read()));
     connect(ui->btn_write,  SIGNAL(clicked(bool)),  this,   SLOT(cmd_write()));
@@ -293,13 +291,21 @@ bool MainBox::check_answer_read(QByteArray data)
     uint32_t    preset_washout_32 = answer->body.preset_washout_32;             // пресет помывки
     uint32_t    time_preset_washout_32 = answer->body.time_preset_washout_32;   // времен помывки
 
-    ui->sb_addr_upu->setValue(addr_upu);
-    ui->sb_addr_cam->setValue(addr_cam_32);                         // адрес камеры
-    ui->sb_time_interval->setValue(time_interval_16);               // интервал дворника
-    ui->sb_time_washout->setValue(time_washout_32);                 // время помывки
-    ui->sb_time_pause_washout->setValue(time_pause_washout_32);     // время между помывками
-    ui->sb_preset_washout->setValue(preset_washout_32);             // пресет помывки
-    ui->sb_time_preset_washout->setValue(time_preset_washout_32);   // времен помывки
+    QTime tpw(0,0,0);
+    QTime tpw2;
+    tpw2 = tpw.addSecs(time_pause_washout_32);
+    emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
+    emit debug(QString("[%1 %2 %3]")
+               .arg(tpw2.hour())
+               .arg(tpw2.minute())
+               .arg(tpw2.second()));
+
+    ui->sb_addr_upu->setValue(addr_upu);                // адрес upu
+    ui->sb_addr_cam->setValue(addr_cam_32);             // адрес камеры
+    ui->sb_time_interval->setValue(time_interval_16);   // интервал дворника
+    ui->sb_time_washout->setValue(time_washout_32);     // время помывки
+    ui->te_time_pause_washout->setTime(tpw2);           // время между помывками
+    ui->sb_preset_washout->setValue(preset_washout_32); // пресет помывки
 
     emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
     emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
@@ -350,12 +356,20 @@ bool MainBox::check_answer_write(QByteArray data)
     uint32_t    preset_washout_32 = answer->body.preset_washout_32;             // пресет помывки
     uint32_t    time_preset_washout_32 = answer->body.time_preset_washout_32;   // времен помывки
 
+    QTime tpw(0,0,0);
+    QTime tpw2;
+    tpw2 = tpw.addSecs(time_pause_washout_32);
+    emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
+    emit debug(QString("[%1 %2 %3]")
+               .arg(tpw2.hour())
+               .arg(tpw2.minute())
+               .arg(tpw2.second()));
+
     ui->sb_addr_cam->setValue(addr_cam_32);                         // адрес камеры
     ui->sb_time_interval->setValue(time_interval_16);               // интервал дворника
     ui->sb_time_washout->setValue(time_washout_32);                 // время помывки
-    ui->sb_time_pause_washout->setValue(time_pause_washout_32);     // время между помывками
+    ui->te_time_pause_washout->setTime(tpw2);                        // время между помывками
     ui->sb_preset_washout->setValue(preset_washout_32);             // пресет помывки
-    ui->sb_time_preset_washout->setValue(time_preset_washout_32);   // времен помывки
 
     emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
     emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
@@ -411,12 +425,15 @@ void MainBox::cmd_write(void)
     question.body.header.addr_8 = ui->sb_addr_upu->value();                        // адрес модуля
     question.body.header.cmd_8 = CMD_WRITE;                                        // команда
 
+    uint32_t t = ui->te_time_pause_washout->time().hour() * 3600 +
+            ui->te_time_pause_washout->time().minute() * 60 +
+            ui->te_time_pause_washout->time().second();
+
     question.body.addr_cam_32 = ui->sb_addr_cam->value();                          // адрес камеры
     question.body.time_washout_32 = ui->sb_time_washout->value();                  // время помывки
     question.body.time_interval_16 = ui->sb_time_interval->value();                // интервал дворника
-    question.body.time_pause_washout_32 = ui->sb_time_pause_washout->value();      // время между помывками
+    question.body.time_pause_washout_32 = t;                                       // время между помывками
     question.body.preset_washout_32 = ui->sb_preset_washout->value();              // пресет помывки
-    question.body.time_preset_washout_32 = ui->sb_time_preset_washout->value();    // времен помывки
     question.body.crc16 = CRC::crc16((uint8_t *)&question.buf, sizeof(question) - 2);
 
     QByteArray ba;

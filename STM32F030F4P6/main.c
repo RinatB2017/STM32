@@ -1,7 +1,6 @@
 //--------------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------------
-//#include "misc.h"
 #include "stm32f0xx_misc.h"
 #include "stm32f0xx_rcc.h"
 #include "stm32f0xx_gpio.h"
@@ -28,6 +27,14 @@ uint32_t    preset_washout_32 = 0;          // пресет помывки
 uint32_t    time_preset_washout_32 = 0;     // времен помывки
 //--------------------------------------------------------------------------------
 long cnt_second = 0;
+//--------------------------------------------------------------------------------
+#define Set_Preset 	3
+#define Clr_Preset 	5
+#define Go_Preset 	7
+#define Run_Pattern 0x23
+#define Move		59
+#define Save		58
+#define Wiper		63
 //--------------------------------------------------------------------------------
 /*
  * если пошел дождь, то поведение такое же, как и при помывке, только не дергаем камерой
@@ -683,6 +690,12 @@ void send_data()
 //--------------------------------------------------------------------------------
 void camera_save_position (void)
 {
+	Pelco[1] = addr_cam_32;
+	Pelco[2] = 0;
+	Pelco[3] = Go_Preset;
+	Pelco[4] = 0;
+	Pelco[5] = Save;
+
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
 	write_RS485();
@@ -700,6 +713,12 @@ void camera_move_position (void)
 {
 	// 59 пресет помывки
 	// 59 сохранить положение камеры до помывки
+
+	Pelco[1] = addr_cam_32;
+	Pelco[2] = 0;
+	Pelco[3] = Go_Preset;
+	Pelco[4] = 0;
+	Pelco[5] = Move;
 
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
@@ -719,6 +738,12 @@ void camera_return (void)
 	// 59 пресет помывки
 	// 59 сохранить положение камеры до помывки
 
+	Pelco[1] = addr_cam_32;
+	Pelco[2] = 0;
+	Pelco[3] = Go_Preset;
+	Pelco[4] = 0;
+	Pelco[5] = Save;
+
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
 	write_RS485();
@@ -734,9 +759,11 @@ void camera_return (void)
 //--------------------------------------------------------------------------------
 void camera_wiper (void)
 {
-	relay_ON();
-	Delay_ms(200);
-	relay_OFF();
+	Pelco[1] = addr_cam_32;
+	Pelco[2] = 0;
+	Pelco[3] = Go_Preset;
+	Pelco[4] = 0;
+	Pelco[5] = Wiper;
 
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
@@ -753,6 +780,12 @@ void camera_wiper (void)
 //--------------------------------------------------------------------------------
 void camera_Run_Tur_1 (void)
 {
+	Pelco[1] = 1;
+	Pelco[2] = 1;
+	Pelco[3] = 1;
+	Pelco[4] = 1;
+	Pelco[5] = 1;
+
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
 	write_RS485();

@@ -1,35 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F030F4P6 -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\User\workspace\STM32F030F4P6\cmsis_boot -I..\..\..\..\..\Users\User\workspace -I..\..\..\..\..\Users\User\workspace\STM32F030F4P6\stm32_lib -I..\..\..\..\..\Users\User\workspace\STM32F030F4P6 -I..\..\..\..\..\Users\User\workspace\STM32F030F4P6\cmsis_core -I..\..\..\..\..\Users\User\workspace\STM32F030F4P6\stm32_lib\inc">
-      <target file="stm32f0xx_gpio.o" lastModified="15f9642b87b">
-         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="15f725eb40f"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F030F4P6 -DSTM32F030X6 -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\User\STM32-master\STM32F030F4P6\stm32_lib -I..\..\..\..\..\Users\User\STM32-master\STM32F030F4P6 -I..\..\..\..\..\Users\User\STM32-master\STM32F030F4P6\cmsis_core -I..\..\..\..\..\Users\User\STM32-master\STM32F030F4P6\cmsis_boot -I..\..\..\..\..\Users\User\STM32-master\STM32F030F4P6\stm32_lib\inc -I..\..\..\..\..\Users\User\STM32-master">
+      <target file="stm32f0xx_gpio.o" lastModified="15f97b6f875">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="15f95580ac0"/>
       </target>
-      <target file="stm32f0xx_rcc.o" lastModified="15f9642b6d5">
-         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="15f725eb40f"/>
+      <target file="stm32f0xx_rcc.o" lastModified="15f97b6f6ce">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="15f95580ac0"/>
       </target>
-      <target file="stm32f0xx_flash.o" lastModified="15f9642ba11">
-         <source file="..\..\..\stm32_lib\src\stm32f0xx_flash.c" lastModified="15f726543c0"/>
+      <target file="stm32f0xx_flash.o" lastModified="15f97b6fa0b">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_flash.c" lastModified="15f95580ac0"/>
       </target>
-      <target file="stm32f0xx_usart.o" lastModified="15f9642b8e8">
-         <source file="..\..\..\stm32_lib\src\stm32f0xx_usart.c" lastModified="15f725ebbe0"/>
+      <target file="stm32f0xx_usart.o" lastModified="15f97b6f8f2">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_usart.c" lastModified="15f95580ac0"/>
       </target>
-      <target file="stm32f0xx_misc.o" lastModified="15f9642ba5f">
-         <source file="..\..\..\stm32_lib\src\stm32f0xx_misc.c" lastModified="15f7264b71f"/>
+      <target file="stm32f0xx_misc.o" lastModified="15f97b6fa59">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_misc.c" lastModified="15f95580ac0"/>
       </target>
-      <target file="main.o" lastModified="15f964d06aa">
-         <source file="..\..\..\main.c" lastModified="15f964d02e1"/>
+      <target file="main.o" lastModified="15f9b34bcd3">
+         <source file="..\..\..\main.c" lastModified="15f9b34b6d0"/>
       </target>
-      <target file="flash.o" lastModified="15f9644efae">
-         <source file="..\..\..\flash.c" lastModified="15f9644ed6c"/>
+      <target file="flash.o" lastModified="15f9b44eaa7">
+         <source file="..\..\..\flash.c" lastModified="15f9b44e371"/>
       </target>
-      <target file="stm32f0xx_tim.o" lastModified="15f9642b9a4">
-         <source file="..\..\..\stm32_lib\src\stm32f0xx_tim.c" lastModified="15f72646130"/>
+      <target file="stm32f0xx_tim.o" lastModified="15f97b6f9ad">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_tim.c" lastModified="15f95580ac0"/>
       </target>
-      <target file="startup_stm32f0xx.o" lastModified="15f9642b7cf">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="15f725eb40f"/>
+      <target file="startup_stm32f0xx.o" lastModified="15f97b6f7c8">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="15f95580ac0"/>
       </target>
-      <target file="system_stm32f0xx_temp.o" lastModified="15f9642b81d">
-         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="15f725eb40f"/>
+      <target file="system_stm32f0xx_temp.o" lastModified="15f97b6f817">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="15f95580ac0"/>
       </target>
    </processor>
 </history>
