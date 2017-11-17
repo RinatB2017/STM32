@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="6.3.1 -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=Test_stm32-discovery.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Test_stm32-discovery -TC:\CooCox\CoIDE\configuration\ProgramData\Test_stm32-discovery/link.ld -g">
-      <target file="Test_stm32-discovery.elf" lastModified="15f964e22f7">
-         <source file="..\obj\startup_stm32f10x_md_vl.o" lastModified="15f964e1cec"/>
-         <source file="..\obj\flash.o" lastModified="15f964e1d3b"/>
-         <source file="..\obj\system_stm32f10x.o" lastModified="15f964e1d89"/>
-         <source file="..\obj\stm32f10x_gpio.o" lastModified="15f964e1df6"/>
-         <source file="..\obj\main.o" lastModified="15f964e1ea2"/>
-         <source file="..\obj\stm32f10x_rcc.o" lastModified="15f964e1f0f"/>
-         <source file="..\obj\stm32f10x_usart.o" lastModified="15f964e1f7d"/>
-         <source file="..\obj\syscalls.o" lastModified="15f964e1fda"/>
-         <source file="..\obj\stm32f10x_flash.o" lastModified="15f964e2057"/>
-         <source file="..\obj\misc.o" lastModified="15f964e20a5"/>
-         <source file="..\obj\usart.o" lastModified="15f964e2103"/>
+      <target file="Test_stm32-discovery.elf" lastModified="15fc184f798">
+         <source file="..\obj\startup_stm32f10x_md_vl.o" lastModified="15fc184f025"/>
+         <source file="..\obj\flash.o" lastModified="15fc184f073"/>
+         <source file="..\obj\system_stm32f10x.o" lastModified="15fc184f0d1"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="15fc184f18d"/>
+         <source file="..\obj\main.o" lastModified="15fc184f277"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="15fc184f2e5"/>
+         <source file="..\obj\stm32f10x_usart.o" lastModified="15fc184f391"/>
+         <source file="..\obj\syscalls.o" lastModified="15fc184f42c"/>
+         <source file="..\obj\stm32f10x_flash.o" lastModified="15fc184f4b9"/>
+         <source file="..\obj\misc.o" lastModified="15fc184f517"/>
+         <source file="..\obj\usart.o" lastModified="15fc184f575"/>
       </target>
    </processor>
 </history>

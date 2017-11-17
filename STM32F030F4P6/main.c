@@ -577,8 +577,8 @@ void GPIO_Configuration(void)
 	GPIO_InitTypeDef GPIO_InitStructure;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	//GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	//GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
@@ -624,11 +624,12 @@ void GPIO_Configuration(void)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);        
 
 	// addr
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 |
-			GPIO_Pin_9 |
-			GPIO_Pin_10 |
-			GPIO_Pin_13 |
-			GPIO_Pin_14;
+	GPIO_InitStructure.GPIO_Pin =
+			GPIO_Pin_0 |
+			GPIO_Pin_1 |
+			GPIO_Pin_2 |
+			GPIO_Pin_3 |
+			GPIO_Pin_4;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
@@ -780,11 +781,11 @@ void camera_wiper (void)
 //--------------------------------------------------------------------------------
 void camera_Run_Tur_1 (void)
 {
-	Pelco[1] = 1;
-	Pelco[2] = 1;
-	Pelco[3] = 1;
-	Pelco[4] = 1;
-	Pelco[5] = 1;
+	Pelco[1] = addr_cam_32;
+	Pelco[2] = 0;
+	Pelco[3] = Run_Pattern;
+	Pelco[4] = 0;
+	Pelco[5] = 0;
 
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 

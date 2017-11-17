@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=STM32F030F4P6.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\STM32F030F4P6 -TC:\CooCox\CoIDE\configuration\ProgramData\STM32F030F4P6/arm-gcc-link.ld -g">
-      <target file="STM32F030F4P6.elf" lastModified="15f9b44eccb">
-         <source file="..\obj\stm32f0xx_rcc.o" lastModified="15f97b6f6ce"/>
-         <source file="..\obj\flash.o" lastModified="15f9b44eaa7"/>
-         <source file="..\obj\main.o" lastModified="15f9b34bcd3"/>
-         <source file="..\obj\startup_stm32f0xx.o" lastModified="15f97b6f7c8"/>
-         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="15f97b6f817"/>
-         <source file="..\obj\stm32f0xx_gpio.o" lastModified="15f97b6f875"/>
-         <source file="..\obj\stm32f0xx_usart.o" lastModified="15f97b6f8f2"/>
-         <source file="..\obj\stm32f0xx_tim.o" lastModified="15f97b6f9ad"/>
-         <source file="..\obj\stm32f0xx_flash.o" lastModified="15f97b6fa0b"/>
-         <source file="..\obj\stm32f0xx_misc.o" lastModified="15f97b6fa59"/>
+   <processor signature="6.3.1 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=STM32F030F4P6.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\STM32F030F4P6 -TC:\CooCox\CoIDE\configuration\ProgramData\STM32F030F4P6/link.ld -g">
+      <target file="STM32F030F4P6.elf" lastModified="15fc1841892">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="15fc1840edd"/>
+         <source file="..\obj\flash.o" lastModified="15fc1840f6a"/>
+         <source file="..\obj\main.o" lastModified="15fc18410a2"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="15fc184110f"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="15fc184117e"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="15fc18411db"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="15fc1841267"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="15fc1841333"/>
+         <source file="..\obj\stm32f0xx_flash.o" lastModified="15fc18413b0"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="15fc184140e"/>
       </target>
    </processor>
 </history>
