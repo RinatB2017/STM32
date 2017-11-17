@@ -12,6 +12,7 @@
 
 #include "pelco.h"
 #include "packets.h"
+#include "flash.h"
 #include "main.h"
 //--------------------------------------------------------------------------------
 #define MAX_BUF	100
@@ -24,7 +25,6 @@ uint16_t    time_interval_16 = 0;           // интервал дворника
 uint32_t    time_washout_32 = 0;            // время помывки
 uint32_t    time_pause_washout_32 = 0;      // время между помывками
 uint32_t    preset_washout_32 = 0;          // пресет помывки
-uint32_t    time_preset_washout_32 = 0;     // времен помывки
 //--------------------------------------------------------------------------------
 long cnt_second = 0;
 //--------------------------------------------------------------------------------
@@ -195,10 +195,6 @@ void work()
 	{
 		state = STATUS_RAIN;
 	}
-	else
-	{
-		state = STATUS_IDLE;
-	}
 
 	switch(state)
 	{
@@ -209,13 +205,20 @@ void work()
 		break;
 
 	case STATUS_RAIN:			// дождь
+		flag_rain = check_RAIN();
+		if(!flag_rain)
+		{
+			// дождь кончился
+			state = STATUS_IDLE;
+			break;
+		}
 		if(cnt_second < time_interval_16)
 		{
 			cnt_second++;
 		}
 		else
 		{
-			camera_wiper();
+			camera_wiper(preset_washout_32);
 			cnt_second = 0;
 		}
 		break;
@@ -223,12 +226,12 @@ void work()
 	case STATUS_WASHOUT:		// моемся
 		if(!(cnt_second % time_interval_16))
 		{
-			camera_wiper();
+			camera_wiper(preset_washout_32);
 		}
 		if(cnt_second >= time_washout_32)
 		{
 			cnt_second = 0;
-			camera_return();
+			camera_Run_Tur_1();
 			state = STATUS_WASHOUT_PAUSE;
 		}
 		cnt_second++;
@@ -342,7 +345,6 @@ void f_read()
 	answer.body.time_washout_32 = time_washout_32;            		// время помывки
 	answer.body.time_pause_washout_32 = time_pause_washout_32;     	// время между помывками
 	answer.body.preset_washout_32 = preset_washout_32;          	// пресет помывки
-	answer.body.time_preset_washout_32 = time_preset_washout_32;	// времен помывки
 
 	answer.body.crc16 = crc16((uint8_t *)&answer.buf, sizeof(union ANSWER_READ) - 2);
 
@@ -375,7 +377,8 @@ void f_write()
 	time_washout_32 = packet->body.time_washout_32;            		// время помывки
 	time_pause_washout_32 = packet->body.time_pause_washout_32;     // время между помывками
 	preset_washout_32 = packet->body.preset_washout_32;          	// пресет помывки
-	time_preset_washout_32 = packet->body.time_preset_washout_32;	// времен помывки
+
+	write_FLASH();
 
 	union ANSWER_WRITE answer;
 
@@ -389,7 +392,6 @@ void f_write()
 	answer.body.time_washout_32 = time_washout_32;            		// время помывки
 	answer.body.time_pause_washout_32 = time_pause_washout_32;     	// время между помывками
 	answer.body.preset_washout_32 = preset_washout_32;          	// пресет помывки
-	answer.body.time_preset_washout_32 = time_preset_washout_32;	// времен помывки
 
 	answer.body.crc16 = crc16((uint8_t *)&answer.buf, sizeof(union ANSWER_WRITE) - 2);
 
@@ -450,13 +452,21 @@ void f_reset()
 		return;
 	}
 
+	reset();
+
 	union ANSWER_RESET answer;
 
 	answer.body.header.prefix_16 = packet->body.header.prefix_16;
 	answer.body.header.addr_8 = packet->body.header.addr_8;
 	answer.body.header.cmd_8 = packet->body.header.cmd_8;
 	answer.body.header.len_16 = packet->body.header.len_16;
-	answer.body.data = packet->body.data;
+
+	answer.body.addr_cam_32 = addr_cam_32;                			// адрес камеры
+	answer.body.time_interval_16 = time_interval_16;           		// интервал дворника
+	answer.body.time_washout_32 = time_washout_32;            		// время помывки
+	answer.body.time_pause_washout_32 = time_pause_washout_32;     	// время между помывками
+	answer.body.preset_washout_32 = preset_washout_32;          	// пресет помывки
+
 	answer.body.crc16 = crc16((uint8_t *)&answer.buf, sizeof(union ANSWER_RESET) - 2);
 
 	for(n=0; n<sizeof(answer); n++)
@@ -465,6 +475,17 @@ void f_reset()
 	}
 	index_buf = sizeof(answer);
 	send_data();
+}
+//--------------------------------------------------------------------------------
+void reset(void)
+{
+	addr_cam_32 = 0;                // адрес камеры
+	time_interval_16 = 5;           // интервал дворника
+	time_washout_32 = 20;           // время помывки
+	time_pause_washout_32 = 60;     // время между помывками
+	preset_washout_32 = 63;         // пресет помывки
+
+	write_FLASH();
 }
 //--------------------------------------------------------------------------------
 uint8_t convert_ascii_to_value(uint8_t hi, uint8_t lo)
@@ -485,6 +506,12 @@ uint8_t convert_ascii_to_value(uint8_t hi, uint8_t lo)
 	case '7':  b_hi = 0x7;  break;
 	case '8':  b_hi = 0x8;  break;
 	case '9':  b_hi = 0x9;  break;
+	case 'a':  b_hi = 0xA;  break;
+	case 'b':  b_hi = 0xB;  break;
+	case 'c':  b_hi = 0xC;  break;
+	case 'd':  b_hi = 0xD;  break;
+	case 'e':  b_hi = 0xE;  break;
+	case 'f':  b_hi = 0xF;  break;
 	case 'A':  b_hi = 0xA;  break;
 	case 'B':  b_hi = 0xB;  break;
 	case 'C':  b_hi = 0xC;  break;
@@ -507,6 +534,12 @@ uint8_t convert_ascii_to_value(uint8_t hi, uint8_t lo)
 	case '7':  b_lo = 0x7;  break;
 	case '8':  b_lo = 0x8;  break;
 	case '9':  b_lo = 0x9;  break;
+	case 'a':  b_lo = 0xA;  break;
+	case 'b':  b_lo = 0xB;  break;
+	case 'c':  b_lo = 0xC;  break;
+	case 'd':  b_lo = 0xD;  break;
+	case 'e':  b_lo = 0xE;  break;
+	case 'f':  b_lo = 0xF;  break;
 	case 'A':  b_lo = 0xA;  break;
 	case 'B':  b_lo = 0xB;  break;
 	case 'C':  b_lo = 0xC;  break;
@@ -689,27 +722,6 @@ void send_data()
 	read_RS485();
 }
 //--------------------------------------------------------------------------------
-void camera_save_position (void)
-{
-	Pelco[1] = addr_cam_32;
-	Pelco[2] = 0;
-	Pelco[3] = Go_Preset;
-	Pelco[4] = 0;
-	Pelco[5] = Save;
-
-	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
-
-	write_RS485();
-	send_byte(0xFF);
-	send_byte(Pelco[1]);
-	send_byte(Pelco[2]);
-	send_byte(Pelco[3]);
-	send_byte(Pelco[4]);
-	send_byte(Pelco[5]);
-	send_byte(Pelco[6]);
-	read_RS485();
-}
-//--------------------------------------------------------------------------------
 void camera_move_position (void)
 {
 	// 59 пресет помывки
@@ -734,37 +746,13 @@ void camera_move_position (void)
 	read_RS485();
 }
 //--------------------------------------------------------------------------------
-void camera_return (void)
-{
-	// 59 пресет помывки
-	// 59 сохранить положение камеры до помывки
-
-	Pelco[1] = addr_cam_32;
-	Pelco[2] = 0;
-	Pelco[3] = Go_Preset;
-	Pelco[4] = 0;
-	Pelco[5] = Save;
-
-	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
-
-	write_RS485();
-	send_byte(0xFF);
-	send_byte(Pelco[1]);
-	send_byte(Pelco[2]);
-	send_byte(Pelco[3]);
-	send_byte(Pelco[4]);
-	send_byte(Pelco[5]);
-	send_byte(Pelco[6]);
-	read_RS485();
-}
-//--------------------------------------------------------------------------------
-void camera_wiper (void)
+void camera_wiper (int preset)
 {
 	Pelco[1] = addr_cam_32;
 	Pelco[2] = 0;
 	Pelco[3] = Go_Preset;
 	Pelco[4] = 0;
-	Pelco[5] = Wiper;
+	Pelco[5] = preset;	//Wiper;
 
 	Pelco [6] = Pelco [1] ^ Pelco [2] ^Pelco [3] ^Pelco [4] ^Pelco [5] ;	// вычисление контрольной суммы
 
@@ -807,6 +795,9 @@ int main(void)
 
 	GPIO_Configuration();
 	USART_Configuration();
+
+	read_FLASH();
+
 	read_RS485();
 
 	while(1)

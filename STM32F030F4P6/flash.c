@@ -65,7 +65,6 @@ void write_FLASH(void)
     settings.time_washout_32 = time_washout_32;
     settings.time_pause_washout_32 = time_pause_washout_32;
     settings.preset_washout_32 = preset_washout_32;
-    settings.time_preset_washout_32 = time_preset_washout_32;
 
     FLASH_WriteSettings();
 }
@@ -80,6 +79,5 @@ void read_FLASH(void)
     time_washout_32 = settings.time_washout_32;
     time_pause_washout_32 = settings.time_pause_washout_32;
     preset_washout_32 = settings.preset_washout_32;
-    time_preset_washout_32 = settings.time_preset_washout_32;
 }
 //--------------------------------------------------------------------------------
