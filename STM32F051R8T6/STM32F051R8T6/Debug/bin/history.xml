@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="6.3.1 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=STM32F051R8T6.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\STM32F051R8T6 -TC:\CooCox\CoIDE\configuration\ProgramData\STM32F051R8T6/link.ld -g">
+      <target file="STM32F051R8T6.elf" lastModified="15fd524d3ec">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="15fd524cce5"/>
+         <source file="..\obj\flash.o" lastModified="15fd524cd3f"/>
+         <source file="..\obj\main.o" lastModified="15fd524cdf7"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="15fd524ce0c"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="15fd524ce65"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="15fd524ceef"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="15fd524cf7d"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="15fd524d047"/>
+         <source file="..\obj\stm32f0xx_flash.o" lastModified="15fd524d0c0"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="15fd524d117"/>
+      </target>
+   </processor>
+</history>
