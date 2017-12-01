@@ -23,7 +23,7 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="J:/STM32F051R8T6/main.c" title="main.c" tooltip="J:/STM32F051R8T6/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="G:/STM32F051R8T6/main.c" title="main.c" tooltip="G:/STM32F051R8T6/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32F051R8T6/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="12634" selectionTopPixel="13022"/>
 </editor>
@@ -407,47 +407,65 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F030F4P6/flash.c">
-<persistable path="/STM32F030F4P6/flash.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="packets.h" tooltip="C:\Users\User\workspace\STM32F030F4P6\packets.h">
-<persistable path="C:\Users\User\workspace\STM32F030F4P6\packets.h" project="STM32F030F4P6"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\workspace\STM32F030F4P6\main.h">
-<persistable path="C:\Users\User\workspace\STM32F030F4P6\main.h" project="STM32F030F4P6"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F100RBT6B/flash.c">
+<persistable path="/STM32F100RBT6B/flash.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="packets.h" tooltip="C:\Users\User\workspace\STM32F051R8T6\packets.h">
-<persistable path="C:\Users\User\workspace\STM32F051R8T6\packets.h" project="STM32F051R8T6"/>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="G:\STM32F100RBT6B\flash.h">
+<persistable path="G:\STM32F100RBT6B\flash.h" project="STM32F100RBT6B"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\workspace\STM32F051R8T6\main.h">
-<persistable path="C:\Users\User\workspace\STM32F051R8T6\main.h" project="STM32F051R8T6"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.h" tooltip="STM32F100RBT6B/stm_lib/inc/stm32f10x_rcc.h">
+<persistable path="/STM32F100RBT6B/stm_lib/inc/stm32f10x_rcc.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F051R8T6/flash.c">
-<persistable path="/STM32F051R8T6/flash.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="misc.h" tooltip="STM32F100RBT6B/stm_lib/inc/misc.h">
+<persistable path="/STM32F100RBT6B/stm_lib/inc/misc.h"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pelco.h" tooltip="C:\Users\User\workspace\STM32F051R8T6\pelco.h">
-<persistable path="C:\Users\User\workspace\STM32F051R8T6\pelco.h" project="STM32F051R8T6"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>
+<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="C:\Users\User\workspace\STM32F051R8T6\flash.h">
-<persistable path="C:\Users\User\workspace\STM32F051R8T6\flash.h" project="STM32F051R8T6"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f0xx.s" tooltip="STM32F051R8T6/cmsis_boot/startup/startup_stm32f0xx.s">
-<persistable path="/STM32F051R8T6/cmsis_boot/startup/startup_stm32f0xx.s"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f10x_md_vl.c" tooltip="Test_stm32-discovery/cmsis_boot/startup/startup_stm32f10x_md_vl.c">
-<persistable path="/Test_stm32-discovery/cmsis_boot/startup/startup_stm32f10x_md_vl.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_flash.c" tooltip="Test_stm32-discovery/stm_lib/src/stm32f10x_flash.c">
-<persistable path="/Test_stm32-discovery/stm_lib/src/stm32f10x_flash.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_flash.h" tooltip="Test_stm32-discovery/stm_lib/inc/stm32f10x_flash.h">
-<persistable path="/Test_stm32-discovery/stm_lib/inc/stm32f10x_flash.h"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="packets.h" tooltip="C:\Users\User\workspace\STM32F051R8T6\packets.h">
-<persistable path="C:\Users\User\workspace\STM32F051R8T6\packets.h" project="STM32F051R8T6"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F100RBT6B/main.c">
+<persistable path="/STM32F100RBT6B/main.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="C:\Users\User\workspace\STM32F051R8T6\main.h">
-<persistable path="C:\Users\User\workspace\STM32F051R8T6\main.h" project="STM32F051R8T6"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>
+<subPage/>
+</persistable>
 </file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\string.h">
 <persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\string.h" project="STM32F030F4P6"/>
