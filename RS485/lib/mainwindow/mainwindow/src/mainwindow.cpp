@@ -45,10 +45,6 @@ MainWindow::MainWindow(QMainWindow *parent)
       orgName(ORGNAME),
       appName(APPNAME),
       appVersion(QString("%1.%2.%3 (%4)").arg(VER_MAJOR).arg(VER_MINOR).arg(VER_PATCH).arg(VER_BUILD))
-      //TODO app_left(-1),
-      //TODO app_top(-1),
-      //TODO app_width(-1),
-      //TODO app_height(-1)
 {
     init();
 }
@@ -76,6 +72,8 @@ void MainWindow::setCentralWidget(QWidget *widget)
     mainWidget = widget;
 
     QMainWindow::setCentralWidget(mainWidget);
+
+    load_setting();
 
 #ifdef FIXED_SIZE
     setFixedSize(sizeHint());
@@ -192,8 +190,6 @@ void MainWindow::init(void)
 #ifdef  DEMO
     check_date();
 #endif
-
-    QTimer::singleShot(100, this, SLOT(load_setting()));
 }
 //--------------------------------------------------------------------------------
 #ifdef  DEMO

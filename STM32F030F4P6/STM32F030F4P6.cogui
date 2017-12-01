@@ -19,13 +19,19 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="G:/STM32F030F4P6/main.c" title="main.c" tooltip="G:/STM32F030F4P6/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="G:/STM32F030F4P6/main.c" title="main.c" tooltip="G:/STM32F030F4P6/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/STM32F030F4P6/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="446" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
+<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">
+<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
+</input>
 </editor>
 </editors>
 <views>
@@ -60,7 +66,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.coocox.builder.ui.views.ProjectView" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspectives activePart="org.coocox.builder.ui.editors.repository.RepositoryBrowser" activePerspective="org.coocox.builder.perspective.CoBuilder">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
@@ -244,10 +250,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/main.c"/>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
-<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
-</editor>
 <editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
 <org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="5" verticalPosition="0"/>
 </editor>
@@ -295,121 +297,125 @@
 <subPage/>
 </editor>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/STM32F030F4P6/main.c"/>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
+</editor>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
+</editor>
 </editors>
+<item historyLabel="Configuration" index="0"/>
 <item historyLabel="Configuration" index="1"/>
-<item historyLabel="main.c" index="0">
+<item historyLabel="main.c" index="2">
 <position info="not_deleted" x="17021" y="0"/>
 </item>
-<item historyLabel="Configuration" index="2"/>
+<item historyLabel="Configuration" index="1"/>
 <item historyLabel="Configuration" index="3"/>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="17021" y="0"/>
-</item>
-<item historyLabel="Configuration" index="3"/>
-<item historyLabel="Configuration" index="5"/>
-<item historyLabel="Repository" index="6"/>
-<item historyLabel="main.c" index="7">
+<item historyLabel="Repository" index="4"/>
+<item historyLabel="main.c" index="5">
 <position info="not_deleted" x="21616" y="0"/>
 </item>
-<item historyLabel="main.c" index="7">
+<item historyLabel="main.c" index="5">
 <position info="not_deleted" x="22196" y="0"/>
 </item>
-<item historyLabel="main.c" index="7">
+<item historyLabel="main.c" index="5">
 <position info="not_deleted" x="16691" y="0"/>
 </item>
+<item historyLabel="Configuration" index="6"/>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="16691" y="0"/>
+</item>
+<item historyLabel="Repository" index="7"/>
 <item historyLabel="Configuration" index="8"/>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="16691" y="0"/>
-</item>
+<item historyLabel="Repository" index="7"/>
 <item historyLabel="Repository" index="9"/>
 <item historyLabel="Configuration" index="10"/>
-<item historyLabel="Repository" index="9"/>
-<item historyLabel="Repository" index="11"/>
-<item historyLabel="Configuration" index="12"/>
-<item historyLabel="main.c" index="13">
+<item historyLabel="main.c" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="13">
+<item historyLabel="main.c" index="11">
 <position info="not_deleted" x="22222" y="0"/>
 </item>
-<item historyLabel="main.c" index="13">
+<item historyLabel="main.c" index="11">
 <position info="not_deleted" x="17635" y="19"/>
 </item>
-<item historyLabel="main.c" index="13">
+<item historyLabel="main.c" index="11">
 <position info="not_deleted" x="22195" y="0"/>
 </item>
-<item historyLabel="main.c" index="13">
+<item historyLabel="main.c" index="11">
 <position info="not_deleted" x="15934" y="0"/>
 </item>
-<item historyLabel="Configuration" index="12"/>
-<item historyLabel="main.c" index="13">
+<item historyLabel="Configuration" index="10"/>
+<item historyLabel="main.c" index="11">
 <position info="not_deleted" x="15934" y="0"/>
 </item>
+<item historyLabel="Configuration" index="10"/>
 <item historyLabel="Configuration" index="12"/>
-<item historyLabel="Configuration" index="14"/>
-<item historyLabel="Repository" index="15"/>
-<item historyLabel="main.c" index="16">
+<item historyLabel="Repository" index="13"/>
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="408" y="0"/>
 </item>
-<item historyLabel="packets.h" index="17">
+<item historyLabel="packets.h" index="15">
 <position info="not_deleted" x="4355" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="408" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="1068" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="8587" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="10306" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="447" y="0"/>
 </item>
-<item historyLabel="main.h" index="18">
+<item historyLabel="main.h" index="16">
 <position info="not_deleted" x="663" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="405" y="0"/>
 </item>
-<item historyLabel="packets.h" index="17">
+<item historyLabel="packets.h" index="15">
 <position info="not_deleted" x="2652" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="5989" y="37"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="5852" y="17"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="22189" y="0"/>
 </item>
-<item historyLabel="flash.c" index="19">
+<item historyLabel="flash.c" index="17">
 <position info="not_deleted" x="2732" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="11814" y="11"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="431" y="0"/>
 </item>
-<item historyLabel="main.c" index="16">
+<item historyLabel="main.c" index="14">
 <position info="not_deleted" x="446" y="0"/>
 </item>
-<item historyLabel="main.h" index="18">
+<item historyLabel="main.h" index="16">
 <position info="not_deleted" x="511" y="0"/>
 </item>
-<item historyLabel="Configuration" index="20"/>
-<item historyLabel="main.h" index="18">
+<item historyLabel="Configuration" index="18"/>
+<item historyLabel="main.h" index="16">
 <position info="not_deleted" x="511" y="0"/>
+</item>
+<item historyLabel="Repository" index="19"/>
+<item historyLabel="main.c" index="20">
+<position info="not_deleted" x="446" y="0"/>
 </item>
 <item historyLabel="Repository" index="21"/>
-<item active="true" historyLabel="main.c" index="22">
-<position info="not_deleted" x="446" y="0"/>
-</item>
+<item active="true" historyLabel="Repository" index="22"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -420,6 +426,16 @@
 <file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
 <persistable>
 <org.coocox.welcome.ui.WelcomePage/>
+</persistable>
+</file>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>
+<subPage horizontalPosition="0" selectedItemId="0" subPageIndex="2" verticalPosition="0"/>
 </persistable>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F100RBT6B/flash.c">
@@ -434,46 +450,26 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="misc.h" tooltip="STM32F100RBT6B/stm_lib/inc/misc.h">
 <persistable path="/STM32F100RBT6B/stm_lib/inc/misc.h"/>
 </file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>
-<subPage/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F100RBT6B/main.c">
+<persistable path="/STM32F100RBT6B/main.c"/>
 </file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F100RBT6B/flash.c">
+<persistable path="/STM32F100RBT6B/flash.c"/>
 </file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.h" tooltip="G:\STM32F100RBT6B\flash.h">
+<persistable path="G:\STM32F100RBT6B\flash.h" project="STM32F100RBT6B"/>
 </file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.h" tooltip="STM32F100RBT6B/stm_lib/inc/stm32f10x_rcc.h">
+<persistable path="/STM32F100RBT6B/stm_lib/inc/stm32f10x_rcc.h"/>
 </file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="misc.h" tooltip="STM32F100RBT6B/stm_lib/inc/misc.h">
+<persistable path="/STM32F100RBT6B/stm_lib/inc/misc.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F100RBT6B/main.c">
 <persistable path="/STM32F100RBT6B/main.c"/>
 </file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>
-<subPage/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F030F4P6/flash.c">
-<persistable path="/STM32F030F4P6/flash.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.c" tooltip="STM32F100RBT6B/flash.c">
+<persistable path="/STM32F100RBT6B/flash.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="Test_stm32-discovery/stm_lib/inc/stm32f10x_gpio.h">
 <persistable path="/Test_stm32-discovery/stm_lib/inc/stm32f10x_gpio.h"/>

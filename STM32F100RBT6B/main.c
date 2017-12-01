@@ -1,7 +1,6 @@
 //--------------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------------
-//#include "stm32f10x_misc.h"
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_tim.h"
@@ -97,11 +96,11 @@ uint8_t get_address()
 {
 	union U_BYTE temp;
 	temp.value = 0;
-	temp.bites.bit0 = (GPIO_ReadInputData(GPIOA) & GPIO_Pin_0);
-	temp.bites.bit1 = (GPIO_ReadInputData(GPIOA) & GPIO_Pin_1);
-	temp.bites.bit2 = (GPIO_ReadInputData(GPIOA) & GPIO_Pin_2);
-	temp.bites.bit3 = (GPIO_ReadInputData(GPIOA) & GPIO_Pin_3);
-	temp.bites.bit4 = (GPIO_ReadInputData(GPIOA) & GPIO_Pin_4);
+	temp.bites.bit0 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_0);
+	temp.bites.bit1 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_1);
+	temp.bites.bit2 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_2);
+	temp.bites.bit3 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_3);
+	temp.bites.bit4 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_4);
 
 	return temp.value;
 }
@@ -610,15 +609,16 @@ void GPIO_Configuration(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 
 	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-	//GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	//GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	//---
+	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
+	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+	//GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	//GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	//GPIO_PinAFConfig(GPIOA, GPIO_PinSource9,  GPIO_Mode_AF_PP); // USART1 TX
 	//GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_Mode_AF_PP);
+	//---
 
 	// 485
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
@@ -648,32 +648,42 @@ void GPIO_Configuration(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	//GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	// level
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	//GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);        
 
 	// addr
 	GPIO_InitStructure.GPIO_Pin =
-			GPIO_Pin_0 |
-			GPIO_Pin_1 |
-			GPIO_Pin_2 |
-			GPIO_Pin_3 |
-			GPIO_Pin_4;
+			GPIO_Pin_7 |
+			GPIO_Pin_9 |
+			GPIO_Pin_10 |
+			GPIO_Pin_13 |
+			GPIO_Pin_14;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	//GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 //--------------------------------------------------------------------------------
 void USART_Configuration(void)
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	/* Configure USART1 Tx (PA.09) as alternate function push-pull */
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	/* Configure USART1 Rx (PA.10) as input floating */
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	USART_InitTypeDef USART_InitStructur;
 	USART_InitStructur.USART_BaudRate = 9600;
@@ -688,7 +698,7 @@ void USART_Configuration(void)
 	NVIC_InitTypeDef	NVIC_InitStructure;
 
 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-	//NVIC_InitStructure.NVIC_IRQChannelPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 
