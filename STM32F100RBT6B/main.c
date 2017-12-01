@@ -16,6 +16,12 @@
 #include "flash.h"
 #include "main.h"
 //--------------------------------------------------------------------------------
+#define	PIN_addr_0	GPIO_Pin_7
+#define	PIN_addr_1	GPIO_Pin_9
+#define	PIN_addr_2	GPIO_Pin_10
+#define	PIN_addr_3	GPIO_Pin_13
+#define	PIN_addr_4	GPIO_Pin_14
+//--------------------------------------------------------------------------------
 #define MAX_BUF	100
 uint8_t		dirty_buf[MAX_BUF]; // текстовый буфер AABBCC
 uint8_t		buf[MAX_BUF];
@@ -96,11 +102,11 @@ uint8_t get_address()
 {
 	union U_BYTE temp;
 	temp.value = 0;
-	temp.bites.bit0 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_0);
-	temp.bites.bit1 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_1);
-	temp.bites.bit2 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_2);
-	temp.bites.bit3 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_3);
-	temp.bites.bit4 = !(GPIO_ReadInputData(GPIOA) & GPIO_Pin_4);
+	temp.bites.bit0 = (GPIO_ReadInputData(GPIOA) & PIN_addr_0);
+	temp.bites.bit1 = (GPIO_ReadInputData(GPIOA) & PIN_addr_1);
+	temp.bites.bit2 = (GPIO_ReadInputData(GPIOA) & PIN_addr_2);
+	temp.bites.bit3 = (GPIO_ReadInputData(GPIOA) & PIN_addr_3);
+	temp.bites.bit4 = (GPIO_ReadInputData(GPIOA) & PIN_addr_4);
 
 	return temp.value;
 }
@@ -610,16 +616,6 @@ void GPIO_Configuration(void)
 
 	GPIO_InitTypeDef GPIO_InitStructure;
 
-	//---
-	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
-	//GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-	//GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	//GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-	//GPIO_PinAFConfig(GPIOA, GPIO_PinSource9,  GPIO_Mode_AF_PP); // USART1 TX
-	//GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_Mode_AF_PP);
-	//---
-
 	// 485
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
@@ -658,11 +654,11 @@ void GPIO_Configuration(void)
 
 	// addr
 	GPIO_InitStructure.GPIO_Pin =
-			GPIO_Pin_7 |
-			GPIO_Pin_9 |
-			GPIO_Pin_10 |
-			GPIO_Pin_13 |
-			GPIO_Pin_14;
+			PIN_addr_0 |
+			PIN_addr_1 |
+			PIN_addr_2 |
+			PIN_addr_3 |
+			PIN_addr_4;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);

@@ -104,7 +104,6 @@ union ANSWER_READ
         uint32_t    time_washout_32;            // время помывки
         uint32_t    time_pause_washout_32;      // время между помывками
         uint32_t    preset_washout_32;          // пресет помывки
-        uint32_t    time_preset_washout_32;     // времен помывки
 
         uint16_t    crc16;                      // контрольная сумма
     } body;
@@ -122,7 +121,6 @@ union QUESTION_WRITE
         uint32_t    time_washout_32;            // время помывки
         uint32_t    time_pause_washout_32;      // время между помывками
         uint32_t    preset_washout_32;          // пресет помывки
-        uint32_t    time_preset_washout_32;     // времен помывки
 
         uint16_t    crc16;                      // контрольная сумма
     } body;
@@ -140,7 +138,6 @@ union ANSWER_WRITE
         uint32_t    time_washout_32;            // время помывки
         uint32_t    time_pause_washout_32;      // время между помывками
         uint32_t    preset_washout_32;          // пресет помывки
-        uint32_t    time_preset_washout_32;     // времен помывки
 
         uint16_t    crc16;                      // контрольная сумма
     } body;

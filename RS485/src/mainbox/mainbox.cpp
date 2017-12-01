@@ -289,7 +289,6 @@ bool MainBox::check_answer_read(QByteArray data)
     uint32_t    time_washout_32 = answer->body.time_washout_32;                 // время помывки
     uint32_t    time_pause_washout_32 = answer->body.time_pause_washout_32;     // время между помывками
     uint32_t    preset_washout_32 = answer->body.preset_washout_32;             // пресет помывки
-    uint32_t    time_preset_washout_32 = answer->body.time_preset_washout_32;   // времен помывки
 
     QTime tpw(0,0,0);
     QTime tpw2;
@@ -317,7 +316,6 @@ bool MainBox::check_answer_read(QByteArray data)
     emit debug(QString("time_washout_32 %1").arg(time_washout_32));
     emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
     emit debug(QString("preset_washout_32 %1").arg(preset_washout_32));
-    emit debug(QString("time_preset_washout_32 %1").arg(time_preset_washout_32));
 
     return true;
 }
@@ -354,7 +352,6 @@ bool MainBox::check_answer_write(QByteArray data)
     uint32_t    time_washout_32 = answer->body.time_washout_32;                 // время помывки
     uint32_t    time_pause_washout_32 = answer->body.time_pause_washout_32;     // время между помывками
     uint32_t    preset_washout_32 = answer->body.preset_washout_32;             // пресет помывки
-    uint32_t    time_preset_washout_32 = answer->body.time_preset_washout_32;   // времен помывки
 
     QTime tpw(0,0,0);
     QTime tpw2;
@@ -368,7 +365,7 @@ bool MainBox::check_answer_write(QByteArray data)
     ui->sb_addr_cam->setValue(addr_cam_32);                         // адрес камеры
     ui->sb_time_interval->setValue(time_interval_16);               // интервал дворника
     ui->sb_time_washout->setValue(time_washout_32);                 // время помывки
-    ui->te_time_pause_washout->setTime(tpw2);                        // время между помывками
+    ui->te_time_pause_washout->setTime(tpw2);                       // время между помывками
     ui->sb_preset_washout->setValue(preset_washout_32);             // пресет помывки
 
     emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
@@ -381,7 +378,6 @@ bool MainBox::check_answer_write(QByteArray data)
     emit debug(QString("time_washout_32 %1").arg(time_washout_32));
     emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
     emit debug(QString("preset_washout_32 %1").arg(preset_washout_32));
-    emit debug(QString("time_preset_washout_32 %1").arg(time_preset_washout_32));
 
     return true;
 }

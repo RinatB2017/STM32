@@ -656,11 +656,6 @@ void MainWindow::load_main(void)
 
     QApplication::setStyle(QStyleFactory::create(style_name));
 
-    //TODO app_left    = settings->value("Left",   100).toInt();
-    //TODO app_top     = settings->value("Top",    100).toInt();
-    //TODO app_width   = settings->value("Width",  640).toInt();
-    //TODO app_height  = settings->value("Height", 380).toInt();
-
 #ifndef NO_MENU
     a_AskExit->setChecked(flag_close);
 #endif

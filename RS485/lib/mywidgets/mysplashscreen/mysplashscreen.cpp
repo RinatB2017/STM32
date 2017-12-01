@@ -64,8 +64,6 @@ MySplashScreen::MySplashScreen(const QPixmap &pixmap,
 
     setGeometry(app_left, app_top, width(), height());
     move(app_left, app_top);
-
-    //label->installEventFilter(this);
 }
 //--------------------------------------------------------------------------------
 void MySplashScreen::showMessage(const QString &message,
