@@ -18,8 +18,8 @@
 **********************************************************************************
 **                   Author: Bikbao Rinat Zinorovich                            **
 **********************************************************************************/
-#ifndef SERIALBOX5_HPP
-#define SERIALBOX5_HPP
+#ifndef SERIALBOX5_LITE_HPP
+#define SERIALBOX5_LITE_HPP
 //--------------------------------------------------------------------------------
 #include <QByteArray>
 #include <QDateTime>
@@ -37,26 +37,19 @@ class SendBox5;
 //--------------------------------------------------------------------------------
 namespace Ui
 {
-    class SerialBox5;
+    class SerialBox5_lite;
 }
 //--------------------------------------------------------------------------------
-class SerialBox5 : public QFrame
+class SerialBox5_lite : public QFrame
 {
     Q_OBJECT
 
 public:
-    enum
-    {
-        E_NO_ERROR = 0,
-        E_PORT_NOT_INIT,
-        E_PORT_NOT_OPEN
-    };
-
-    explicit SerialBox5(QWidget *parent,
-                        const QString &caption,
-                        const QString &o_name = "SerialBox5");
-    explicit SerialBox5(QWidget *parent = 0);
-    ~SerialBox5();
+    explicit SerialBox5_lite(QWidget *parent,
+                             const QString &caption,
+                             const QString &o_name);
+    explicit SerialBox5_lite(QWidget *parent = 0);
+    ~SerialBox5_lite();
 
     bool isOpen(void);
     void updateText(void);
@@ -64,15 +57,13 @@ public:
     bool add_menu(int index);
     bool add_menu(int index, const QString &title);
 
-    QPushButton *add_QPushButton(const QString &title);
-    void add_QHBoxLayout(QHBoxLayout *hbox);
-
     QByteArray readAll(void);
 
-    void set_caption(QString value);
+    qint64 bytesAvailable(void);
+    qint64 write ( const char *data );
 
 private:
-    Ui::SerialBox5 *ui = 0;
+    Ui::SerialBox5_lite *ui = 0;
     QWidget *parent = 0;
     QSerialPort *serial5 = 0;
     QString caption;
@@ -81,20 +72,9 @@ private:
     bool flag_in_hex = false;
     bool flag_byte_by_byte = false;
 
-#ifdef RS232_LOG
-    LogBox  *logBox = 0;
-#endif
-
-#ifdef RS232_SEND
-    SendBox5 *sendBox5 = 0;
-#endif
-
     QTimer *timer = 0;
 
 #ifndef RS232_NO_FRAME
-    QFrame *frame_ring = 0;
-    QFrame *frame_dsr = 0;
-    QFrame *frame_cts = 0;
     void add_frame_text(QFrame *parent,
                         const QString &text);
 #endif
@@ -114,7 +94,14 @@ signals:
     void error(const QString &);
     void trace(const QString &);
 
+    void readyRead(void);
+    void readChannelFinished(void);
+    void error(QSerialPort::SerialPortError);
+
     void output(const QByteArray &data);
+
+    void is_open(void);
+    void is_close(void);
 
 public slots:
     int input(const QByteArray &sending_data);
@@ -134,10 +121,6 @@ private slots:
     void procSerialDataReceive(void);
 
     void setBaudBox(int index);
-    void setDataBox(int index);
-    void setParityBox(int index);
-    void setStopBox(int index);
-    void setFlowBox(int index);
 
     void getStatus(const QString &status, QDateTime current);
 

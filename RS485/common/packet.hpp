@@ -77,8 +77,14 @@ union ANSWER_RESET
     struct BODY
     {
         HEADER      header;
-        uint16_t    data;
-        uint16_t    crc16;                  // контрольная сумма
+
+        uint32_t    addr_cam_32;                // адрес камеры
+        uint16_t    time_interval_16;           // интервал дворника
+        uint32_t    time_washout_32;            // время помывки
+        uint32_t    time_pause_washout_32;      // время между помывками
+        uint32_t    preset_washout_32;          // пресет помывки
+
+        uint16_t    crc16;                      // контрольная сумма
     } body;
     unsigned char buf[sizeof(BODY)];
 };
@@ -129,7 +135,7 @@ union QUESTION_WRITE
 
 union ANSWER_WRITE
 {
-    struct BODY
+   struct BODY
     {
         HEADER      header;
 

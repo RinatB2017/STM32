@@ -43,8 +43,7 @@ MainBox::MainBox(QWidget *parent,
                  MySplashScreen *splash) :
     MyWidget(parent),
     splash(splash),
-    ui(new Ui::MainBox),
-    serialBox5(0)
+    ui(new Ui::MainBox)
 {
     init();
 }
@@ -62,15 +61,12 @@ void MainBox::init(void)
 
     //createTestBar();
 
-    serialBox5 = new SerialBox5(this, "RS485", "RS485");
-    serialBox5->add_menu(2);
+    ui->serial_widget->add_menu(2);
 
-    ui->serial_layout->addWidget(serialBox5);
+    connect(this,               SIGNAL(send(QByteArray)),   ui->serial_widget,  SLOT(input(QByteArray)));
+    connect(ui->serial_widget,  SIGNAL(output(QByteArray)), this,               SLOT(read_data(QByteArray)));
 
-    connect(this,       SIGNAL(send(QByteArray)),   serialBox5, SLOT(input(QByteArray)));
-    connect(serialBox5, SIGNAL(output(QByteArray)), this,       SLOT(read_data(QByteArray)));
-
-    connect(ui->pelco_d,    SIGNAL(send(QByteArray)),   serialBox5, SLOT(input(QByteArray)));
+    connect(ui->pelco_d,    SIGNAL(send(QByteArray)),   ui->serial_widget,  SLOT(input(QByteArray)));
 
     ui->sb_addr_cam->setRange(0, 0xFFFF);
     ui->sb_addr_upu->setRange(0, 0xFFFF);
@@ -246,12 +242,33 @@ bool MainBox::check_answer_reset(QByteArray data)
         return false;
     }
 
+    uint32_t    addr_upu = answer->body.header.addr_8;                          // адрес upu
+    uint32_t    addr_cam_32 = answer->body.addr_cam_32;                         // адрес камеры
+    uint16_t    time_interval_16 = answer->body.time_interval_16;               // интервал дворника
+    uint32_t    time_washout_32 = answer->body.time_washout_32;                 // время помывки
+    uint32_t    time_pause_washout_32 = answer->body.time_pause_washout_32;     // время между помывками
+    uint32_t    preset_washout_32 = answer->body.preset_washout_32;             // пресет помывки
+
+    QTime tpw(0,0,0);
+    QTime tpw2;
+    tpw2 = tpw.addSecs(time_pause_washout_32);
+    emit debug(QString("time_pause_washout_32 %1").arg(time_pause_washout_32));
+    emit debug(QString("[%1 %2 %3]")
+               .arg(tpw2.hour())
+               .arg(tpw2.minute())
+               .arg(tpw2.second()));
+
+    ui->sb_addr_upu->setValue(addr_upu);                // адрес upu
+    ui->sb_addr_cam->setValue(addr_cam_32);             // адрес камеры
+    ui->sb_time_interval->setValue(time_interval_16);   // интервал дворника
+    ui->sb_time_washout->setValue(time_washout_32);     // время помывки
+    ui->te_time_pause_washout->setTime(tpw2);           // время между помывками
+    ui->sb_preset_washout->setValue(preset_washout_32); // пресет помывки
+
     emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));
     emit debug(QString("addr_8 %1").arg(answer->body.header.addr_8));
     emit debug(QString("cmd_8 %1").arg(answer->body.header.cmd_8));
     emit debug(QString("len_16 %1").arg(answer->body.header.len_16));
-
-    emit debug(QString("data %1").arg(answer->body.data));
 
     return true;
 }
@@ -365,7 +382,7 @@ bool MainBox::check_answer_write(QByteArray data)
     ui->sb_addr_cam->setValue(addr_cam_32);                         // адрес камеры
     ui->sb_time_interval->setValue(time_interval_16);               // интервал дворника
     ui->sb_time_washout->setValue(time_washout_32);                 // время помывки
-    ui->te_time_pause_washout->setTime(tpw2);                       // время между помывками
+    ui->te_time_pause_washout->setTime(tpw2);                        // время между помывками
     ui->sb_preset_washout->setValue(preset_washout_32);             // пресет помывки
 
     emit debug(QString("prefix_16 %1").arg(prefix, 0, 16));

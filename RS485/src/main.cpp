@@ -44,6 +44,10 @@ int main(int argc, char *argv[])
     MyApplication app(argc, argv);
 #endif
 
+#ifdef UNDER_CONSTRUCTION
+    MyWidget::messagebox_warning("Warning", "UNDER_CONSTRUCTION");
+#endif
+
     set_codecs();
 
     QTranslator translator;
@@ -61,14 +65,13 @@ int main(int argc, char *argv[])
     splash->showMessage(QObject::tr("Подождите ..."));
     qApp->processEvents();
 
-    MainWindow main_window;
+    MainWindow *main_window = new MainWindow();
 
-    MainBox *mainBox = new MainBox(main_window.getThis(), splash);
-    main_window.setCentralWidget(mainBox);
+    MainBox *mainBox = new MainBox(main_window->getThis(), splash);
+    main_window->setCentralWidget(mainBox);
+    main_window->show();
 
-    main_window.show();
-
-    splash->finish(&main_window);
+    splash->finish(main_window);
 
     return app.exec();
 }
