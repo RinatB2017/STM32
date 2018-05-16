@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g -c -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSTM32F103RC -I. -Icmsis -Istm_lib -Istm_lib\inc -Icmsis_boot">
+      <target file="stm32f10x_rcc.o" lastModified="139c07d5d9c">
+         <source file="..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="139a4b22a9a"/>
+      </target>
+      <target file="core_cm3.o" lastModified="139c07d5b44">
+         <source file="..\..\cmsis\core_cm3.c" lastModified="139a4b1f777"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="139c07d5b9d">
+         <source file="..\..\cmsis_boot\system_stm32f10x.c" lastModified="139c07d5567"/>
+      </target>
+      <target file="startup_stm32f10x_hd.o" lastModified="139c07d5bd5">
+         <source file="..\..\cmsis_boot\startup\startup_stm32f10x_hd.c" lastModified="139a4b2297b"/>
+      </target>
+      <target file="main.o" lastModified="139c07d5d21">
+         <source file="..\..\main.c" lastModified="139b5a7b5dd"/>
+      </target>
+      <target file="nRF24L01P.o" lastModified="139c07d5c5b">
+         <source file="..\..\nRF24L01P.c" lastModified="139c07d55a5"/>
+      </target>
+      <target file="stm32f10x_spi.o" lastModified="139c07d5e11">
+         <source file="..\..\stm_lib\src\stm32f10x_spi.c" lastModified="139a4b22804"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="139c07d5ccc">
+         <source file="..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="139a4b22b00"/>
+      </target>
+   </processor>
+</history>
