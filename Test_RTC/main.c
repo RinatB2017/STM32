@@ -64,7 +64,7 @@ int main(void)
 	usart_init();
 
 	RTC_INIT();                                                     //Инициализируем RTC
-	RTC_SetCounter_(timer);       									//Записать новое значение счетчика
+	//RTC_SetCounter_(timer);       									//Записать новое значение счетчика
 
 	old_unix_time.hour = 0;
 	old_unix_time.min = 0;

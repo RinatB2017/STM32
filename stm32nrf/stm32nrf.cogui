@@ -17,13 +17,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Dropbox/Programming/БСП/Reader/stm32nrf/main.c" title="main.c" tooltip="C:/Users/User/Dropbox/Programming/БСП/Reader/stm32nrf/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/stm32nrf/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/stm32nrf/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32nrf/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="167" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/User/Programming/GitHub/STM32/stm32nrf/usart.c" title="usart.c" tooltip="C:/Users/User/Programming/GitHub/STM32/stm32nrf/usart.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32nrf/usart.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="574" selectionTopPixel="270"/>
 </editor>
 </editors>
 <views>
@@ -275,10 +280,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32nrf/nRF24L01P.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32nrf/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32nrf/usart.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32nrf/usart.c"/>
 </editors>
-<item historyLabel="nRF24L01P.c" index="1">
-<position info="not_deleted" x="10039" y="6"/>
-</item>
 <item historyLabel="nRF24L01P.c" index="1">
 <position info="not_deleted" x="10935" y="0"/>
 </item>
@@ -423,8 +426,11 @@
 <item historyLabel="usart.c" index="7">
 <position info="not_deleted" x="792" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="6">
+<item historyLabel="main.c" index="6">
 <position info="not_deleted" x="167" y="0"/>
+</item>
+<item active="true" historyLabel="usart.c" index="8">
+<position info="not_deleted" x="265" y="10"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -436,15 +442,29 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="stm32nrf/usart.c">
 <persistable path="/stm32nrf/usart.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="Test_RTC/usart.c">
+<persistable path="/Test_RTC/usart.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="Test_RTC/usart.h">
+<persistable path="/Test_RTC/usart.h"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stdio.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q3\arm-none-eabi\include\stdio.h">
+<persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\4.7 2013q3\arm-none-eabi\include\stdio.h" project="Test_RTC"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="unix_time.c" tooltip="Test_RTC/unix_time.c">
+<persistable path="/Test_RTC/unix_time.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="unix_time.h" tooltip="Test_RTC/unix_time.h">
+<persistable path="/Test_RTC/unix_time.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Test_RTC/main.c">
+<persistable path="/Test_RTC/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="stm32nrf/cmsis_boot/system_stm32f10x.c">
 <persistable path="/stm32nrf/cmsis_boot/system_stm32f10x.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f10x_ld_vl.c" tooltip="stm32nrf/cmsis_boot/startup/startup_stm32f10x_ld_vl.c">
 <persistable path="/stm32nrf/cmsis_boot/startup/startup_stm32f10x_ld_vl.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="My/cmsis_boot/system_stm32f10x.c">
 <persistable path="/My/cmsis_boot/system_stm32f10x.c"/>
@@ -463,22 +483,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_usart.h" tooltip="stm32nrf/stm_lib/inc/stm32f10x_usart.h">
 <persistable path="/stm32nrf/stm_lib/inc/stm32f10x_usart.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="stm32nrf/usart.h">
-<persistable path="/stm32nrf/usart.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="stm32nrf/cmsis_boot/system_stm32f10x.c">
-<persistable path="/stm32nrf/cmsis_boot/system_stm32f10x.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f10x_ld_vl.c" tooltip="stm32nrf/cmsis_boot/startup/startup_stm32f10x_ld_vl.c">
-<persistable path="/stm32nrf/cmsis_boot/startup/startup_stm32f10x_ld_vl.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="nRF24L01P.h" tooltip="stm32nrf/nRF24L01P.h">
-<persistable path="/stm32nrf/nRF24L01P.h"/>
 </file>
 </mruList>
 </workbench>

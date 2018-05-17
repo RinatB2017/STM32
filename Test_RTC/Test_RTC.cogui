@@ -25,13 +25,12 @@
 </info>
 </editorArea>
 <editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">
-<subPage horizontalPosition="0" selectedItemId="30" subPageIndex="2" verticalPosition="0"/>
+<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="30" subPageIndex="2" verticalPosition="0"/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/STM32/Test_RTC/main.c" title="main.c" tooltip="C:/Users/User/Programming/STM32/Test_RTC/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/Test_RTC/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/Test_RTC/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test_RTC/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3225" selectionTopPixel="1139"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3328" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" partName="usart.h" path="C:/Users/User/Programming/STM32/Test_RTC/usart.h" title="usart.h" tooltip="C:/Users/User/Programming/STM32/Test_RTC/usart.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test_RTC/usart.h"/>
@@ -448,6 +447,9 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_usart.c" tooltip="stm32nrf/stm_lib/src/stm32f10x_usart.c">
 <persistable path="/stm32nrf/stm_lib/src/stm32f10x_usart.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_usart.h" tooltip="stm32nrf/stm_lib/inc/stm32f10x_usart.h">
+<persistable path="/stm32nrf/stm_lib/inc/stm32f10x_usart.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_usart.h" tooltip="stm32nrf/stm_lib/inc/stm32f10x_usart.h">
 <persistable path="/stm32nrf/stm_lib/inc/stm32f10x_usart.h"/>
