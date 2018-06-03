@@ -20,7 +20,7 @@ void Delay_ms(uint32_t ms)
 
 int main(void)
 {
-#if 1
+#if 0
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -38,11 +38,23 @@ int main(void)
         }
 #else
         ws2812b_Init();
+        int n = 0;
 
         while (1)
         {
                 while (!ws2812b_IsReady()); // wait
+
                 // Заполнить RGB-буффер
+                RGB_t led;
+                led.r = 0xFF;
+                led.g = 0;
+                led.b = 0;
+                for(n=0; n<NUM_LEDS; n++)
+                {
+                	leds[n] = led;
+                }
+                //---
+
                 ws2812b_SendRGB(leds, NUM_LEDS);
         }
 #endif

@@ -88,8 +88,8 @@
     <File name="inc/bitmap.h" path="inc/bitmap.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="inc/ws2812b_conf.h" path="inc/ws2812b_conf.h" type="1"/>
-    <File name="stm_lib/src/stm32f10x_rcc.c" path="stm_lib/src/stm32f10x_rcc.c" type="1"/>
     <File name="src" path="" type="2"/>
+    <File name="stm_lib/src/stm32f10x_rcc.c" path="stm_lib/src/stm32f10x_rcc.c" type="1"/>
     <File name="stm_lib/src/stm32f10x_tim.c" path="stm_lib/src/stm32f10x_tim.c" type="1"/>
     <File name="inc" path="" type="2"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
