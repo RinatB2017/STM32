@@ -29,21 +29,21 @@ int main(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-    while(1)
-    {
-    	GPIO_SetBits(GPIOB,	GPIO_Pin_12);
-    	Delay_ms(500);
-    	GPIO_ResetBits(GPIOB,	GPIO_Pin_12);
-    	Delay_ms(500);
-    }
+        while(1)
+        {
+                GPIO_SetBits(GPIOB,	GPIO_Pin_12);
+                Delay_ms(500);
+                GPIO_ResetBits(GPIOB,	GPIO_Pin_12);
+                Delay_ms(500);
+        }
 #else
-    ws2812b_Init();
+        ws2812b_Init();
 
-    while (1)
-    {
-        while (!ws2812b_IsReady()); // wait
-        // Заполнить RGB-буффер
-        ws2812b_SendRGB(leds, NUM_LEDS);
-    }
+        while (1)
+        {
+                while (!ws2812b_IsReady()); // wait
+                // Заполнить RGB-буффер
+                ws2812b_SendRGB(leds, NUM_LEDS);
+        }
 #endif
 }
