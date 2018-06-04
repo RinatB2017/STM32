@@ -18,6 +18,48 @@ void Delay_ms(uint32_t ms)
 	for (; nCount!=0; nCount--);
 }
 
+void prepare_red(void)
+{
+	int n = 0;
+    // Заполнить RGB-буффер
+    RGB_t led;
+    led.r = 0xFF;
+    led.g = 0;
+    led.b = 0;
+    for(n=0; n<NUM_LEDS; n++)
+    {
+    	leds[n] = led;
+    }
+}
+
+void prepare_green(void)
+{
+	int n = 0;
+    // Заполнить RGB-буффер
+    RGB_t led;
+    led.r = 0;
+    led.g = 0xFF;
+    led.b = 0;
+    for(n=0; n<NUM_LEDS; n++)
+    {
+    	leds[n] = led;
+    }
+}
+
+void prepare_blue(void)
+{
+	int n = 0;
+    // Заполнить RGB-буффер
+    RGB_t led;
+    led.r = 0;
+    led.g = 0;
+    led.b = 0xFF;
+    for(n=0; n<NUM_LEDS; n++)
+    {
+    	leds[n] = led;
+    }
+}
+
 int main(void)
 {
 #if 0
@@ -43,19 +85,29 @@ int main(void)
         while (1)
         {
                 while (!ws2812b_IsReady()); // wait
-
-                // Заполнить RGB-буффер
-                RGB_t led;
-                led.r = 0xFF;
-                led.g = 0;
-                led.b = 0;
-                for(n=0; n<NUM_LEDS; n++)
-                {
-                	leds[n] = led;
-                }
                 //---
-
+                switch(n)
+                {
+                case 0:
+                	prepare_red();
+                	break;
+                case 1:
+                	prepare_green();
+                	break;
+                case 2:
+                	prepare_blue();
+                	break;
+                default:
+                	break;
+                }
+                if(n<2)
+                	n++;
+                else
+                	n=0;
+                //---
                 ws2812b_SendRGB(leds, NUM_LEDS);
+
+                Delay_ms(500);
         }
 #endif
 }
