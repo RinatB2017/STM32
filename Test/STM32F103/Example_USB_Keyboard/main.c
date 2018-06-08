@@ -8,7 +8,8 @@ __IO uint8_t PrevXferComplete = 1;
 
 extern uint8_t key_buf[9];
 
-void MOUSE_move(int8_t x, int8_t y){
+void MOUSE_move(int8_t x, int8_t y)
+{
 	/*
 	 * buf[0]: 1 - report ID
 	 * buf[1]: bit2 - middle button, bit1 - right, bit0 - left
@@ -23,7 +24,8 @@ void MOUSE_move(int8_t x, int8_t y){
 	SetEPTxValid(ENDP1);
 }
 
-void KEYBOARD_SEND_key_buf(void) {
+void KEYBOARD_SEND_key_buf(void) 
+{
 	USB_SIL_Write(EP1_IN, key_buf, 9);
 	PrevXferComplete = 0;
 	SetEPTxValid(ENDP1);
@@ -31,14 +33,16 @@ void KEYBOARD_SEND_key_buf(void) {
 	{}
 }
 
-void KEYBOARD_SEND_Char(char ch) {
+void KEYBOARD_SEND_Char(char ch) 
+{
 	press_key(ch);
 	KEYBOARD_SEND_key_buf();
 	release_key();
 	KEYBOARD_SEND_key_buf();
 }
 
-void KEYBOARD_SEND_word(char *wrd){
+void KEYBOARD_SEND_word(char *wrd)
+{
 	do {
 		KEYBOARD_SEND_Char(*wrd);
 	} while(*(++wrd));
