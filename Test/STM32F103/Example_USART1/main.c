@@ -11,7 +11,8 @@ volatile char RXi;
 volatile char RXc;
 volatile char RX_BUF[RX_BUF_SIZE] = {'\0'};
 
-void clear_RXBuffer(void) {
+void clear_RXBuffer(void)
+{
 	for (RXi=0; RXi<RX_BUF_SIZE; RXi++)
 		RX_BUF[RXi] = '\0';
 	RXi = 0;
@@ -81,95 +82,98 @@ void usart_init(void)
 
 void USART1_IRQHandler(void)
 {
-    if ((USART1->SR & USART_FLAG_RXNE) != (u16)RESET)
+	if ((USART1->SR & USART_FLAG_RXNE) != (u16)RESET)
 	{
-    		RXc = USART_ReceiveData(USART1);
-    		RX_BUF[RXi] = RXc;
-    		RXi++;
+		RXc = USART_ReceiveData(USART1);
+		RX_BUF[RXi] = RXc;
+		RXi++;
 
-    		if (RXc != 13) {
-    			if (RXi > RX_BUF_SIZE-1) {
-    				clear_RXBuffer();
-    			}
-    		}
-    		else {
-    			RX_FLAG_END_LINE = 1;
-    		}
+		if (RXc != 13)
+		{
+			if (RXi > RX_BUF_SIZE-1)
+			{
+				clear_RXBuffer();
+			}
+		}
+		else
+		{
+			RX_FLAG_END_LINE = 1;
+		}
 
-			//Echo
-    		USART_SendData(USART1, RXc);
+		//Echo
+		USART_SendData(USART1, RXc);
 	}
 }
 
 void USARTSend(char *pucBuffer)
 {
-    while (*pucBuffer)
-    {
-        USART_SendData(USART1, *pucBuffer++);
-        while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
-        {
-        }
-    }
+	while (*pucBuffer)
+	{
+		USART_SendData(USART1, *pucBuffer++);
+		while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+		{
+		}
+	}
 }
 
 void SetSysClockTo72(void)
 {
 	ErrorStatus HSEStartUpStatus;
-    /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
-    /* RCC system reset(for debug purpose) */
-    RCC_DeInit();
+	/* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
+	/* RCC system reset(for debug purpose) */
+	RCC_DeInit();
 
-    /* Enable HSE */
-    RCC_HSEConfig( RCC_HSE_ON);
+	/* Enable HSE */
+	RCC_HSEConfig( RCC_HSE_ON);
 
-    /* Wait till HSE is ready */
-    HSEStartUpStatus = RCC_WaitForHSEStartUp();
+	/* Wait till HSE is ready */
+	HSEStartUpStatus = RCC_WaitForHSEStartUp();
 
-    if (HSEStartUpStatus == SUCCESS)
-    {
-        /* Enable Prefetch Buffer */
-    	//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
+	if (HSEStartUpStatus == SUCCESS)
+	{
+		/* Enable Prefetch Buffer */
+		//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
 
-        /* Flash 2 wait state */
-        //FLASH_SetLatency( FLASH_Latency_2);
+		/* Flash 2 wait state */
+		//FLASH_SetLatency( FLASH_Latency_2);
 
-        /* HCLK = SYSCLK */
-        RCC_HCLKConfig( RCC_SYSCLK_Div1);
+		/* HCLK = SYSCLK */
+		RCC_HCLKConfig( RCC_SYSCLK_Div1);
 
-        /* PCLK2 = HCLK */
-        RCC_PCLK2Config( RCC_HCLK_Div1);
+		/* PCLK2 = HCLK */
+		RCC_PCLK2Config( RCC_HCLK_Div1);
 
-        /* PCLK1 = HCLK/2 */
-        RCC_PCLK1Config( RCC_HCLK_Div2);
+		/* PCLK1 = HCLK/2 */
+		RCC_PCLK1Config( RCC_HCLK_Div2);
 
-        /* PLLCLK = 8MHz * 9 = 72 MHz */
-        RCC_PLLConfig(0x00010000, RCC_PLLMul_9);
+		/* PLLCLK = 8MHz * 9 = 72 MHz */
+		RCC_PLLConfig(0x00010000, RCC_PLLMul_9);
 
-        /* Enable PLL */
-        RCC_PLLCmd( ENABLE);
+		/* Enable PLL */
+		RCC_PLLCmd( ENABLE);
 
-        /* Wait till PLL is ready */
-        while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
-        {
-        }
+		/* Wait till PLL is ready */
+		while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+		{
+		}
 
-        /* Select PLL as system clock source */
-        RCC_SYSCLKConfig( RCC_SYSCLKSource_PLLCLK);
+		/* Select PLL as system clock source */
+		RCC_SYSCLKConfig( RCC_SYSCLKSource_PLLCLK);
 
-        /* Wait till PLL is used as system clock source */
-        while (RCC_GetSYSCLKSource() != 0x08)
-        {
-        }
-    }
-    else
-    { /* If HSE fails to start-up, the application will have wrong clock configuration.
+		/* Wait till PLL is used as system clock source */
+		while (RCC_GetSYSCLKSource() != 0x08)
+		{
+		}
+	}
+	else
+	{ /* If HSE fails to start-up, the application will have wrong clock configuration.
      User can add here some code to deal with this error */
 
-        /* Go to infinite loop */
-        while (1)
-        {
-        }
-    }
+		/* Go to infinite loop */
+		while (1)
+		{
+		}
+	}
 }
 
 int main(void)
@@ -189,32 +193,35 @@ int main(void)
 
 	GPIO_ResetBits(GPIOC, GPIO_Pin_13); // Set C13 to Low level ("0")
 
-    // Initialize USART
-    usart_init();
-    USARTSend(" Hello.\r\nUSART1 is ready.\r\n");
+	// Initialize USART
+	usart_init();
+	USARTSend(" Hello.\r\nUSART1 is ready.\r\n");
 
-    while (1)
-    {
-    	if (RX_FLAG_END_LINE == 1) {
-    		// Reset END_LINE Flag
-    		RX_FLAG_END_LINE = 0;
+	while (1)
+	{
+		if (RX_FLAG_END_LINE == 1)
+		{
+			// Reset END_LINE Flag
+			RX_FLAG_END_LINE = 0;
 
-    		USARTSend("\r\nI has received a line:\r\n");
-    		USARTSend(RX_BUF);
-    		USARTSend("\r\n");
+			USARTSend("\r\nI has received a line:\r\n");
+			USARTSend(RX_BUF);
+			USARTSend("\r\n");
 
-    		if (strncmp(strupr(RX_BUF), "ON\r", 3) == 0) {
-    			USARTSend("\r\nTHIS IS A COMMAND \"ON\"!!!\r\n");
-    			GPIO_ResetBits(GPIOC, GPIO_Pin_13);
-    		}
+			if (strncmp(strupr(RX_BUF), "ON\r", 3) == 0)
+			{
+				USARTSend("\r\nTHIS IS A COMMAND \"ON\"!!!\r\n");
+				GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+			}
 
-    		if (strncmp(strupr(RX_BUF), "OFF\r", 4) == 0) {
-    			USARTSend("\r\nTHIS IS A COMMAND \"OFF\"!!!\r\n");
-    			GPIO_SetBits(GPIOC, GPIO_Pin_13);
-    		}
+			if (strncmp(strupr(RX_BUF), "OFF\r", 4) == 0)
+			{
+				USARTSend("\r\nTHIS IS A COMMAND \"OFF\"!!!\r\n");
+				GPIO_SetBits(GPIOC, GPIO_Pin_13);
+			}
 
-    		clear_RXBuffer();
-    	}
-    }
+			clear_RXBuffer();
+		}
+	}
 }
 

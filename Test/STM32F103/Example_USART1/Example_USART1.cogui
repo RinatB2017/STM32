@@ -16,8 +16,6 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -26,17 +24,9 @@
 <input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.welcome.ui.WelcomePage/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/Example_USART1/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/Example_USART1/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="E:/STM32F103/Example_USART1/main.c" title="main.c" tooltip="E:/STM32F103/Example_USART1/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Example_USART1/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5839" selectionTopPixel="3037"/>
-</editor>
-<editor id="org.coocox.builder.ui.editors.ConfigEditor" name="" partName="Configuration" title="Configuration" tooltip="" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="2" verticalPosition="0"/>
-</input>
-</editor>
-<editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="445" subPageIndex="2" verticalPosition="0"/>
-</input>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5370" selectionTopPixel="3391"/>
 </editor>
 </editors>
 <views>
@@ -60,9 +50,6 @@
 <viewState/>
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
-</view>
-<view id="org.coocox.component.ui.Help" partName="Help">
 <viewState/>
 </view>
 </views>
@@ -98,7 +85,6 @@
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <view id="org.coocox.component.ui.ComponentView"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
-<view id="org.coocox.component.ui.Help"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars/>
 <layout>
@@ -127,15 +113,13 @@
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.2194976" ratioLeft="367" ratioRight="1305" relationship="2" relative="org.eclipse.ui.internal.ViewStack@189db56"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@18f930f" ratio="0.71954024" ratioLeft="939" ratioRight="366" relationship="2" relative="org.coocox.builder.ui.exampleView">
-<folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
-<page content="org.coocox.component.ui.Help" label="Help"/>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.44924405" ratioLeft="416" ratioRight="510" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
@@ -305,47 +289,51 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="c:\program files\gnu tools arm embedded\5.3 2016q1\arm-none-eabi\include\string.h">
-<persistable uri="file:/c:/program%20files/gnu%20tools%20arm%20embedded/5.3%202016q1/arm-none-eabi/include/string.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Example_PWM_LED.coproj" tooltip="C:\CooCox\CoIDE\workspace\Example_PWM_LED\Example_PWM_LED.coproj">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/Example_PWM_LED/Example_PWM_LED.coproj"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Example_ADC_DMA.coproj" tooltip="C:\CooCox\CoIDE\workspace\Example_ADC_DMA\Example_ADC_DMA.coproj">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/Example_ADC_DMA/Example_ADC_DMA.coproj"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rcc.c" tooltip="VarioAcoustic/stm_lib/src/stm32f10x_rcc.c">
-<persistable path="/VarioAcoustic/stm_lib/src/stm32f10x_rcc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="power.h" tooltip="VarioAcoustic/power.h">
-<persistable path="/VarioAcoustic/power.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_GPIO/main.c">
+<persistable path="/Example_GPIO/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart_dma.h" tooltip="VarioAcoustic/usart_dma.h">
-<persistable path="/VarioAcoustic/usart_dma.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="voice.h" tooltip="VarioAcoustic/voice.h">
-<persistable path="/VarioAcoustic/voice.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="picture.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\picture.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/picture.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="forms.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\forms.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/forms.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USART1/main.c">
+<persistable path="/Example_USART1/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="strings.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\strings.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/strings.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="strings_ru.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\strings_ru.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/strings_ru.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="HC-SR04.h" tooltip="STM32Test/HC-SR04.h">
+<persistable path="/STM32Test/HC-SR04.h"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="strings_ua.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\strings_ua.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/strings_ua.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PPM.h" tooltip="STM32Test/PPM.h">
+<persistable path="/STM32Test/PPM.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" tooltip="Example_Sonar/stm_lib/src/stm32f10x_gpio.c">
-<persistable path="/Example_Sonar/stm_lib/src/stm32f10x_gpio.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" tooltip="STM32Test/adc.h">
+<persistable path="/STM32Test/adc.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm3210b_eval.c" tooltip="Example_USB_Vcom/stm3210b_eval.c">
-<persistable path="/Example_USB_Vcom/stm3210b_eval.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="i2c_slave.h" tooltip="STM32Test/i2c_slave.h">
+<persistable path="/STM32Test/i2c_slave.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="Example_PWM_LED/stm_lib/inc/stm32f10x_gpio.h">
 <persistable path="/Example_PWM_LED/stm_lib/inc/stm32f10x_gpio.h"/>
