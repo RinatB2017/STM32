@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="6.3.1 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=Test_stm32f0-discovery.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Test_stm32f0-discovery -TC:\CooCox\CoIDE\configuration\ProgramData\Test_stm32f0-discovery/link.ld -g">
+      <target file="Test_stm32f0-discovery.elf" lastModified="15fc6752342">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="15fc6751e8f"/>
+         <source file="..\obj\main.o" lastModified="15fc6751eed"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="15fc6751efc"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="15fc6751f4b"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="15fc6751fa9"/>
+         <source file="..\obj\stm32f0xx_usart.o" lastModified="15fc6752015"/>
+         <source file="..\obj\stm32f0xx_tim.o" lastModified="15fc67520d1"/>
+         <source file="..\obj\stm32f0xx_misc.o" lastModified="15fc6752110"/>
+      </target>
+   </processor>
+</history>
