@@ -21,9 +21,9 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/Test/STM32F103/Example_USB_Keyboard/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/Test/STM32F103/Example_USB_Keyboard/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Example_USB_Keyboard/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2424" selectionTopPixel="2071"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="E:/STM32F103/Example_USB_Keyboard/src/main.c" title="main.c" tooltip="E:/STM32F103/Example_USB_Keyboard/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Example_USB_Keyboard/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2706" selectionTopPixel="2054"/>
 </editor>
 </editors>
 <views>
@@ -31,6 +31,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/Example_USB_Keyboard"/>
+<element path="/Example_USB_Keyboard/src"/>
 </expanded>
 <selection>
 <element path="/Example_USB_Keyboard"/>
@@ -40,14 +41,14 @@
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
 <viewState/>
 </view>
+<view id="org.coocox.codebugger.trace.ui.traceview" partName="Semihosting">
+<viewState/>
+</view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
 <view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
-</view>
-<view id="org.coocox.codebugger.trace.ui.traceview" partName="Semihosting">
-<viewState/>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
@@ -116,7 +117,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@9bcfd4" ratio="0.69978404" ratioLeft="648" ratioRight="278" relationship="4" relative="org.eclipse.ui.internal.ViewStack@2893ce">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@9bcfd4" ratio="0.76019776" ratioLeft="615" ratioRight="194" relationship="4" relative="org.eclipse.ui.internal.ViewStack@2893ce">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
@@ -246,7 +247,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/hw_config.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/platform_config.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/keycodes.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/keycodes.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/main.c"/>
@@ -268,152 +268,154 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/hw_config.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/STM32_USB-FS-Device_Lib/src/usb_init.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/STM32_USB-FS-Device_Lib/src/usb_desc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/STM32_USB-FS-Device_Lib/src/usb_desc.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_USB_Keyboard/src/main.c"/>
 </editors>
-<item historyLabel="platform_config.h" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="hw_config.c" index="0">
-<position info="not_deleted" x="11063" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="1504" y="0"/>
-</item>
-<item historyLabel="hw_config.c" index="0">
-<position info="not_deleted" x="1263" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="479" y="0"/>
-</item>
-<item historyLabel="platform_config.h" index="1">
-<position info="not_deleted" x="985" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="479" y="0"/>
 </item>
 <item historyLabel="hw_config.c" index="0">
 <position info="not_deleted" x="1263" y="0"/>
 </item>
-<item historyLabel="main.c" index="4">
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="3565" y="0"/>
 </item>
 <item historyLabel="hw_config.c" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="usb_desc.c" index="7">
+<item historyLabel="usb_desc.c" index="6">
 <position info="not_deleted" x="7027" y="0"/>
 </item>
-<item historyLabel="usb_endp.c" index="6">
+<item historyLabel="usb_endp.c" index="5">
 <position info="not_deleted" x="1622" y="16"/>
 </item>
-<item historyLabel="usb_desc.h" index="8">
+<item historyLabel="usb_desc.h" index="7">
 <position info="not_deleted" x="2681" y="0"/>
 </item>
-<item historyLabel="keycodes.c" index="2">
+<item historyLabel="keycodes.c" index="1">
 <position info="not_deleted" x="1559" y="0"/>
 </item>
-<item historyLabel="keycodes.h" index="3">
+<item historyLabel="keycodes.h" index="2">
 <position info="not_deleted" x="2" y="0"/>
 </item>
-<item historyLabel="hw_config.h" index="5">
+<item historyLabel="hw_config.h" index="4">
 <position info="not_deleted" x="2032" y="0"/>
 </item>
-<item historyLabel="main.c" index="4">
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="3565" y="0"/>
 </item>
 <item historyLabel="hw_config.c" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="hw_config.h" index="5">
+<item historyLabel="hw_config.h" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="1035" y="0"/>
 </item>
-<item historyLabel="usb_sil.c" index="10">
+<item historyLabel="usb_sil.c" index="9">
 <position info="not_deleted" x="3081" y="7"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="1035" y="0"/>
 </item>
-<item historyLabel="usb_sil.h" index="11">
+<item historyLabel="usb_sil.h" index="10">
 <position info="not_deleted" x="1707" y="89"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position/>
 </item>
-<item historyLabel="usb_desc.c" index="12">
+<item historyLabel="usb_desc.c" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="451" y="0"/>
 </item>
-<item historyLabel="hw_config.c" index="13">
+<item historyLabel="hw_config.c" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="451" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2579" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="477" y="32"/>
 </item>
+<item historyLabel="Configuration" index="13"/>
+<item historyLabel="main.c" index="8">
+<position info="not_deleted" x="2342" y="0"/>
+</item>
 <item historyLabel="Configuration" index="14"/>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2342" y="0"/>
 </item>
-<item historyLabel="Configuration" index="15"/>
-<item historyLabel="main.c" index="9">
-<position info="not_deleted" x="2342" y="0"/>
-</item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2444" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2264" y="0"/>
 </item>
-<item historyLabel="hw_config.c" index="16">
+<item historyLabel="hw_config.c" index="15">
 <position info="not_deleted" x="2439" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2264" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2476" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2341" y="0"/>
 </item>
-<item historyLabel="usb_init.c" index="17">
+<item historyLabel="usb_init.c" index="16">
 <position info="not_deleted" x="2935" y="8"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2341" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2445" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2254" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2477" y="0"/>
 </item>
-<item historyLabel="usb_desc.c" index="18">
+<item historyLabel="usb_desc.c" index="17">
 <position info="not_deleted" x="2941" y="0"/>
 </item>
-<item historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
+<position info="not_deleted" x="2424" y="0"/>
+</item>
+<item historyLabel="usb_desc.c" index="17">
+<position info="not_deleted" x="2798" y="0"/>
+</item>
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2424" y="0"/>
 </item>
 <item historyLabel="usb_desc.c" index="18">
-<position info="not_deleted" x="2798" y="0"/>
+<position info="not_deleted" x="2788" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="9">
+<item historyLabel="main.c" index="8">
 <position info="not_deleted" x="2424" y="0"/>
+</item>
+<item historyLabel="main.c" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="19">
+<position info="not_deleted" x="2483" y="0"/>
+</item>
+<item historyLabel="main.c" index="19">
+<position info="not_deleted" x="238" y="10"/>
+</item>
+<item active="true" historyLabel="main.c" index="19">
+<position info="not_deleted" x="2995" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -422,52 +424,54 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_GPIO/main.c">
+<persistable path="/Example_GPIO/main.c"/>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USART1/main.c">
+<persistable path="/Example_USART1/main.c"/>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="HC-SR04.h" tooltip="STM32Test/HC-SR04.h">
+<persistable path="/STM32Test/HC-SR04.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PPM.h" tooltip="STM32Test/PPM.h">
+<persistable path="/STM32Test/PPM.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Keyboard/src/main.c">
+<persistable path="/Example_USB_Keyboard/src/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usb_desc.c" tooltip="Example_USB_Keyboard/STM32_USB-FS-Device_Lib/src/usb_desc.c">
 <persistable path="/Example_USB_Keyboard/STM32_USB-FS-Device_Lib/src/usb_desc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
 <persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usbd_desc.c" tooltip="stm32_PPM_F103/Src/usbd_desc.c">
-<persistable path="/stm32_PPM_F103/Src/usbd_desc.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="stm32_PPM_F103/Src/main.c">
-<persistable path="/stm32_PPM_F103/Src/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="WS2812B/main.c">
-<persistable path="/WS2812B/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
-<persistable path="/STM32F103C8T6/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" tooltip="STM32F103C8T6/src/ws2812b.c">
-<persistable path="/STM32F103C8T6/src/ws2812b.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" tooltip="STM32F103C8T6/inc/ws2812b_conf.h">
-<persistable path="/STM32F103C8T6/inc/ws2812b_conf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.h" tooltip="STM32F103C8T6/inc/ws2812b.h">
-<persistable path="/STM32F103C8T6/inc/ws2812b.h"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="365"/>
-</persistable>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="365"/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/src/main.c">
-<persistable path="/Example_USB_Virtual_Com_Port/src/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
-<persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usbd_desc.c" tooltip="stm32_PPM_F103/Src/usbd_desc.c">
-<persistable path="/stm32_PPM_F103/Src/usbd_desc.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="stm32_PPM_F103/Src/main.c">
-<persistable path="/stm32_PPM_F103/Src/main.c"/>
 </file>
 </mruList>
 </workbench>

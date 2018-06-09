@@ -18,7 +18,8 @@ void MOUSE_move(int8_t x, int8_t y)
 	 * buf[4]: wheel
 	 */
 	uint8_t buf[5] = {1,0,0,0,0};
-	buf[2] = x; buf[3] = y;
+	buf[2] = x;
+	buf[3] = y;
 	USB_SIL_Write(EP1_IN, buf, 5);
 	PrevXferComplete = 0;
 	SetEPTxValid(ENDP1);
@@ -98,8 +99,9 @@ void SetSysClockTo72(void)
 		}
 	}
 	else
-	{ /* If HSE fails to start-up, the application will have wrong clock configuration.
-     User can add here some code to deal with this error */
+	{
+		/* If HSE fails to start-up, the application will have wrong clock configuration.
+     	 User can add here some code to deal with this error */
 
 		/* Go to infinite loop */
 		while (1)
@@ -116,14 +118,58 @@ int main(void)
 	Set_USBClock();
 	USB_Init();
 
+	int x = 0;
+	int y = 0;
+	int cnt  = 0;
+	int direction = 0;
 	while (1)
 	{
 		if (bDeviceState == CONFIGURED)
 		{
 			if (PrevXferComplete)
 			{
-				KEYBOARD_SEND_word("HELLO!!!");
-				MOUSE_move(1,-1);
+				if(cnt < 100)
+				{
+					cnt++;
+				}
+				else
+				{
+					cnt = 0;
+					switch(direction)
+					{
+					case 0:
+						//left
+						x = -1;
+						y = 0;
+						direction = 1;
+						break;
+					case 1:
+						//up
+						y = -1;
+						x = 0;
+						direction = 2;
+						break;
+					case 2:
+						//right
+						x = 1;
+						y = 0;
+						direction = 3;
+						break;
+					case 3:
+						//down
+						x = 0;
+						y = 1;
+						direction = 0;
+						break;
+
+					default:
+						direction = 0;
+						break;
+					}
+				}
+
+				//KEYBOARD_SEND_word("HELLO!!!");
+				MOUSE_move(x, y);
 				//RHIDCheckState();
 			}
 		}
