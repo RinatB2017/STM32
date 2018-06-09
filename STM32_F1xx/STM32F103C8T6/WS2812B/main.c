@@ -18,12 +18,15 @@ void Delay_ms(uint32_t ms)
 	for (; nCount!=0; nCount--);
 }
 
+//3.3V 12-255
+uint8_t color = 100;
+
 void prepare_red(void)
 {
 	int n = 0;
-	// Заполнить RGB-буффер
+
 	RGB_t led;
-	led.r = 0xFF;
+	led.r = color;
 	led.g = 0;
 	led.b = 0;
 	for(n=0; n<NUM_LEDS; n++)
@@ -35,10 +38,10 @@ void prepare_red(void)
 void prepare_green(void)
 {
 	int n = 0;
-	// Заполнить RGB-буффер
+
 	RGB_t led;
 	led.r = 0;
-	led.g = 0xFF;
+	led.g = color;
 	led.b = 0;
 	for(n=0; n<NUM_LEDS; n++)
 	{
@@ -49,11 +52,11 @@ void prepare_green(void)
 void prepare_blue(void)
 {
 	int n = 0;
-	// Заполнить RGB-буффер
+
 	RGB_t led;
 	led.r = 0;
 	led.g = 0;
-	led.b = 0xFF;
+	led.b = color;
 	for(n=0; n<NUM_LEDS; n++)
 	{
 		leds[n] = led;
@@ -89,6 +92,6 @@ int main(void)
 			n=0;
 		//---
 		ws2812b_SendRGB(leds, NUM_LEDS);
-		Delay_ms(100);
+		Delay_ms(333);
 	}
 }
