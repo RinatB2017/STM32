@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Project version="2G - 1.7.8" name="Example_USB_Virtual_Com_Port">
-  <Target name="Example_USB_Virtual_Com_Port" isCurrent="1">
+<Project version="2G - 1.7.8" name="USB_Virtual_Com_Port">
+  <Target name="USB_Virtual_Com_Port" isCurrent="1">
     <Device manufacturerId="9" manufacturerName="ST" chipId="305" chipName="STM32F103C8" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
@@ -34,12 +34,12 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../../../../../coocox/coide/configuration/programdata/example_usb_virtual_com_port/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../../../../../../coocox/coide/configuration/programdata/usb_virtual_com_port/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
         <Option name="Path" value="./"/>
-        <Option name="Name" value="Example_USB_Virtual_Com_Port"/>
+        <Option name="Name" value="USB_Virtual_Com_Port"/>
         <Option name="HEX" value="1"/>
         <Option name="BIN" value="1"/>
       </Output>
@@ -66,6 +66,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F10x_MD_64.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.coredebugInRamInitCommands" value="cd C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Virtual_Com_Port/Example_USB_Virtual_Com_Port/Debug/bin restore Example_USB_Virtual_Com_Port.elf set {unsigned int*}0xE000ED08 = 0x20000000 set $sp = {unsigned int*}0x20000000 set $pc = {unsigned int*}0x20000004 "/>
     </DebugOption>
     <ExcludeFile/>
   </Target>

@@ -3,6 +3,9 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_tim.h"
 
+#define LED_PORT	GPIOB
+#define LED_PIN		GPIO_Pin_12
+
 #define PERIOD 1000
 int main(void)
 {
@@ -25,9 +28,9 @@ int main(void)
 
 	GPIO_StructInit(&port);
 	port.GPIO_Mode = GPIO_Mode_AF_PP;
-	port.GPIO_Pin = GPIO_Pin_6;
+	port.GPIO_Pin = LED_PIN;
 	port.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_Init(GPIOB, &port);
+	GPIO_Init(LED_PORT, &port);
 
 	TIM_TimeBaseStructInit(&timer);
 	timer.TIM_Prescaler = 720;
@@ -43,23 +46,41 @@ int main(void)
 	timerPWM.TIM_OCPolarity = TIM_OCPolarity_High;
 	TIM_OC1Init(TIM4, &timerPWM);
 
-    TIM_Cmd(TIM4, ENABLE);
+	TIM_Cmd(TIM4, ENABLE);
 
-    while(1)
-    {
-    	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0) == 0) {
-    		if (TIM_Pulse < PERIOD)
-    			TIM_Pulse++;
-    		TIM4->CCR1 = TIM_Pulse;
+	uint_fast8_t flag = 1;
+	while(1)
+	{
+#if 0
+		if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0) == 0)
+		{
+			if (TIM_Pulse < PERIOD)
+				TIM_Pulse++;
+			TIM4->CCR1 = TIM_Pulse;
 
-    	}
-    	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0) {
-    		if (TIM_Pulse > 0)
-    			TIM_Pulse--;
-    		TIM4->CCR1 = TIM_Pulse;
-    	}
+		}
+		if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0)
+		{
+			if (TIM_Pulse > 0)
+				TIM_Pulse--;
+			TIM4->CCR1 = TIM_Pulse;
+		}
+#endif
 
-    	/* delay */
-    	for(i=0;i<0x10000;i++);
-    }
+#if 1
+		if(TIM_Pulse <= 0)
+		{
+			flag = 1;
+		}
+		if(TIM_Pulse >= PERIOD)
+		{
+			flag = -1;
+		}
+		TIM_Pulse += flag;
+		TIM4->CCR1 = TIM_Pulse;
+#endif
+
+		/* delay */
+		for(i=0;i<0x10000;i++);
+	}
 }

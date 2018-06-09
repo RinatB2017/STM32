@@ -87,6 +87,7 @@ int main(void)
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	/* Initialize LED which connected to PC12, Enable the Clock*/
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+	
 	/* Configure the GPIO_LED pin */
 	GPIO_InitStructure.GPIO_Pin = LED_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
