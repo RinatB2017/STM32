@@ -13,64 +13,65 @@ volatile uint16_t SonarValue;
 void SetSysClockTo72(void)
 {
 	ErrorStatus HSEStartUpStatus;
-    /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
-    /* RCC system reset(for debug purpose) */
-    RCC_DeInit();
+	/* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
+	/* RCC system reset(for debug purpose) */
+	RCC_DeInit();
 
-    /* Enable HSE */
-    RCC_HSEConfig( RCC_HSE_ON);
+	/* Enable HSE */
+	RCC_HSEConfig( RCC_HSE_ON);
 
-    /* Wait till HSE is ready */
-    HSEStartUpStatus = RCC_WaitForHSEStartUp();
+	/* Wait till HSE is ready */
+	HSEStartUpStatus = RCC_WaitForHSEStartUp();
 
-    if (HSEStartUpStatus == SUCCESS)
-    {
-        /* Enable Prefetch Buffer */
-    	//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
+	if (HSEStartUpStatus == SUCCESS)
+	{
+		/* Enable Prefetch Buffer */
+		//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
 
-        /* Flash 2 wait state */
-        //FLASH_SetLatency( FLASH_Latency_2);
+		/* Flash 2 wait state */
+		//FLASH_SetLatency( FLASH_Latency_2);
 
-        /* HCLK = SYSCLK */
-        RCC_HCLKConfig( RCC_SYSCLK_Div1);
+		/* HCLK = SYSCLK */
+		RCC_HCLKConfig( RCC_SYSCLK_Div1);
 
-        /* PCLK2 = HCLK */
-        RCC_PCLK2Config( RCC_HCLK_Div1);
+		/* PCLK2 = HCLK */
+		RCC_PCLK2Config( RCC_HCLK_Div1);
 
-        /* PCLK1 = HCLK/2 */
-        RCC_PCLK1Config( RCC_HCLK_Div2);
+		/* PCLK1 = HCLK/2 */
+		RCC_PCLK1Config( RCC_HCLK_Div2);
 
-        /* PLLCLK = 8MHz * 9 = 72 MHz */
-        RCC_PLLConfig(0x00010000, RCC_PLLMul_9);
+		/* PLLCLK = 8MHz * 9 = 72 MHz */
+		RCC_PLLConfig(0x00010000, RCC_PLLMul_9);
 
-        /* Enable PLL */
-        RCC_PLLCmd( ENABLE);
+		/* Enable PLL */
+		RCC_PLLCmd( ENABLE);
 
-        /* Wait till PLL is ready */
-        while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
-        {
-        }
+		/* Wait till PLL is ready */
+		while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+		{
+		}
 
-        /* Select PLL as system clock source */
-        RCC_SYSCLKConfig( RCC_SYSCLKSource_PLLCLK);
+		/* Select PLL as system clock source */
+		RCC_SYSCLKConfig( RCC_SYSCLKSource_PLLCLK);
 
-        /* Wait till PLL is used as system clock source */
-        while (RCC_GetSYSCLKSource() != 0x08)
-        {
-        }
-    }
-    else
-    { /* If HSE fails to start-up, the application will have wrong clock configuration.
+		/* Wait till PLL is used as system clock source */
+		while (RCC_GetSYSCLKSource() != 0x08)
+		{
+		}
+	}
+	else
+	{ /* If HSE fails to start-up, the application will have wrong clock configuration.
      User can add here some code to deal with this error */
 
-        /* Go to infinite loop */
-        while (1)
-        {
-        }
-    }
+		/* Go to infinite loop */
+		while (1)
+		{
+		}
+	}
 }
 
-void sonar_init() {
+void sonar_init()
+{
 	GPIO_InitTypeDef gpio_cfg;
 	GPIO_StructInit(&gpio_cfg);
 
@@ -151,7 +152,8 @@ void EXTI0_IRQHandler(void) {
 	}
 }
 
-void sonar_start() {
+void sonar_start()
+{
 	int i;
 
 	GPIO_SetBits(GPIOB, GPIO_Pin_15);
@@ -160,7 +162,8 @@ void sonar_start() {
 	GPIO_ResetBits(GPIOB, GPIO_Pin_15);
 }
 
-unsigned int sonar_get() {
+unsigned int sonar_get()
+{
 	unsigned long Sonar;
 	// 354000 - Sound speed (mm/sec)
 	// 72000000 - F_CPU
@@ -225,23 +228,23 @@ void usart_init(void)
 
 void USARTSend(char *pucBuffer)
 {
-    while (*pucBuffer)
-    {
-        USART_SendData(USART1, *pucBuffer++);
-        while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
-        {
-        }
-    }
+	while (*pucBuffer)
+	{
+		USART_SendData(USART1, *pucBuffer++);
+		while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+		{
+		}
+	}
 }
 
 void TIM4_IRQHandler(void)
 {
-        if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)
-        {
-        	sonar_start();
-			FLAG_ECHO = 1;
-        	TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
-        }
+	if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)
+	{
+		sonar_start();
+		FLAG_ECHO = 1;
+		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+	}
 }
 
 int main(void)
@@ -250,36 +253,37 @@ int main(void)
 
 	SetSysClockTo72();
 
-    // TIMER4 Двічи за секунду викликає sonar_start(); і встановлює FLAG_ECHO = 1;
-    TIM_TimeBaseInitTypeDef TIMER_InitStructure;
-    NVIC_InitTypeDef NVIC_InitStructure;
-  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
-  	TIM_TimeBaseStructInit(&TIMER_InitStructure);
-    TIMER_InitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    TIMER_InitStructure.TIM_Prescaler = 7200;
-    TIMER_InitStructure.TIM_Period = 5000;
-    TIM_TimeBaseInit(TIM4, &TIMER_InitStructure);
-    TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
-    TIM_Cmd(TIM4, ENABLE);
+	// TIMER4 Двічи за секунду викликає sonar_start(); і встановлює FLAG_ECHO = 1;
+	TIM_TimeBaseInitTypeDef TIMER_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+	TIM_TimeBaseStructInit(&TIMER_InitStructure);
+	TIMER_InitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIMER_InitStructure.TIM_Prescaler = 7200;
+	TIMER_InitStructure.TIM_Period = 5000;
+	TIM_TimeBaseInit(TIM4, &TIMER_InitStructure);
+	TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM4, ENABLE);
 
-    /* NVIC Configuration */
-    /* Enable the TIM4_IRQn Interrupt */
-    NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
+	/* NVIC Configuration */
+	/* Enable the TIM4_IRQn Interrupt */
+	NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 
 	usart_init();
 	sonar_init();
 
-    while(1)
-    {
-    	if (FLAG_ECHO == 1) {
-    		sprintf(buffer, "%d\r\n", sonar_get());
-    		USARTSend(buffer);
+	while(1)
+	{
+		if (FLAG_ECHO == 1)
+		{
+			sprintf(buffer, "%d\r\n", sonar_get());
+			USARTSend(buffer);
 
-    		FLAG_ECHO = 0;
-    	}
-    }
+			FLAG_ECHO = 0;
+		}
+	}
 }

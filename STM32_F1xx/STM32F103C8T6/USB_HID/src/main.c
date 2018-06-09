@@ -13,14 +13,19 @@ USB_OTG_CORE_HANDLE  USB_OTG_dev;
 
 //#########################################################################
 // Подпрограмма задержки
-void DelayQ(uint32_t nTime) {
+void DelayQ(uint32_t nTime)
+{
 	while ( --nTime)  {   }
 }
 //#########################################################################
 //Заполнение буфера параметров для последующей передачи в ПК
 void  GetBufPar()
 {
-	int  p1=380;  int  p2=241;  int  p3=24;  int  p4=50; int  p5=53500;
+	int  p1=380;
+	int  p2=241;
+	int  p3=24;
+	int  p4=50;
+	int  p5=53500;
 
 	Par[0]=4;     //ID
 	//Mode
@@ -349,14 +354,22 @@ int main(void)
 		Button_state();
 
 		// Индикация
-		if(ModeGr==0)   STM32F4_Discovery_LEDOff(LED6);
-		if(ModePar==0)  STM32F4_Discovery_LEDOff(LED3);
+		if(ModeGr==0)
+			STM32F4_Discovery_LEDOff(LED6);
+		if(ModePar==0)
+			STM32F4_Discovery_LEDOff(LED3);
 
 		if((ModeGr==0)&(ModePar==0))
 		{
-			if (OutBuffer[10]==1) STM32F4_Discovery_LEDOn(LED3);
-			if (OutBuffer[10]==2) STM32F4_Discovery_LEDOn(LED6);
-			if (OutBuffer[10]>2){ STM32F4_Discovery_LEDOff(LED6); STM32F4_Discovery_LEDOff(LED3);}
+			if (OutBuffer[10]==1)
+				STM32F4_Discovery_LEDOn(LED3);
+			if (OutBuffer[10]==2)
+				STM32F4_Discovery_LEDOn(LED6);
+			if (OutBuffer[10]>2)
+			{
+				STM32F4_Discovery_LEDOff(LED6);
+				STM32F4_Discovery_LEDOff(LED3);
+			}
 		}
 	}
 }
