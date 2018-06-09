@@ -3,7 +3,9 @@
 <workbenchAdvisor/>
 <window>
 <fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.debug.ui.ExpressionView"/>
 <orientation position="512" view="org.coocox.codebugger.trace.ui.traceview"/>
+<orientation position="512" view="org.eclipse.ui.console.ConsoleView"/>
 <orientation position="512" view="org.eclipse.debug.ui.VariableView"/>
 <orientation position="512" view="org.coocox.component.ui.Help"/>
 </fastViewData>
@@ -24,9 +26,9 @@
 <input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.welcome.ui.WelcomePage/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/Example_Nokia5110/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/Example_Nokia5110/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/Test/STM32F103/Example_Nokia5110/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/Test/STM32F103/Example_Nokia5110/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Example_Nokia5110/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="430" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="430" selectionTopPixel="60"/>
 </editor>
 </editors>
 <views>
@@ -241,8 +243,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_Nokia5110/n3310.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_Nokia5110/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_Nokia5110/n3310.h"/>
 <editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
 <org.coocox.builder.ui.editors.ConfigEditor/>
 </editor>
@@ -275,141 +275,142 @@
 <editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
 <subPage/>
 </editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Example_Nokia5110/n3310.c"/>
 </editors>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="262" y="0"/>
-</item>
-<item historyLabel="n3310.h" index="2">
-<position info="not_deleted" x="95" y="0"/>
-</item>
 <item historyLabel="n3310.c" index="0">
 <position info="not_deleted" x="22" y="0"/>
 </item>
-<item historyLabel="Configuration" index="3"/>
-<item historyLabel="Configuration" index="4"/>
-<item historyLabel="welcome" index="5"/>
-<item historyLabel="n3310.c" index="6">
+<item historyLabel="Configuration" index="1"/>
+<item historyLabel="Configuration" index="2"/>
+<item historyLabel="welcome" index="3"/>
+<item historyLabel="n3310.c" index="4">
 <position info="not_deleted" x="22" y="0"/>
 </item>
-<item historyLabel="main.c" index="7">
+<item historyLabel="main.c" index="5">
 <position info="not_deleted" x="262" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="8">
+<item historyLabel="n3310.h" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="picture.h" index="9">
+<item historyLabel="picture.h" index="7">
 <position info="not_deleted" x="40" y="0"/>
 </item>
-<item historyLabel="welcome" index="10"/>
-<item historyLabel="main.c" index="11">
+<item historyLabel="welcome" index="8"/>
+<item historyLabel="main.c" index="9">
 <position info="not_deleted" x="262" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="17862" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="408" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="396" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="129" y="5"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="1096" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="129" y="5"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="1096" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="934" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="1096" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="796" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="117" y="8"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="442" y="5"/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="339" y="0"/>
 </item>
-<item historyLabel="Repository" index="14"/>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="Repository" index="12"/>
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="571" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="12">
+<item historyLabel="n3310.h" index="10">
 <position info="not_deleted" x="919" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="571" y="0"/>
 </item>
-<item historyLabel="main.c" index="15">
+<item historyLabel="main.c" index="13">
 <position info="not_deleted" x="390" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
+<position info="not_deleted" x="463" y="0"/>
+</item>
+<item historyLabel="n3310.h" index="14">
+<position info="not_deleted" x="919" y="0"/>
+</item>
+<item historyLabel="n3310.c" index="11">
+<position info="not_deleted" x="463" y="0"/>
+</item>
+<item historyLabel="n3310.h" index="14">
+<position info="not_deleted" x="919" y="0"/>
+</item>
+<item historyLabel="Configuration" index="15"/>
+<item historyLabel="n3310.h" index="14">
+<position info="not_deleted" x="919" y="0"/>
+</item>
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="463" y="0"/>
 </item>
 <item historyLabel="n3310.h" index="16">
 <position info="not_deleted" x="919" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
-<position info="not_deleted" x="463" y="0"/>
-</item>
-<item historyLabel="n3310.h" index="16">
-<position info="not_deleted" x="919" y="0"/>
-</item>
-<item historyLabel="Configuration" index="17"/>
-<item historyLabel="n3310.h" index="16">
-<position info="not_deleted" x="919" y="0"/>
-</item>
-<item historyLabel="n3310.c" index="13">
-<position info="not_deleted" x="463" y="0"/>
-</item>
-<item historyLabel="n3310.h" index="18">
-<position info="not_deleted" x="919" y="0"/>
-</item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="19">
+<item historyLabel="main.c" index="17">
 <position info="not_deleted" x="430" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="18">
+<item historyLabel="n3310.h" index="16">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="550" y="0"/>
 </item>
-<item historyLabel="n3310.h" index="18">
+<item historyLabel="n3310.h" index="16">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="n3310.c" index="13">
+<item historyLabel="n3310.c" index="11">
 <position info="not_deleted" x="550" y="0"/>
 </item>
-<item historyLabel="main.c" index="19">
+<item historyLabel="main.c" index="17">
 <position info="not_deleted" x="430" y="0"/>
 </item>
-<item historyLabel="Repository" index="20"/>
-<item active="true" historyLabel="main.c" index="19">
+<item historyLabel="Repository" index="18"/>
+<item historyLabel="main.c" index="17">
+<position info="not_deleted" x="430" y="0"/>
+</item>
+<item historyLabel="n3310.c" index="19">
+<position info="not_deleted" x="10782" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="17">
 <position info="not_deleted" x="430" y="0"/>
 </item>
 </navigationHistory>
@@ -419,50 +420,56 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.c" tooltip="VarioAcoustic/n3310.c">
-<persistable path="/VarioAcoustic/n3310.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.c" tooltip="Example_Nokia5110/n3310.c">
+<persistable path="/Example_Nokia5110/n3310.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtc.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\rtc.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/rtc.h"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="forms.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\forms.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/forms.h"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="settings.h" tooltip="VarioAcoustic/settings.h">
-<persistable path="/VarioAcoustic/settings.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
+<persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_pwr.h" tooltip="VarioAcoustic/stm_lib/inc/stm32f10x_pwr.h">
-<persistable path="/VarioAcoustic/stm_lib/inc/stm32f10x_pwr.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usbd_desc.c" tooltip="stm32_PPM_F103/Src/usbd_desc.c">
+<persistable path="/stm32_PPM_F103/Src/usbd_desc.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="strings_ua.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\strings_ua.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/strings_ua.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="stm32_PPM_F103/Src/main.c">
+<persistable path="/stm32_PPM_F103/Src/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\n3310.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/n3310.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="WS2812B/main.c">
+<persistable path="/WS2812B/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="menu.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\menu.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/menu.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="STM32F103C8T6/main.c">
+<persistable path="/STM32F103C8T6/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\display.h">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/VarioAcoustic/display.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" tooltip="STM32F103C8T6/src/ws2812b.c">
+<persistable path="/STM32F103C8T6/src/ws2812b.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="power.h" tooltip="VarioAcoustic/power.h">
-<persistable path="/VarioAcoustic/power.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" tooltip="STM32F103C8T6/inc/ws2812b_conf.h">
+<persistable path="/STM32F103C8T6/inc/ws2812b_conf.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="soundmenu.h" tooltip="VarioAcoustic/soundmenu.h">
-<persistable path="/VarioAcoustic/soundmenu.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.h" tooltip="STM32F103C8T6/inc/ws2812b.h">
+<persistable path="/STM32F103C8T6/inc/ws2812b.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtc.h" tooltip="VarioAcoustic/rtc.h">
-<persistable path="/VarioAcoustic/rtc.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="365"/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart_dma.h" tooltip="VarioAcoustic/usart_dma.h">
-<persistable path="/VarioAcoustic/usart_dma.h"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="365"/>
+</persistable>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="forms.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\forms.h">
-<persistable path="C:\CooCox\CoIDE\workspace\VarioAcoustic\forms.h" project="VarioAcoustic"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/src/main.c">
+<persistable path="/Example_USB_Virtual_Com_Port/src/main.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="forms.h" tooltip="C:\CooCox\CoIDE\workspace\VarioAcoustic\forms.h">
-<persistable path="C:\CooCox\CoIDE\workspace\VarioAcoustic\forms.h" project="VarioAcoustic"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
+<persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
 </file>
 </mruList>
 </workbench>

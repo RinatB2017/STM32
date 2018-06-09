@@ -40,27 +40,27 @@ int main(void)
 	TIM_OC2Init(TIM4, &timerPWM);
 	TIM_OC3Init(TIM4, &timerPWM);
 
-    TIM_Cmd(TIM4, ENABLE);
+	TIM_Cmd(TIM4, ENABLE);
 
-    while(1)
-    {
-    	TIM_Pulse_R++;
-    	if (TIM_Pulse_R > PERIOD)
-    		TIM_Pulse_R = 0;
+	while(1)
+	{
+		TIM_Pulse_R++;
+		if (TIM_Pulse_R > PERIOD)
+			TIM_Pulse_R = 0;
 
-    	TIM_Pulse_G +=2;
-    	if (TIM_Pulse_G > PERIOD)
-    		TIM_Pulse_G = 0;
+		TIM_Pulse_G +=2;
+		if (TIM_Pulse_G > PERIOD)
+			TIM_Pulse_G = 0;
 
-    	TIM_Pulse_B +=4;
-    	if (TIM_Pulse_B > PERIOD)
-    		TIM_Pulse_B = 0;
+		TIM_Pulse_B +=4;
+		if (TIM_Pulse_B > PERIOD)
+			TIM_Pulse_B = 0;
 
-    	TIM4->CCR1 = TIM_Pulse_R;
-    	TIM4->CCR2 = TIM_Pulse_G;
-    	TIM4->CCR3 = TIM_Pulse_B;
+		TIM4->CCR1 = TIM_Pulse_R;
+		TIM4->CCR2 = TIM_Pulse_G;
+		TIM4->CCR3 = TIM_Pulse_B;
 
-    	/* delay */
-   	    for(i=0;i<0x1000;i++);
-    }
+		/* delay */
+		for(i=0;i<0x1000;i++);
+	}
 }

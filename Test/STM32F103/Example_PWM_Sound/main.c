@@ -33,55 +33,55 @@ typedef struct
 
 #define MUSICSIZE 48
 
-const SoundTypeDef Music[MUSICSIZE] ={
-	{C*2, t4},
-	{G, t4},
-	{A_, t8},
-	{F, t8},
-	{D_, t8},
-	{F, t8},
-	{G, t4},
-	{C, t2},
-	{C*2, t4},
-	{G, t4},
-	{A_, t8},
-	{F, t8},
-	{D_, t8},
-	{F, t8},
-	{G, t4},
-	{C*2, t4},
-	{0, t8},
-	{D_, t8},
-	{D_, t8},
-	{D_, t8},
-	{G, t8},
-	{A_, t4},
-	{D_*2, t8},
-	{C_*2, t8},
-	{C*2, t8},
-	{C*2, t8},
-	{C*2, t8},
-	{C*2, t8},
-	{A_, t8},
-	{F, t8},
-	{D_, t8},
-	{F, t8},
-	{G, t4},
-	{C*2, t2},
-	{C*2, t2},
-	{A_, t8},
-	{G_, t8},
-	{G, t8},
-	{G_, t8},
-	{A_, t2},
-	{A_, t4},
-	{C*2, t4},
-	{A_, t8},
-	{F, t8},
-	{D_, t8},
-	{F, t8},
-	{G, t4},
-	{C*2, t2}
+const SoundTypeDef Music[MUSICSIZE] = {
+		{C*2, t4},
+		{G, t4},
+		{A_, t8},
+		{F, t8},
+		{D_, t8},
+		{F, t8},
+		{G, t4},
+		{C, t2},
+		{C*2, t4},
+		{G, t4},
+		{A_, t8},
+		{F, t8},
+		{D_, t8},
+		{F, t8},
+		{G, t4},
+		{C*2, t4},
+		{0, t8},
+		{D_, t8},
+		{D_, t8},
+		{D_, t8},
+		{G, t8},
+		{A_, t4},
+		{D_*2, t8},
+		{C_*2, t8},
+		{C*2, t8},
+		{C*2, t8},
+		{C*2, t8},
+		{C*2, t8},
+		{A_, t8},
+		{F, t8},
+		{D_, t8},
+		{F, t8},
+		{G, t4},
+		{C*2, t2},
+		{C*2, t2},
+		{A_, t8},
+		{G_, t8},
+		{G, t8},
+		{G_, t8},
+		{A_, t2},
+		{A_, t4},
+		{C*2, t4},
+		{A_, t8},
+		{F, t8},
+		{D_, t8},
+		{F, t8},
+		{G, t4},
+		{C*2, t2}
 };
 
 int MusicStep = 0;
@@ -90,61 +90,61 @@ char PlayMusic = 0;
 void SetSysClockTo72(void)
 {
 	ErrorStatus HSEStartUpStatus;
-    /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
-    /* RCC system reset(for debug purpose) */
-    RCC_DeInit();
+	/* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -----------------------------*/
+	/* RCC system reset(for debug purpose) */
+	RCC_DeInit();
 
-    /* Enable HSE */
-    RCC_HSEConfig( RCC_HSE_ON);
+	/* Enable HSE */
+	RCC_HSEConfig( RCC_HSE_ON);
 
-    /* Wait till HSE is ready */
-    HSEStartUpStatus = RCC_WaitForHSEStartUp();
+	/* Wait till HSE is ready */
+	HSEStartUpStatus = RCC_WaitForHSEStartUp();
 
-    if (HSEStartUpStatus == SUCCESS)
-    {
-        /* Enable Prefetch Buffer */
-    	//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
+	if (HSEStartUpStatus == SUCCESS)
+	{
+		/* Enable Prefetch Buffer */
+		//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
 
-        /* Flash 2 wait state */
-        //FLASH_SetLatency( FLASH_Latency_2);
+		/* Flash 2 wait state */
+		//FLASH_SetLatency( FLASH_Latency_2);
 
-        /* HCLK = SYSCLK */
-        RCC_HCLKConfig( RCC_SYSCLK_Div1);
+		/* HCLK = SYSCLK */
+		RCC_HCLKConfig( RCC_SYSCLK_Div1);
 
-        /* PCLK2 = HCLK */
-        RCC_PCLK2Config( RCC_HCLK_Div1);
+		/* PCLK2 = HCLK */
+		RCC_PCLK2Config( RCC_HCLK_Div1);
 
-        /* PCLK1 = HCLK/2 */
-        RCC_PCLK1Config( RCC_HCLK_Div2);
+		/* PCLK1 = HCLK/2 */
+		RCC_PCLK1Config( RCC_HCLK_Div2);
 
-        /* PLLCLK = 8MHz * 9 = 72 MHz */
-        RCC_PLLConfig(0x00010000, RCC_PLLMul_9);
+		/* PLLCLK = 8MHz * 9 = 72 MHz */
+		RCC_PLLConfig(0x00010000, RCC_PLLMul_9);
 
-        /* Enable PLL */
-        RCC_PLLCmd( ENABLE);
+		/* Enable PLL */
+		RCC_PLLCmd( ENABLE);
 
-        /* Wait till PLL is ready */
-        while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
-        {
-        }
+		/* Wait till PLL is ready */
+		while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+		{
+		}
 
-        /* Select PLL as system clock source */
-        RCC_SYSCLKConfig( RCC_SYSCLKSource_PLLCLK);
+		/* Select PLL as system clock source */
+		RCC_SYSCLKConfig( RCC_SYSCLKSource_PLLCLK);
 
-        /* Wait till PLL is used as system clock source */
-        while (RCC_GetSYSCLKSource() != 0x08)
-        {
-        }
-    }
-    else
-    { /* If HSE fails to start-up, the application will have wrong clock configuration.
+		/* Wait till PLL is used as system clock source */
+		while (RCC_GetSYSCLKSource() != 0x08)
+		{
+		}
+	}
+	else
+	{ /* If HSE fails to start-up, the application will have wrong clock configuration.
      User can add here some code to deal with this error */
 
-        /* Go to infinite loop */
-        while (1)
-        {
-        }
-    }
+		/* Go to infinite loop */
+		while (1)
+		{
+		}
+	}
 }
 
 GPIO_InitTypeDef port;
@@ -154,7 +154,8 @@ TIM_OCInitTypeDef timerPWM;
 int sound_time;
 int sound_counter;
 
-void sound_init(void) {
+void sound_init(void)
+{
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 
@@ -178,21 +179,24 @@ void sound_init(void) {
 	timerPWM.TIM_OCPolarity = TIM_OCPolarity_High;
 	TIM_OC1Init(TIM4, &timerPWM);
 
-    /* Enable Interrupt by overflow */
-    TIM_ITConfig(TIM4, TIM_IT_CC4, ENABLE);
+	/* Enable Interrupt by overflow */
+	TIM_ITConfig(TIM4, TIM_IT_CC4, ENABLE);
 
 	//TIM_Cmd(TIM4, ENABLE);
 
-    /* Enable Interrupt of Timer TIM2 */
-    NVIC_EnableIRQ(TIM4_IRQn);
+	/* Enable Interrupt of Timer TIM2 */
+	NVIC_EnableIRQ(TIM4_IRQn);
 }
 
-void sound (int freq, int time_ms) {
-	if (freq > 0) {
+void sound (int freq, int time_ms)
+{
+	if (freq > 0)
+	{
 		TIM4->ARR = SYSCLK / timer.TIM_Prescaler / freq;
 		TIM4->CCR1 = TIM4->ARR / 2;
 	}
-	else {
+	else
+	{
 		TIM4->ARR = 1000;
 		TIM4->CCR1 = 0;
 	}
@@ -203,7 +207,8 @@ void sound (int freq, int time_ms) {
 	TIM_Cmd(TIM4, ENABLE);
 }
 
-void StartMusic(void) {
+void StartMusic(void)
+{
 	MusicStep = 0;
 	PlayMusic = 1;
 	sound(Music[MusicStep].freq, Music[MusicStep].time);
@@ -212,39 +217,46 @@ void StartMusic(void) {
 void TIM4_IRQHandler(void){
 
 	if (TIM_GetITStatus(TIM4, TIM_IT_CC4) != RESET)
-	  {
-	    /* Reset flag */
-	    TIM_ClearITPendingBit(TIM4, TIM_IT_CC4);
+	{
+		/* Reset flag */
+		TIM_ClearITPendingBit(TIM4, TIM_IT_CC4);
 
-	    sound_counter++;
-	    if (sound_counter > sound_time) {
-	    	if (PlayMusic == 0) {
-	    		TIM_Cmd(TIM4, DISABLE);
-	    	}
-	    	else {
-	    		if (MusicStep < MUSICSIZE-1) {
-	    			if (TIM4->CCR1 == 0){
-	    				MusicStep++;
-	    				sound(Music[MusicStep].freq, Music[MusicStep].time);
-	    			}
-	    			else{
-	    				sound(0, 30);
-	    			}
-	    		}
-	    		else {
-		    		PlayMusic = 0;
-		    		TIM_Cmd(TIM4, DISABLE);
-	    		}
-	    	}
-	    }
+		sound_counter++;
+		if (sound_counter > sound_time)
+		{
+			if (PlayMusic == 0)
+			{
+				TIM_Cmd(TIM4, DISABLE);
+			}
+			else
+			{
+				if (MusicStep < MUSICSIZE-1)
+				{
+					if (TIM4->CCR1 == 0)
+					{
+						MusicStep++;
+						sound(Music[MusicStep].freq, Music[MusicStep].time);
+					}
+					else
+					{
+						sound(0, 30);
+					}
+				}
+				else
+				{
+					PlayMusic = 0;
+					TIM_Cmd(TIM4, DISABLE);
+				}
+			}
+		}
 
-	    /* over-capture */
-	    if (TIM_GetFlagStatus(TIM4, TIM_FLAG_CC4OF) != RESET)
-	    {
-	      TIM_ClearFlag(TIM4, TIM_FLAG_CC4OF);
-	      // ...
-	    }
-	  }
+		/* over-capture */
+		if (TIM_GetFlagStatus(TIM4, TIM_FLAG_CC4OF) != RESET)
+		{
+			TIM_ClearFlag(TIM4, TIM_FLAG_CC4OF);
+			// ...
+		}
+	}
 }
 
 
@@ -257,8 +269,8 @@ int main(void)
 	StartMusic();
 
 	while(1)
-    {
+	{
 
-    }
+	}
 
 }

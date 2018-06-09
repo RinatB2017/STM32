@@ -4,7 +4,7 @@
 #include "stm32f10x_tim.h"
 
 #define LED_PORT	GPIOB
-#define LED_PIN		GPIO_Pin_12
+#define LED_PIN		GPIO_Pin_6
 
 #define PERIOD 1000
 int main(void)
@@ -18,7 +18,7 @@ int main(void)
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,  ENABLE);
 
 	GPIO_StructInit(&port);
 	port.GPIO_Mode = GPIO_Mode_IPU;
