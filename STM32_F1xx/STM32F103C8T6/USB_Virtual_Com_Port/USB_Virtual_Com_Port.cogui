@@ -271,11 +271,6 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
 <persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
 </file>
@@ -316,6 +311,9 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usbd_desc.c" tooltip="stm32_PPM_F103/Src/usbd_desc.c">
 <persistable path="/stm32_PPM_F103/Src/usbd_desc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
+<persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="stm32_PPM_F103/Src/main.c">
 <persistable path="/stm32_PPM_F103/Src/main.c"/>

@@ -56,6 +56,8 @@ const uint8_t RHID_DeviceDescriptor[RHID_SIZ_DEVICE_DESC] =
 			// в реальных устройствах надо покупать VID, чтобы устройства можно было различать и подсовывать нужные драйвера
 		    0x83, 0x04,                 //idVendor (0x0483)
 		    0x10, 0x57,                 //idProduct (0x5711)
+		    //0x38, 0x10,
+		    //0x84, 0x13,
 
 		    DEVICE_VER_L, DEVICE_VER_H,                 // bcdDevice rel. DEVICE_VER_H.DEVICE_VER_L  номер релиза устройства
 
