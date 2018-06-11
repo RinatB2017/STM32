@@ -4,7 +4,9 @@
 
 #include "ws2812b.h"
 
-#define NUM_LEDS    6
+//3.3V 12-255
+uint8_t color = 12;
+#define NUM_LEDS    30
 
 RGB_t leds[NUM_LEDS];
 
@@ -17,9 +19,6 @@ void Delay_ms(uint32_t ms)
 	nCount=(RCC_Clocks.HCLK_Frequency/10000)*ms;
 	for (; nCount!=0; nCount--);
 }
-
-//3.3V 12-255
-uint8_t color = 100;
 
 void prepare_red(void)
 {
