@@ -64,7 +64,7 @@ void prepare_blue(void)
 
 int main(void)
 {
-#if 0
+#if 1
 	char flag = 0;
 	while(1)
 	{

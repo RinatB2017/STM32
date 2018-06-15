@@ -43,7 +43,6 @@
 
 #define WS2812B_GPIO            GPIOB
 #define WS2812B_GPIO_PIN        GPIO_Pin_6
-//#define WS2812B_GPIO_PIN        GPIO_Pin_8
 
 #define WS2812B_TIM             TIM4
 #define WS2812B_TIM_OCINIT      TIM_OC1Init
