@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 1.7.8" name="WS2812B">
-  <Target name="STM32F103C8T6" isCurrent="1">
+  <Target name="WS2812B" isCurrent="1">
     <Device manufacturerId="9" manufacturerName="ST" chipId="305" chipName="STM32F103C8" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
@@ -81,9 +81,9 @@
     <File name="cmsis_boot/system_stm32f10x.c" path="cmsis_boot/system_stm32f10x.c" type="1"/>
     <File name="stm_lib/inc/misc.h" path="stm_lib/inc/misc.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
-    <File name="inc/bitmap.h" path="inc/bitmap.h" type="1"/>
     <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
     <File name="stm_lib/inc/stm32f10x_tim.h" path="stm_lib/inc/stm32f10x_tim.h" type="1"/>
+    <File name="inc/bitmap.h" path="inc/bitmap.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="inc/ws2812b_conf.h" path="inc/ws2812b_conf.h" type="1"/>
     <File name="src" path="" type="2"/>
