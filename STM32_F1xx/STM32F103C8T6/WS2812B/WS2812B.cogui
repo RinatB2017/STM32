@@ -17,8 +17,6 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
 </presentation>
 </folder>
 </info>
@@ -26,14 +24,6 @@
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="119" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" partName="ws2812b.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/src/ws2812b.c" title="ws2812b.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/src/ws2812b.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/src/ws2812b.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6805" selectionTopPixel="4420"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" partName="ws2812b_conf.h" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/inc/ws2812b_conf.h" title="ws2812b_conf.h" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/inc/ws2812b_conf.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/inc/ws2812b_conf.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1762" selectionTopPixel="700"/>
 </editor>
 </editors>
 <views>
@@ -162,19 +152,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/ws2812b.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/ws2812b.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1271" y="0"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9331" y="15"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9399" y="0"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="3981" y="12"/>
-</item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="886" y="0"/>
 </item>
@@ -310,8 +290,20 @@
 <item historyLabel="ws2812b_conf.h" index="7">
 <position info="not_deleted" x="1762" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="885" y="0"/>
+</item>
+<item historyLabel="ws2812b.c" index="8">
+<position info="not_deleted" x="6805" y="0"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="9">
+<position info="not_deleted" x="1762" y="0"/>
+</item>
+<item historyLabel="ws2812b.c" index="8">
+<position info="not_deleted" x="6805" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="119" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -320,12 +312,6 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" tooltip="WS2812B/inc/ws2812b_conf.h">
-<persistable path="/WS2812B/inc/ws2812b_conf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" tooltip="WS2812B/src/ws2812b.c">
-<persistable path="/WS2812B/src/ws2812b.c"/>
-</file>
 <file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
 <persistable>&#x0A;<subPage/>
 </persistable>
@@ -363,6 +349,12 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.c" tooltip="Example_Nokia5110/n3310.c">
 <persistable path="/Example_Nokia5110/n3310.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" tooltip="WS2812B/inc/ws2812b_conf.h">
+<persistable path="/WS2812B/inc/ws2812b_conf.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" tooltip="WS2812B/src/ws2812b.c">
+<persistable path="/WS2812B/src/ws2812b.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
 <persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
