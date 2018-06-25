@@ -8,7 +8,8 @@
 uint8_t color = 12;
 #define NUM_LEDS    30
 
-RGB_t leds[NUM_LEDS];
+RGB_t leds_1[NUM_LEDS];
+RGB_t leds_2[NUM_LEDS];
 
 void Delay_ms(uint32_t ms)
 {
@@ -20,7 +21,7 @@ void Delay_ms(uint32_t ms)
 	for (; nCount!=0; nCount--);
 }
 
-void prepare_red(void)
+void prepare_red_1(void)
 {
 	int n = 0;
 
@@ -30,11 +31,25 @@ void prepare_red(void)
 	led.b = 0;
 	for(n=0; n<NUM_LEDS; n++)
 	{
-		leds[n] = led;
+		leds_1[n] = led;
 	}
 }
 
-void prepare_green(void)
+void prepare_red_2(void)
+{
+	int n = 0;
+
+	RGB_t led;
+	led.r = color;
+	led.g = 0;
+	led.b = 0;
+	for(n=0; n<NUM_LEDS; n++)
+	{
+		leds_2[n] = led;
+	}
+}
+
+void prepare_green_1(void)
 {
 	int n = 0;
 
@@ -44,11 +59,25 @@ void prepare_green(void)
 	led.b = 0;
 	for(n=0; n<NUM_LEDS; n++)
 	{
-		leds[n] = led;
+		leds_1[n] = led;
 	}
 }
 
-void prepare_blue(void)
+void prepare_green_2(void)
+{
+	int n = 0;
+
+	RGB_t led;
+	led.r = 0;
+	led.g = color;
+	led.b = 0;
+	for(n=0; n<NUM_LEDS; n++)
+	{
+		leds_2[n] = led;
+	}
+}
+
+void prepare_blue_1(void)
 {
 	int n = 0;
 
@@ -58,62 +87,62 @@ void prepare_blue(void)
 	led.b = color;
 	for(n=0; n<NUM_LEDS; n++)
 	{
-		leds[n] = led;
+		leds_1[n] = led;
+	}
+}
+
+void prepare_blue_2(void)
+{
+	int n = 0;
+
+	RGB_t led;
+	led.r = 0;
+	led.g = 0;
+	led.b = color;
+	for(n=0; n<NUM_LEDS; n++)
+	{
+		leds_2[n] = led;
 	}
 }
 
 int main(void)
 {
-#if 1
-	char flag = 0;
-	while(1)
-	{
-		flag = !flag;
-		if(flag)
-		{
-			ws2812b_Init2(GPIOB, GPIO_Pin_6);
-			while (!ws2812b_IsReady()); // wait
-			prepare_red();
-			ws2812b_SendRGB(leds, NUM_LEDS);
-		}
-		else
-		{
-			ws2812b_Init2(GPIOB, GPIO_Pin_8);
-			while (!ws2812b_IsReady()); // wait
-			prepare_blue();
-			ws2812b_SendRGB(leds, NUM_LEDS);
-		}
-		Delay_ms(1000);
-	}
-#else
-	ws2812b_Init();
-	int n = 0;
+	ws2812b_Init_1();
+	ws2812b_Init_2();
+//	int n = 0;
+
+	while (!ws2812b_IsReady_1());
+	prepare_red_1();
+	ws2812b_SendRGB_1(leds_1, NUM_LEDS);
+
+	while (!ws2812b_IsReady_2());
+	prepare_blue_2();
+	ws2812b_SendRGB_1(leds_2, NUM_LEDS);
 
 	while (1)
 	{
-		while (!ws2812b_IsReady()); // wait
-		//---
-		switch(n)
-		{
-		case 0:
-			prepare_red();
-			break;
-		case 1:
-			prepare_green();
-			break;
-		case 2:
-			prepare_blue();
-			break;
-		default:
-			break;
-		}
-		if(n<2)
-			n++;
-		else
-			n=0;
-		//---
-		ws2812b_SendRGB(leds, NUM_LEDS);
-		Delay_ms(333);
+//		while (!ws2812b_IsReady_1()); // wait
+//		//---
+//		switch(n)
+//		{
+//		case 0:
+//			prepare_red_1();
+//			break;
+//		case 1:
+//			prepare_green_1();
+//			break;
+//		case 2:
+//			prepare_blue_1();
+//			break;
+//		default:
+//			break;
+//		}
+//		if(n<2)
+//			n++;
+//		else
+//			n=0;
+//		//---
+//		ws2812b_SendRGB_1(leds_1, NUM_LEDS);
+//		Delay_ms(333);
 	}
-#endif
 }

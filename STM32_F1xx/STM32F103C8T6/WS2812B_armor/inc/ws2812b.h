@@ -28,12 +28,16 @@
 #include <stm32f10x.h>
 #include "bitmap.h"
 
-void ws2812b_Init(void);
-void ws2812b_Init2(GPIO_TypeDef *port, uint16_t pin);
+void ws2812b_Init_1(void);
+void ws2812b_Init_2(void);
 
-int ws2812b_IsReady(void);
+int ws2812b_IsReady_1(void);
+int ws2812b_IsReady_2(void);
 
-void ws2812b_SendRGB(RGB_t *rgb, unsigned count);
-void ws2812b_SendHSV(HSV_t *hsv, unsigned count);
+void ws2812b_SendRGB_1(RGB_t *rgb, unsigned count);
+void ws2812b_SendRGB_2(RGB_t *rgb, unsigned count);
+
+void ws2812b_SendHSV_1(HSV_t *hsv, unsigned count);
+void ws2812b_SendHSV_2(HSV_t *hsv, unsigned count);
 
 #endif //__WS2812B_H

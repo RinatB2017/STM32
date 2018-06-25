@@ -39,24 +39,33 @@
 #define WS2812B_APB1_RCC        RCC_APB1Periph_TIM4
 #define WS2812B_APB2_RCC        RCC_APB2Periph_GPIOB
 
-#define WS2812B_AHB_RCC         RCC_AHBPeriph_DMA1
+#define WS2812B_AHB_RCC_1         RCC_AHBPeriph_DMA1
+#define WS2812B_AHB_RCC_2         RCC_AHBPeriph_DMA2
 
 #define WS2812B_GPIO            GPIOB
-#define WS2812B_GPIO_PIN        GPIO_Pin_6
+#define WS2812B_GPIO_PIN_1      GPIO_Pin_6
+#define WS2812B_GPIO_PIN_2      GPIO_Pin_7
 
 #define WS2812B_TIM             TIM4
 #define WS2812B_TIM_OCINIT      TIM_OC1Init
 #define WS2812B_TIM_OCPRELOAD   TIM_OC1PreloadConfig
-#define WS2812B_TIM_DMA_CC      TIM_DMA_CC1
-#define WS2812B_TIM_DMA_CCR     (WS2812B_TIM->CCR1)
+#define WS2812B_TIM_DMA_CC_1    TIM_DMA_CC1
+#define WS2812B_TIM_DMA_CC_2    TIM_DMA_CC2
+#define WS2812B_TIM_DMA_CCR_1   (WS2812B_TIM->CCR1)
+#define WS2812B_TIM_DMA_CCR_2   (WS2812B_TIM->CCR2)
 
 #define WS2812B_DMA             DMA1
-#define WS2812B_DMA_CHANNEL     DMA1_Channel1
-#define WS2812B_DMA_IRQ         DMA1_Channel1_IRQn
+#define WS2812B_DMA_CHANNEL_1   DMA1_Channel1
+#define WS2812B_DMA_IRQ_1       DMA1_Channel1_IRQn
+#define WS2812B_DMA_CHANNEL_2   DMA1_Channel2
+#define WS2812B_DMA_IRQ_2       DMA1_Channel2_IRQn
 
-#define WS2812B_DMA_HANDLER     DMA1_Channel1_IRQHandler
-#define WS2812B_DMA_IT_TC       DMA1_IT_TC1
-#define WS2812B_DMA_IT_HT       DMA1_IT_HT1
+#define WS2812B_DMA_HANDLER_1   DMA1_Channel1_IRQHandler
+#define WS2812B_DMA_HANDLER_2   DMA1_Channel2_IRQHandler
+#define WS2812B_DMA_IT_TC_1     DMA1_IT_TC1
+#define WS2812B_DMA_IT_TC_2     DMA1_IT_TC1
+#define WS2812B_DMA_IT_HT_1       DMA1_IT_HT2
+#define WS2812B_DMA_IT_HT_2       DMA1_IT_HT2
 
 #define WS2812B_IRQ_PRIO        0
 #define WS2812B_IRQ_SUBPRIO     0
