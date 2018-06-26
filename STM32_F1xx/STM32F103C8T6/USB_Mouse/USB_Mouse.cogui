@@ -17,13 +17,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Mouse/src/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Mouse/src/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Mouse/src/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Mouse/src/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/USB_Mouse/src/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2136" selectionTopPixel="1079"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2206" selectionTopPixel="2080"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="usb_desc.c" partName="usb_desc.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Mouse/STM32_USB-FS-Device_Lib/usb_desc.c" title="usb_desc.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/USB_Mouse/STM32_USB-FS-Device_Lib/usb_desc.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/USB_Mouse/STM32_USB-FS-Device_Lib/src/usb_desc.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2859" selectionTopPixel="870"/>
 </editor>
 </editors>
 <views>
@@ -41,10 +46,13 @@
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+</viewState>
 </view>
-<view id="org.coocox.component.ui.Help" partName="Help">
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
 </views>
@@ -80,8 +88,8 @@
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <view id="org.coocox.component.ui.ComponentView"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
-<view id="org.coocox.component.ui.Help"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -102,22 +110,22 @@
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1dc33b0" ratio="0.7" ratioLeft="644" ratioRight="276" relationship="4" relative="org.eclipse.ui.internal.ViewStack@19f8018">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.21966527" ratioLeft="420" ratioRight="1492" relationship="2" relative="org.eclipse.ui.internal.ViewStack@19f8018"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@c4041e" ratio="0.71983916" ratioLeft="1074" ratioRight="418" relationship="2" relative="org.coocox.builder.ui.exampleView">
-<folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
-<page content="org.coocox.component.ui.Help" label="Help"/>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.45" ratioLeft="414" ratioRight="506" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
@@ -137,9 +145,13 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/USB_Mouse/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/USB_Mouse/STM32_USB-FS-Device_Lib/src/usb_desc.c"/>
 </editors>
-<item active="true" historyLabel="main.c" index="0">
+<item historyLabel="main.c" index="0">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="usb_desc.c" index="1">
+<position info="not_deleted" x="2869" y="3"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -148,13 +160,11 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usb_desc.c" tooltip="USB_Mouse/STM32_USB-FS-Device_Lib/src/usb_desc.c">
+<persistable path="/USB_Mouse/STM32_USB-FS-Device_Lib/src/usb_desc.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="USB_Mouse/src/main.c">
 <persistable path="/USB_Mouse/src/main.c"/>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
-<persistable>
-<org.coocox.welcome.ui.WelcomePage/>
-</persistable>
 </file>
 <file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
 <persistable>&#x0A;<subPage/>
@@ -191,11 +201,12 @@
 <persistable>&#x0A;<subPage/>
 </persistable>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.c" tooltip="Example_Nokia5110/n3310.c">
-<persistable path="/Example_Nokia5110/n3310.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="USB_Mouse/src/main.c">
+<persistable path="/USB_Mouse/src/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
-<persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
 </file>
 </mruList>
 </workbench>
