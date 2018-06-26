@@ -5,8 +5,8 @@
 #include "ws2812b.h"
 
 //3.3V 12-255
-uint8_t color = 12;
-#define NUM_LEDS    30
+uint8_t color = 50;
+#define NUM_LEDS    6
 
 RGB_t leds_1[NUM_LEDS];
 RGB_t leds_2[NUM_LEDS];
@@ -107,42 +107,17 @@ void prepare_blue_2(void)
 
 int main(void)
 {
-	ws2812b_Init_1();
+//	ws2812b_Init_1();
 	ws2812b_Init_2();
-//	int n = 0;
-
-	while (!ws2812b_IsReady_1());
-	prepare_red_1();
-	ws2812b_SendRGB_1(leds_1, NUM_LEDS);
-
-	while (!ws2812b_IsReady_2());
-	prepare_blue_2();
-	ws2812b_SendRGB_1(leds_2, NUM_LEDS);
 
 	while (1)
 	{
-//		while (!ws2812b_IsReady_1()); // wait
-//		//---
-//		switch(n)
-//		{
-//		case 0:
-//			prepare_red_1();
-//			break;
-//		case 1:
-//			prepare_green_1();
-//			break;
-//		case 2:
-//			prepare_blue_1();
-//			break;
-//		default:
-//			break;
-//		}
-//		if(n<2)
-//			n++;
-//		else
-//			n=0;
-//		//---
+//		while (!ws2812b_IsReady_1());
+//		prepare_red_1();
 //		ws2812b_SendRGB_1(leds_1, NUM_LEDS);
-//		Delay_ms(333);
+
+		while (!ws2812b_IsReady_2());
+		prepare_blue_2();
+		ws2812b_SendRGB_2(leds_2, NUM_LEDS);
 	}
 }

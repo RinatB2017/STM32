@@ -453,7 +453,7 @@ inline int ws2812b_IsReady_1(void)
 //------------------------------------------------------------
 inline int ws2812b_IsReady_2(void)
 {
-    return !DMABusy_2;
+	return !DMABusy_2;
 }
 //------------------------------------------------------------
 void ws2812b_SendRGB_1(RGB_t *rgb, unsigned count)
