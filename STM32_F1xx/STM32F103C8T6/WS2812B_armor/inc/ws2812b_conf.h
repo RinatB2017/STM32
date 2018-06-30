@@ -57,8 +57,8 @@
 #define WS2812B_DMA             DMA1
 #define WS2812B_DMA_CHANNEL_1   DMA1_Channel1
 #define WS2812B_DMA_IRQ_1       DMA1_Channel1_IRQn
-#define WS2812B_DMA_CHANNEL_2   DMA1_Channel2
-#define WS2812B_DMA_IRQ_2       DMA1_Channel2_IRQn
+#define WS2812B_DMA_CHANNEL_2   DMA1_Channel4
+#define WS2812B_DMA_IRQ_2       DMA1_Channel4_IRQn
 
 #define WS2812B_DMA_HANDLER_1   DMA1_Channel1_IRQHandler
 #define WS2812B_DMA_HANDLER_2   DMA1_Channel2_IRQHandler
