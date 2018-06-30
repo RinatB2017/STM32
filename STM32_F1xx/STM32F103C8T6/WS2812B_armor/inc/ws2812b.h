@@ -30,6 +30,7 @@
 
 void ws2812b_Init_1(void);
 void ws2812b_Init_2(void);
+void ws2812b_Init_4(void);
 
 int ws2812b_IsReady_1(void);
 int ws2812b_IsReady_2(void);

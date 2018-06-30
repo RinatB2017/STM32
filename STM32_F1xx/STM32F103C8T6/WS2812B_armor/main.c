@@ -108,7 +108,8 @@ void prepare_blue_2(void)
 int main(void)
 {
 //	ws2812b_Init_1();
-	ws2812b_Init_2();
+	//ws2812b_Init_2();
+	ws2812b_Init_4();
 
 	while (1)
 	{
@@ -116,8 +117,12 @@ int main(void)
 //		prepare_red_1();
 //		ws2812b_SendRGB_1(leds_1, NUM_LEDS);
 
-		while (!ws2812b_IsReady_2());
-		prepare_blue_2();
-		ws2812b_SendRGB_2(leds_2, NUM_LEDS);
-	}
+//		while (!ws2812b_IsReady_2());
+//		prepare_blue_2();
+//		ws2812b_SendRGB_2(leds_2, NUM_LEDS);
+
+		while (!ws2812b_IsReady_1());
+		prepare_blue_1();
+		ws2812b_SendRGB_1(leds_2, NUM_LEDS);
+}
 }
