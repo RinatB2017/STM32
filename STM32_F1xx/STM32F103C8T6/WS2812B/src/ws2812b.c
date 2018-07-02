@@ -218,6 +218,21 @@ void WS2812B_DMA_HANDLER(void)
     }
 }
 
+void WS2812B_DMA_HANDLER_2(void)
+{
+    if (DMA_GetITStatus(WS2812B_DMA_IT_HT) != RESET)
+    {
+        DMA_ClearITPendingBit(WS2812B_DMA_IT_HT);
+        DMASendNext(DMABuffer, &DMABuffer[WS2812B_BUFFER_SIZE / 2]);
+    }
+
+    if (DMA_GetITStatus(WS2812B_DMA_IT_TC) != RESET)
+    {
+        DMA_ClearITPendingBit(WS2812B_DMA_IT_TC);
+        DMASendNext(&DMABuffer[WS2812B_BUFFER_SIZE / 2], &DMABuffer[WS2812B_BUFFER_SIZE]);
+    }
+}
+
 //------------------------------------------------------------
 // Interface
 //------------------------------------------------------------
@@ -300,6 +315,86 @@ void ws2812b_Init(void)
 
     // Enable DMA interrupt
     DMA_ITConfig(WS2812B_DMA_CHANNEL, DMA_IT_HT | DMA_IT_TC, ENABLE);
+}
+
+void ws2812b_Init_2(void)
+{
+    // Turn on peripheral clock
+    RCC_APB1PeriphClockCmd(WS2812B_APB1_RCC, ENABLE);
+    RCC_APB2PeriphClockCmd(WS2812B_APB2_RCC, ENABLE);
+
+    RCC_AHBPeriphClockCmd(WS2812B_AHB_RCC, ENABLE);
+
+    // Initialize GPIO pin
+    GPIO_InitTypeDef GPIO_InitStruct;
+
+    //GPIO_StructInit(&GPIO_InitStruct);
+
+    GPIO_InitStruct.GPIO_Pin = WS2812B_GPIO_PIN_2;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF_PP;
+
+    GPIO_Init(WS2812B_GPIO, &GPIO_InitStruct);
+
+    // Initialize timer clock
+    TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
+
+    //TIM_TimeBaseStructInit(&TIM_TimeBaseInitStruct);
+
+    TIM_TimeBaseInitStruct.TIM_Prescaler = (SystemCoreClock / WS2812B_FREQUENCY) - 1;
+    TIM_TimeBaseInitStruct.TIM_CounterMode = TIM_CounterMode_Up;
+    TIM_TimeBaseInitStruct.TIM_Period = WS2812B_PERIOD - 1;
+    TIM_TimeBaseInitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
+
+    TIM_TimeBaseInit(WS2812B_TIM, &TIM_TimeBaseInitStruct);
+
+    // Initialize timer PWM
+    TIM_OCInitTypeDef TIM_OCInitStruct;
+
+    //TIM_OCStructInit(&TIM_OCInitStruct);
+
+    TIM_OCInitStruct.TIM_OCMode = TIM_OCMode_PWM1;
+    TIM_OCInitStruct.TIM_OutputState = TIM_OutputState_Enable;
+    TIM_OCInitStruct.TIM_Pulse = 0;
+    TIM_OCInitStruct.TIM_OCPolarity = TIM_OCPolarity_High;
+
+    WS2812B_TIM_OCINIT(WS2812B_TIM, &TIM_OCInitStruct);
+    WS2812B_TIM_OCPRELOAD(WS2812B_TIM, TIM_OCPreload_Enable);
+
+    // Initialize DMA channel
+    DMA_InitTypeDef DMA_InitStruct;
+
+    //DMA_StructInit(&DMA_InitStruct);
+
+    DMA_InitStruct.DMA_PeripheralBaseAddr = (uint32_t) & WS2812B_TIM_DMA_CCR;
+    DMA_InitStruct.DMA_MemoryBaseAddr = (uint32_t) DMABuffer;
+    DMA_InitStruct.DMA_DIR = DMA_DIR_PeripheralDST;
+    DMA_InitStruct.DMA_BufferSize = sizeof(DMABuffer) / sizeof(uint16_t);
+    DMA_InitStruct.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+    DMA_InitStruct.DMA_MemoryInc = DMA_MemoryInc_Enable;
+    DMA_InitStruct.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
+    DMA_InitStruct.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
+    DMA_InitStruct.DMA_Mode = DMA_Mode_Circular;
+    DMA_InitStruct.DMA_Priority = DMA_Priority_High;
+    DMA_InitStruct.DMA_M2M = DMA_M2M_Disable;
+
+    DMA_Init(WS2812B_DMA_CHANNEL_2, &DMA_InitStruct);
+
+    // Turn on timer DMA requests
+    TIM_DMACmd(WS2812B_TIM, WS2812B_TIM_DMA_CC, ENABLE);
+
+    // Initialize DMA interrupt
+    NVIC_InitTypeDef NVIC_InitStruct;
+
+    NVIC_InitStruct.NVIC_IRQChannel = WS2812B_DMA_IRQ_2;
+    NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = WS2812B_IRQ_PRIO;
+    NVIC_InitStruct.NVIC_IRQChannelSubPriority = WS2812B_IRQ_SUBPRIO;
+    NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+
+    NVIC_Init(&NVIC_InitStruct);
+
+    // Enable DMA interrupt
+    DMA_ITConfig(WS2812B_DMA_CHANNEL_2, DMA_IT_HT | DMA_IT_TC, ENABLE);
 }
 
 inline int ws2812b_IsReady(void)

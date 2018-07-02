@@ -64,7 +64,8 @@ void prepare_blue(void)
 
 int main(void)
 {
-	ws2812b_Init();
+	//ws2812b_Init();
+	ws2812b_Init_2();
 	int n = 0;
 
 	while (1)

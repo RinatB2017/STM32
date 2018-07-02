@@ -17,13 +17,23 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="119" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/src/main.c" title="main.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="896" selectionTopPixel="990"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" partName="ws2812b.c" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/src/ws2812b.c" title="ws2812b.c" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/src/ws2812b.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/src/ws2812b.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="12434" selectionTopPixel="6937"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" partName="ws2812b_conf.h" path="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/inc/ws2812b_conf.h" title="ws2812b_conf.h" tooltip="C:/Users/User/Programming/GitHub/STM32/STM32_F1xx/STM32F103C8T6/WS2812B/inc/ws2812b_conf.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/WS2812B/inc/ws2812b_conf.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="1930" selectionTopPixel="789"/>
 </editor>
 </editors>
 <views>
@@ -31,24 +41,32 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/WS2812B"/>
+<element path="/WS2812B/src"/>
 </expanded>
 <selection>
-<element path="/WS2812B"/>
+<element path="/WS2812B/src/main.c"/>
 </selection>
 </viewState>
 </view>
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
 <viewState/>
 </view>
+<view id="org.coocox.codebugger.trace.ui.traceview" partName="Semihosting">
+<viewState/>
+</view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 <view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables"/>
 <view id="org.coocox.component.ui.Help" partName="Help">
 <viewState/>
 </view>
@@ -140,170 +158,272 @@
 </mainWindow>
 </layout>
 </perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.coocox.codebugger.configuration.ui.Perspective" id="org.coocox.codebugger.configuration.perspective" label="CoDebugger"/>
+<alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
+<alwaysOnActionSet id="org.coocox.welcome.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<hide_menu_item_id id="org.coocox.builder.ui.newFolder"/>
+<hide_menu_item_id id="org.coocox.welcome.ui.action.repository"/>
+<hide_menu_item_id id="org.eclipse.ui.file.save"/>
+<hide_menu_item_id id="org.eclipse.jdt.ui.refactoring.menu"/>
+<hide_menu_item_id id="org.eclipse.ui.file.saveAll"/>
+<hide_menu_item_id id="org.coocox.builder.ui.rebuild"/>
+<hide_menu_item_id id="org.coocox.builder.ui.openFile"/>
+<hide_menu_item_id id="org.eclipse.ui.file.saveAs"/>
+<hide_menu_item_id id="org.coocox.builder.rcp.projectMenu"/>
+<hide_menu_item_id id="org.coocox.builder.rcp.flashMenu"/>
+<hide_menu_item_id id="org.coocox.builder.ui.debug"/>
+<hide_menu_item_id id="org.coocox.builder.ui.showHelpViewAction"/>
+<hide_menu_item_id id="org.coocox.builder.ui.newFile"/>
+<hide_menu_item_id id="org.coocox.builder.ui.actions.ConfigurationAction"/>
+<hide_menu_item_id id="org.eclipse.jdt.ui.source.menu"/>
+<hide_menu_item_id id="org.coocox.builder.ui.build"/>
+<hide_menu_item_id id="org.coocox.welcome.ui.action.welcome"/>
+<hide_menu_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.actions.TargetManageAction"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.newProject"/>
+<hide_toolbar_item_id id="org.coocox.welcome.ui.action.repository"/>
+<hide_toolbar_item_id id="org.eclipse.ui.file.save"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.rebuild"/>
+<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideFlashEraseAction"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.debug"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.newFile"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.actions.ConfigurationAction"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
+<hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
+<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
+<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.coocox.codebugger.trace.ui.traceview"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.coocox.builder.ui.views.ProjectView"/>
+<fastViewBars/>
+<viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@faa5a9">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@faa5a9">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@fe0f99" ratio="0.7" ratioLeft="644" ratioRight="276" relationship="4" relative="org.eclipse.ui.internal.ViewStack@faa5a9">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@bcc433" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fe0f99">
+<folder activePageID="org.coocox.codebugger.trace.ui.traceview" appearance="2" expanded="2">
+<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@f4fcf5" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@faa5a9">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
+<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.29986054" ratioLeft="430" ratioRight="1004" relationship="2" relative="org.eclipse.ui.internal.ViewStack@faa5a9"/>
+</mainWindow>
+</layout>
+</perspective>
 </perspectives>
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/ws2812b.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/ws2812b.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/cmsis_boot/startup/startup_stm32f10x_md.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/ws2812b.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/src/ws2812b.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/inc/ws2812b_conf.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/cmsis_boot/stm32f10x.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/stm_lib/inc/misc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/WS2812B/stm_lib/inc/stm32f10x_dma.h"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="886" y="0"/>
-</item>
 <item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6801" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="2">
-<position info="not_deleted" x="1728" y="16"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6802" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1752" y="10"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6810" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1762" y="0"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6811" y="0"/>
+<position info="not_deleted" x="12198" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1207" y="0"/>
+<position info="not_deleted" x="1041" y="0"/>
 </item>
 <item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9331" y="15"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9386" y="0"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="5147" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="2040" y="19"/>
+<position info="not_deleted" x="12198" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1207" y="0"/>
+<position info="not_deleted" x="1041" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="4774" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12198" y="0"/>
 </item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1462" y="19"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="4859" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1497" y="18"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="4859" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1497" y="18"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6927" y="7"/>
+<item historyLabel="startup_stm32f10x_md.c" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1203" y="0"/>
+<position info="not_deleted" x="734" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9331" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1206" y="0"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9331" y="15"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9384" y="0"/>
-</item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="4897" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="5901" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="887" y="0"/>
+<position info="not_deleted" x="897" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6937" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="5901" y="0"/>
 </item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1690" y="12"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="5901" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1207" y="0"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2321" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9331" y="15"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="5959" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9395" y="0"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2270" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="9385" y="0"/>
+<item historyLabel="stm32f10x.h" index="5">
+<position info="not_deleted" x="10435" y="18"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="4518" y="7"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2325" y="0"/>
 </item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1728" y="16"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="11963" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="1">
-<position info="not_deleted" x="6811" y="0"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2224" y="0"/>
 </item>
-<item historyLabel="ws2812b_conf.h" index="3">
-<position info="not_deleted" x="1728" y="16"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12272" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1207" y="0"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2494" y="16"/>
 </item>
-<item historyLabel="ws2812b.c" index="4">
-<position info="not_deleted" x="6803" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12197" y="0"/>
 </item>
-<item historyLabel="ws2812b_conf.h" index="5">
-<position info="not_deleted" x="1728" y="16"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2233" y="17"/>
 </item>
-<item historyLabel="ws2812b.c" index="4">
-<position info="not_deleted" x="6803" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12177" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="888" y="0"/>
+<item historyLabel="misc.h" index="6">
+<position info="not_deleted" x="1601" y="15"/>
 </item>
-<item historyLabel="ws2812b.c" index="6">
-<position info="not_deleted" x="6805" y="0"/>
-</item>
-<item historyLabel="ws2812b_conf.h" index="7">
-<position info="not_deleted" x="1762" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12501" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="885" y="0"/>
+<position info="not_deleted" x="896" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="8">
-<position info="not_deleted" x="6805" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12501" y="0"/>
 </item>
-<item historyLabel="ws2812b_conf.h" index="9">
-<position info="not_deleted" x="1762" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="896" y="0"/>
 </item>
-<item historyLabel="ws2812b.c" index="8">
-<position info="not_deleted" x="6805" y="0"/>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12492" y="3"/>
 </item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="119" y="0"/>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2257" y="18"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12492" y="3"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2257" y="18"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12492" y="3"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2168" y="10"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12509" y="0"/>
+</item>
+<item historyLabel="stm32f10x_dma.h" index="7">
+<position info="not_deleted" x="8434" y="9"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12170" y="16"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2168" y="10"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="11962" y="0"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2077" y="0"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="11962" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="896" y="0"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="2178" y="0"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="11962" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="927" y="0"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="11962" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="896" y="0"/>
+</item>
+<item historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12197" y="0"/>
+</item>
+<item historyLabel="ws2812b_conf.h" index="4">
+<position info="not_deleted" x="1930" y="11"/>
+</item>
+<item active="true" historyLabel="ws2812b.c" index="2">
+<position info="not_deleted" x="12197" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -312,6 +432,33 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_dma.h" tooltip="WS2812B/stm_lib/inc/stm32f10x_dma.h">
+<persistable path="/WS2812B/stm_lib/inc/stm32f10x_dma.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="misc.h" tooltip="WS2812B/stm_lib/inc/misc.h">
+<persistable path="/WS2812B/stm_lib/inc/misc.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x.h" tooltip="WS2812B/cmsis_boot/stm32f10x.h">
+<persistable path="/WS2812B/cmsis_boot/stm32f10x.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f10x_md.c" tooltip="WS2812B/cmsis_boot/startup/startup_stm32f10x_md.c">
+<persistable path="/WS2812B/cmsis_boot/startup/startup_stm32f10x_md.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.h" tooltip="WS2812B/inc/ws2812b.h">
+<persistable path="/WS2812B/inc/ws2812b.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" tooltip="WS2812B/inc/ws2812b_conf.h">
+<persistable path="/WS2812B/inc/ws2812b_conf.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" tooltip="WS2812B/src/ws2812b.c">
+<persistable path="/WS2812B/src/ws2812b.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="WS2812B/src/main.c">
+<persistable path="/WS2812B/src/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="USB_Mouse/src/main.c">
+<persistable path="/USB_Mouse/src/main.c"/>
+</file>
 <file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
 <persistable>&#x0A;<subPage/>
 </persistable>
@@ -327,37 +474,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="WS2812B_armor/stm_lib/inc/stm32f10x_gpio.h">
 <persistable path="/WS2812B_armor/stm_lib/inc/stm32f10x_gpio.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x.h" tooltip="WS2812B_armor/cmsis_boot/stm32f10x.h">
-<persistable path="/WS2812B_armor/cmsis_boot/stm32f10x.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.h" tooltip="WS2812B_armor/inc/ws2812b.h">
-<persistable path="/WS2812B_armor/inc/ws2812b.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" tooltip="WS2812B_armor/stm_lib/src/stm32f10x_gpio.c">
-<persistable path="/WS2812B_armor/stm_lib/src/stm32f10x_gpio.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="WS2812B/main.c">
-<persistable path="/WS2812B/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.c" tooltip="Example_Nokia5110/n3310.c">
-<persistable path="/Example_Nokia5110/n3310.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="n3310.c" tooltip="Example_Nokia5110/n3310.c">
-<persistable path="/Example_Nokia5110/n3310.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b_conf.h" tooltip="WS2812B/inc/ws2812b_conf.h">
-<persistable path="/WS2812B/inc/ws2812b_conf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ws2812b.c" tooltip="WS2812B/src/ws2812b.c">
-<persistable path="/WS2812B/src/ws2812b.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Example_USB_Virtual_Com_Port/main.c">
-<persistable path="/Example_USB_Virtual_Com_Port/main.c"/>
 </file>
 </mruList>
 </workbench>

@@ -27,6 +27,7 @@
 #include "bitmap.h"
 
 void ws2812b_Init(void);
+void ws2812b_Init_2(void);
 
 int ws2812b_IsReady(void);
 

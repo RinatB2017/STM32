@@ -40,7 +40,7 @@
 #define WS2812B_APB2_RCC        RCC_APB2Periph_GPIOB
 
 #define WS2812B_AHB_RCC_1       RCC_AHBPeriph_DMA1
-#define WS2812B_AHB_RCC_2       RCC_AHBPeriph_DMA1
+#define WS2812B_AHB_RCC_2       RCC_AHBPeriph_DMA2
 
 #define WS2812B_GPIO            GPIOB
 #define WS2812B_GPIO_PIN_1      GPIO_Pin_6

@@ -502,7 +502,7 @@ void ws2812b_Init_4(void)
     DMA_Init(DMA1_Channel4, &DMA_InitStruct);
 
     // Turn on timer DMA requests
-    TIM_DMACmd(WS2812B_TIM, WS2812B_TIM_DMA_CC_1, ENABLE);
+    TIM_DMACmd(WS2812B_TIM, TIM_DMA_CC4, ENABLE);
 
     // Initialize DMA interrupt
     NVIC_InitTypeDef NVIC_InitStruct;
@@ -515,7 +515,7 @@ void ws2812b_Init_4(void)
     NVIC_Init(&NVIC_InitStruct);
 
     // Enable DMA interrupt
-    DMA_ITConfig(WS2812B_DMA_CHANNEL_1, DMA_IT_HT | DMA_IT_TC, ENABLE);
+    DMA_ITConfig(DMA1_Channel4, DMA_IT_HT | DMA_IT_TC, ENABLE);
 }
 //------------------------------------------------------------
 inline int ws2812b_IsReady_1(void)
