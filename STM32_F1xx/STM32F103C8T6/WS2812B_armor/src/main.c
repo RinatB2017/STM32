@@ -161,6 +161,7 @@ void Delay_ms(uint32_t ms)
 	for (; nCount!=0; nCount--);
 }
 //------------------------------------------------------------
+HSV_t hsv_buffer[DEBUG_SIZE];
 int main(void)
 {
 	ws2812b_Init();
@@ -173,7 +174,27 @@ int main(void)
 
 	//clear_leds();
 	while (!ws2812b_IsReady()); // wait
-	ws2812b_SendRGB(led_buffer, DEBUG_SIZE);
+        
+        //------------------------------------------
+#if 1
+        //TODO test
+        HSV_t led;
+        led.h = 0;      // тон          0..360
+        led.s = 100;    // насыщенность 0..100
+        led.v = 100     // яркость      0..100
+        
+        for(int n=0; n<DEBUG_SIZE; n++;
+        {
+            hsv_buffer[n] = led;
+        }
+        ws2812b_SendHSV(hsv_buffer, DEBUG_SIZE);
+        while(1)
+        {
+        }
+#endif
+        //------------------------------------------
+	
+        ws2812b_SendRGB(led_buffer, DEBUG_SIZE);
 
 	led_index = 0;
 	while (1)
