@@ -15,9 +15,34 @@
 //------------------------------------------------------------
 #define RX_BUF_SIZE 80
 volatile char RX_FLAG_END_LINE = 0;
-volatile char RXi;
-volatile char RXc;
+volatile char RXi;  // индекс принятых данных (количество)
+volatile char RXc;  // текущий принятый символ
 volatile char RX_BUF[RX_BUF_SIZE] = {'\0'};
+//------------------------------------------------------------
+#pragma pack (push, 1)
+
+typedef struct HEADER
+{
+  uint8_t   addr;   // адрес модуля
+  uint8_t   cmd;    // команда
+  uint16_t  len;    // длина данных
+  uint8_t   data[]; // данные
+} header_t;
+
+#pragma pack(pop)
+//------------------------------------------------------------
+uint16_t crc16(uint8_t *pcBlock, uint8_t len)
+{
+  uint16_t a, crc = 0xFFFF;
+  while (len--)
+  {
+    a = *pcBlock++ << 8;
+    crc ^= a;
+    for (int i = 0; i < 8; i++)
+      crc = crc & 0x8000 ? (crc << 1) ^ 0x1021 : crc << 1;
+  }
+  return crc;
+}
 //------------------------------------------------------------
 void clear_RXBuffer(void)
 {
@@ -59,7 +84,7 @@ void usart_init(void)
 
 	/* USART1 configuration ------------------------------------------------------*/
 	/* USART1 configured as follow:
-		- BaudRate = 115200 baud
+		- BaudRate = 57600 baud
 		- Word Length = 8 Bits
 		- One Stop Bit
 		- No parity
@@ -71,7 +96,7 @@ void usart_init(void)
 		- USART LastBit: The clock pulse of the last data bit is not output to
 			the SCLK pin
 	 */
-	USART_InitStructure.USART_BaudRate = 115200;
+	USART_InitStructure.USART_BaudRate = 57600;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
 	USART_InitStructure.USART_Parity = USART_Parity_No;
@@ -83,8 +108,10 @@ void usart_init(void)
 	/* Enable USART1 */
 	USART_Cmd(USART1, ENABLE);
 
-	/* Enable the USART1 Receive interrupt: this interrupt is generated when the
-		USART1 receive data register is not empty */
+	/* 
+         * Enable the USART1 Receive interrupt: this interrupt is generated when the
+         * USART1 receive data register is not empty 
+         */
 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
 }
 //------------------------------------------------------------
