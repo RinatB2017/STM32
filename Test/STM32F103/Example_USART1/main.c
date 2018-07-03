@@ -166,8 +166,9 @@ void SetSysClockTo72(void)
 		}
 	}
 	else
-	{ /* If HSE fails to start-up, the application will have wrong clock configuration.
-     User can add here some code to deal with this error */
+	{ 
+		/* If HSE fails to start-up, the application will have wrong clock configuration.
+		 ^ User can add here some code to deal with this error */
 
 		/* Go to infinite loop */
 		while (1)
@@ -178,20 +179,19 @@ void SetSysClockTo72(void)
 
 int main(void)
 {
-	// Set System clock
-	SetSysClockTo72();
-
 	/* Initialize LED which connected to PC13 */
 	GPIO_InitTypeDef  GPIO_InitStructure;
-	// Enable PORTC Clock
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+
+	// Enable PORTB Clock
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+
 	/* Configure the GPIO_LED pin */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
-	GPIO_ResetBits(GPIOC, GPIO_Pin_13); // Set C13 to Low level ("0")
+	GPIO_ResetBits(GPIOB, GPIO_Pin_12); // Set C13 to Low level ("0")
 
 	// Initialize USART
 	usart_init();
@@ -211,13 +211,13 @@ int main(void)
 			if (strncmp(strupr(RX_BUF), "ON\r", 3) == 0)
 			{
 				USARTSend("\r\nTHIS IS A COMMAND \"ON\"!!!\r\n");
-				GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+				GPIO_ResetBits(GPIOB, GPIO_Pin_12);
 			}
 
 			if (strncmp(strupr(RX_BUF), "OFF\r", 4) == 0)
 			{
 				USARTSend("\r\nTHIS IS A COMMAND \"OFF\"!!!\r\n");
-				GPIO_SetBits(GPIOC, GPIO_Pin_13);
+				GPIO_SetBits(GPIOB, GPIO_Pin_12);
 			}
 
 			clear_RXBuffer();
