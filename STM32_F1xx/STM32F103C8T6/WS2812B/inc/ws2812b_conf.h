@@ -54,13 +54,6 @@
 #define WS2812B_DMA_CHANNEL     DMA1_Channel1
 #define WS2812B_DMA_IRQ         DMA1_Channel1_IRQn
 
-//---
-#define WS2812B_GPIO_PIN_2      GPIO_Pin_7
-#define WS2812B_DMA_CHANNEL_2   DMA1_Channel4
-#define WS2812B_DMA_IRQ_2       DMA1_Channel4_IRQn
-#define WS2812B_DMA_HANDLER_2   DMA1_Channel4_IRQHandler
-//---
-
 #define WS2812B_DMA_HANDLER     DMA1_Channel1_IRQHandler
 #define WS2812B_DMA_IT_TC       DMA1_IT_TC1
 #define WS2812B_DMA_IT_HT       DMA1_IT_HT1
