@@ -30,10 +30,10 @@ void SetSysClockTo72(void)
 	if (HSEStartUpStatus == SUCCESS)
 	{
 		/* Enable Prefetch Buffer */
-		//FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
+		// FLASH_PrefetchBufferCmd( FLASH_PrefetchBuffer_Enable);
 
 		/* Flash 2 wait state */
-		//FLASH_SetLatency( FLASH_Latency_2);
+		// FLASH_SetLatency( FLASH_Latency_2);
 
 		/* HCLK = SYSCLK */
 		RCC_HCLKConfig( RCC_SYSCLK_Div1);
