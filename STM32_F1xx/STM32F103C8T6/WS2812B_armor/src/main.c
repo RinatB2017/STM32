@@ -60,8 +60,16 @@ typedef struct HEADER
 
 typedef struct MODE
 {
-	uint8_t  gBrightness;
-	uint16_t delay_ms;
+	uint16_t  min_brightness;
+	uint16_t  max_brightness;
+	uint16_t  step_brightness;
+	uint8_t   gBrightness;
+
+	uint16_t  min_delay_ms;
+	uint16_t  max_delay_ms;
+	uint16_t  step_delay_ms;
+
+	uint16_t  delay_ms;
 } mode_t;
 
 union DATA
@@ -313,7 +321,7 @@ bool analize_packet(void)
 
 	int index_modbus_buf = 0;
 	int n = 0;
-	for (n = 0; n < RXi; n += 2)
+	for (n = 1; n < (RXi-1); n += 2) // первый и последний символы служебные
 	{
 		modbus_buf[index_modbus_buf] = convert_ascii_to_value(RX_BUF[n], RX_BUF[n + 1]);
 		index_modbus_buf++;
@@ -606,6 +614,57 @@ void test_hsv(void)
 	}
 }
 //------------------------------------------------------------
+void test_mode(void)
+{
+	//TODO тестирование
+	data_t.memory_t.modes[MODE_01].min_brightness = 1;
+	data_t.memory_t.modes[MODE_01].max_brightness = 120;
+	data_t.memory_t.modes[MODE_01].step_brightness = 30;
+	data_t.memory_t.modes[MODE_01].min_delay_ms = 1;
+	data_t.memory_t.modes[MODE_01].max_delay_ms = 3000;
+	data_t.memory_t.modes[MODE_01].step_delay_ms = 50;
+	data_t.memory_t.modes[MODE_01].gBrightness = data_t.memory_t.modes[MODE_01].min_brightness;
+	data_t.memory_t.modes[MODE_01].delay_ms    = 500;
+
+	data_t.memory_t.modes[MODE_02].min_brightness = 1;
+	data_t.memory_t.modes[MODE_02].max_brightness = 120;
+	data_t.memory_t.modes[MODE_02].step_brightness = 30;
+	data_t.memory_t.modes[MODE_02].min_delay_ms = 1;
+	data_t.memory_t.modes[MODE_02].max_delay_ms = 3000;
+	data_t.memory_t.modes[MODE_02].step_delay_ms = 50;
+	data_t.memory_t.modes[MODE_02].gBrightness = data_t.memory_t.modes[MODE_02].min_brightness;
+	data_t.memory_t.modes[MODE_02].delay_ms    = 250;
+
+	data_t.memory_t.modes[MODE_03].min_brightness = 0;
+	data_t.memory_t.modes[MODE_03].max_brightness = 120;
+	data_t.memory_t.modes[MODE_03].step_brightness = 30;
+	data_t.memory_t.modes[MODE_03].min_delay_ms = 1;
+	data_t.memory_t.modes[MODE_03].max_delay_ms = 3000;
+	data_t.memory_t.modes[MODE_03].step_delay_ms = 50;
+	data_t.memory_t.modes[MODE_03].gBrightness = data_t.memory_t.modes[MODE_03].min_brightness;
+	data_t.memory_t.modes[MODE_03].delay_ms    = 500;
+
+	data_t.memory_t.modes[MODE_04].min_brightness = 0;
+	data_t.memory_t.modes[MODE_04].max_brightness = 120;
+	data_t.memory_t.modes[MODE_04].step_brightness = 30;
+	data_t.memory_t.modes[MODE_04].min_delay_ms = 1;
+	data_t.memory_t.modes[MODE_04].max_delay_ms = 3000;
+	data_t.memory_t.modes[MODE_04].step_delay_ms = 50;
+	data_t.memory_t.modes[MODE_04].gBrightness = data_t.memory_t.modes[MODE_04].min_brightness;
+	data_t.memory_t.modes[MODE_04].delay_ms    = 10;
+
+	data_t.memory_t.modes[MODE_05].min_brightness = 0;
+	data_t.memory_t.modes[MODE_05].max_brightness = 120;
+	data_t.memory_t.modes[MODE_05].step_brightness = 30;
+	data_t.memory_t.modes[MODE_05].min_delay_ms = 1;
+	data_t.memory_t.modes[MODE_05].max_delay_ms = 3000;
+	data_t.memory_t.modes[MODE_05].step_delay_ms = 50;
+	data_t.memory_t.modes[MODE_05].gBrightness = data_t.memory_t.modes[MODE_05].min_brightness;
+	data_t.memory_t.modes[MODE_05].delay_ms    = 10;
+
+	data_t.memory_t.current_mode = MODE_02;
+}
+//------------------------------------------------------------
 void check_adv(void)
 {
 	if (strncmp(strupr(RX_BUF), "+\r", 2) == 0)
@@ -652,7 +711,9 @@ int main(void)
 
 	//clear_leds();
 	while (!ws2812b_IsReady()); // wait
+
 	//test_hsv();	//TODO
+	test_mode();	//TODO
 
 	ws2812b_SendRGB(led_buffer, DEBUG_SIZE);
 
@@ -665,8 +726,31 @@ int main(void)
 			RX_FLAG_END_LINE = 0;
 
 			analize_packet();
-			check_adv();	//TODO
+			//check_adv();	//TODO
 			clear_RXBuffer();
+		}
+
+		switch (data_t.memory_t.current_mode)
+		{
+		case MODE_01:
+			f_01();
+			break;
+		case MODE_02:
+			f_02();
+			break;
+		case MODE_03:
+			f_03();
+			break;
+		case MODE_04:
+			f_04();
+			break;
+		case MODE_05:
+			f_05();
+			break;
+
+		default:
+			data_t.memory_t.current_mode = MODE_01;
+			break;
 		}
 	}
 }
