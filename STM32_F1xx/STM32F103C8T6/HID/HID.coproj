@@ -124,8 +124,8 @@
     <File name="src/main.c" path="src/main.c" type="1"/>
     <File name="cmsis_boot/startup/startup_stm32f10x_md.c" path="cmsis_boot/startup/startup_stm32f10x_md.c" type="1"/>
     <File name="stm_lib/src/stm32f10x_gpio.c" path="stm_lib/src/stm32f10x_gpio.c" type="1"/>
-    <File name="stm_lib/inc/stm32f10x_gpio.h" path="stm_lib/inc/stm32f10x_gpio.h" type="1"/>
     <File name="USB-FS/src" path="" type="2"/>
+    <File name="stm_lib/inc/stm32f10x_gpio.h" path="stm_lib/inc/stm32f10x_gpio.h" type="1"/>
     <File name="stm_lib/inc/stm32f10x_usart.h" path="stm_lib/inc/stm32f10x_usart.h" type="1"/>
     <File name="inc/platform_config.h" path="inc/platform_config.h" type="1"/>
     <File name="src/stm32_it.c" path="src/stm32_it.c" type="1"/>
