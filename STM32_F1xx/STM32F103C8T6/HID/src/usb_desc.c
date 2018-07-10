@@ -41,7 +41,7 @@
 /* USB Standard Device Descriptor */
 const uint8_t RHID_DeviceDescriptor[RHID_SIZ_DEVICE_DESC] =
   {
-		    RHID_SIZ_DEVICE_DESC,         // обща€ длина дескриптора устройства в байтах
+		    RHID_SIZ_DEVICE_DESC,       // обща€ длина дескриптора устройства в байтах
 		    USB_DEVICE_DESCRIPTOR_TYPE, // bDescriptorType - показывает, что это за дескриптор. ¬ данном случае - Device descriptor
 		    0x00, 0x02,                 // bcdUSB - какую версию стандарта USB поддерживает устройство. 2.0
 
