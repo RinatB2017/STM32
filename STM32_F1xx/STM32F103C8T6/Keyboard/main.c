@@ -26,17 +26,17 @@ int main(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	int state = 0;
+	int pos = 0;
 	while(1)
 	{
-		if(state > 3) state = 0;
-		else state++;
+		if(pos > 3) pos = 0;
+		else pos++;
 
-		GPIO_Write(GPIOA, 1 << state);
-		keyboard[state][0] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4);
-		keyboard[state][1] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_5);
-		keyboard[state][2] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_6);
-		keyboard[state][3] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
+		GPIO_Write(GPIOA, 1 << pos);
+		keyboard[pos][0] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4);
+		keyboard[pos][1] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_5);
+		keyboard[pos][2] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_6);
+		keyboard[pos][3] = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
 
 		if(keyboard[1][1] != 0)
 		{
