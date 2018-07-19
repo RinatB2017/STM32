@@ -20,7 +20,6 @@ OS_STK task2_stk[STACK_SIZE_DEFAULT];
 
 void initializeBoard()
 {
-
 	GPIO_InitTypeDef GPIO_InitStructure_Led;
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
@@ -62,5 +61,5 @@ int main(void)
 	CoCreateTask(task1,0,0,&task1_stk[STACK_SIZE_DEFAULT-1],STACK_SIZE_DEFAULT);
 	CoCreateTask(task2,0,1,&task2_stk[STACK_SIZE_DEFAULT-1],STACK_SIZE_DEFAULT);
 	CoStartOS();
-    while(1);
+	while(1);
 }
