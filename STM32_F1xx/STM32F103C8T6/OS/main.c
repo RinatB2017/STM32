@@ -22,42 +22,35 @@ void initializeBoard()
 {
 
 	GPIO_InitTypeDef GPIO_InitStructure_Led;
-	GPIO_InitTypeDef GPIO_InitStructure_Button;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,ENABLE);//for LEds
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);//for buttons
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
 
-	GPIO_InitStructure_Led.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
+	GPIO_InitStructure_Led.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
 	GPIO_InitStructure_Led.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure_Led.GPIO_Speed = GPIO_Speed_50MHz;
 
-	GPIO_InitStructure_Button.GPIO_Pin = GPIO_Pin_0;
-	GPIO_InitStructure_Button.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-	GPIO_InitStructure_Button.GPIO_Speed = GPIO_Speed_50MHz;
-
-	GPIO_Init(GPIOC,&GPIO_InitStructure_Led);
-	GPIO_Init(GPIOA,&GPIO_InitStructure_Button);
-
+	GPIO_Init(GPIOB,&GPIO_InitStructure_Led);
 }
 
 void task1 (void* pdata)
 {
 	while(1)
 	{
-		GPIO_WriteBit(GPIOC,GPIO_Pin_8,Bit_SET);
-		CoTickDelay (10);
-		GPIO_WriteBit(GPIOC,GPIO_Pin_8,Bit_RESET);
-		CoTickDelay (10);
+		GPIO_WriteBit(GPIOB, GPIO_Pin_5, Bit_SET);
+		CoTimeDelay (0, 0, 0, 300);
+		GPIO_WriteBit(GPIOB, GPIO_Pin_5, Bit_RESET);
+		CoTimeDelay (0, 0, 0, 300);
 	}
 }
 
 void task2 (void* pdata)
 {
-	int i;
 	while(1)
 	{
-		i = GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0);
-		GPIO_WriteBit(GPIOC,GPIO_Pin_9,i);
+		GPIO_WriteBit(GPIOB, GPIO_Pin_6, Bit_SET);
+		CoTimeDelay (0, 0, 0, 400);
+		GPIO_WriteBit(GPIOB, GPIO_Pin_6 ,Bit_RESET);
+		CoTimeDelay (0, 0, 0, 400);
 	}
 }
 
