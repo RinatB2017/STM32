@@ -26,6 +26,8 @@ uint32_t packet_receive=1;
 uint8_t modbus_buffer[MAX_MODBUS_BUF];
 uint8_t index_modbus_buffer = 0;
 //------------------------------------------------------------
+char log_buf[1000];
+//------------------------------------------------------------
 #define SCREEN_WIDTH    32
 #define SCREEN_HEIGTH   16
 //------------------------------------------------------------
@@ -51,7 +53,7 @@ typedef struct LED
 typedef struct P_DATA
 {
 	//uint8_t   	brightness;
-	struct LED	leds[NUM_LEDS];
+	led_t	leds[NUM_LEDS];
 	//struct LED	leds[SCREEN_WIDTH][SCREEN_HEIGTH];
 } p_data_t;
 
@@ -268,7 +270,7 @@ bool convert_raw_to_modbus(void)
 		usart_put_str("bad Receive_Buffer[0]\n");
 		return FALSE;
 	}
-	if(Receive_Buffer[Receive_length] != '\n')
+	if(Receive_Buffer[Receive_length - 1] != '\n')
 	{
 		usart_put_str("bad Receive_Buffer[Receive_length]\n");
 		return FALSE;
@@ -281,7 +283,7 @@ bool convert_raw_to_modbus(void)
 
 	index_modbus_buffer = 0;
 	int n = 0;
-	for (n = 0; n < Receive_length; n += 2)
+	for (n = 1; n < Receive_length; n += 2)
 	{
 		modbus_buffer[index_modbus_buffer] = convert_ascii_to_value(Receive_Buffer[n], Receive_Buffer[n + 1]);
 		index_modbus_buffer++;
@@ -303,6 +305,7 @@ bool convert_raw_to_modbus(void)
 bool check_packet(void)
 {
 	usart_put_str("check_packet\n");
+	usart_put_str(Receive_Buffer);
 
 	bool ok = convert_raw_to_modbus();
 	if(ok == FALSE)
@@ -311,13 +314,19 @@ bool check_packet(void)
 		return FALSE;
 	}
 
-	if (index_modbus_buffer  != (sizeof(p_header_t) + sizeof(p_data_t)))
+	if ((index_modbus_buffer - 1)  != (sizeof(p_header_t) + sizeof(p_data_t)))
 	{
 		usart_put_str("bad size\n");
+
+		sprintf(log_buf, "index %d\n", index_modbus_buffer);
+		usart_put_str(log_buf);
+
+		sprintf(log_buf, "need %d\n", (sizeof(p_header_t) + sizeof(p_data_t)));
+		usart_put_str(log_buf);
 		return FALSE;
 	}
 
-	p_header_t *header = (p_header_t *)&Receive_Buffer;
+	p_header_t *header = (p_header_t *)&modbus_buffer;
 	p_data_t   *data   = (p_data_t *)&header->data;
 
 	int n = 0;
@@ -330,6 +339,9 @@ bool check_packet(void)
 		led.g = data->leds[n].color_G;
 		led.b = data->leds[n].color_B;
 		leds[n] = led;
+
+		sprintf(log_buf, "n RGB %d %d %d %d\n", n, led.r, led.g, led.b);
+		usart_put_str(log_buf);
 	}
 
 	while (!ws2812b_IsReady()); // wait

@@ -45,7 +45,7 @@ extern volatile uint8_t Send_Buffer[VIRTUAL_COM_PORT_DATA_SIZE] ;
 extern volatile uint32_t packet_receive;
 extern volatile uint8_t Receive_length;
 
-uint8_t Receive_Buffer[64];
+uint8_t Receive_Buffer[256];
 uint32_t Send_length;
 static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
 /* Extern variables ----------------------------------------------------------*/
