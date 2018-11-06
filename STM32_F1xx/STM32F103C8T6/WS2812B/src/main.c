@@ -5,8 +5,13 @@
 #include "ws2812b.h"
 
 //3.3V 12-255
-uint8_t color = 100;
-#define NUM_LEDS    6
+#if 1
+	uint8_t color = 22;
+	#define NUM_LEDS    144
+#else
+	uint8_t color = 100;
+	#define NUM_LEDS    6
+#endif
 
 RGB_t leds[NUM_LEDS];
 
