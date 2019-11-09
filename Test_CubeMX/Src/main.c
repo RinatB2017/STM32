@@ -96,11 +96,13 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    HAL_GPIO_TogglePin(PORTC, Pin8); //Toggle the state of pin
-    HAL_Delay(500); //задержка в мс
 
-    HAL_GPIO_TogglePin(PORTC, Pin9); //Toggle the state of pin
-    HAL_Delay(500); //задержка в мс    /* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin
+    // HAL_Delay(5000); //задержка в мс
+
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); //Toggle the state of pin
+    HAL_Delay(1000); //задержка в мс    /* USER CODE BEGIN 3 */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -150,7 +152,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
