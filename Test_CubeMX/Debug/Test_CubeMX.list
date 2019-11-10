@@ -2547,7 +2547,7 @@ int main(void)
  8000f72:	f44f 7100 	mov.w	r1, #512	; 0x200
  8000f76:	4804      	ldr	r0, [pc, #16]	; (8000f88 <main+0x30>)
  8000f78:	f7ff fc1c 	bl	80007b4 <HAL_GPIO_TogglePin>
-    HAL_Delay(1000); //задержка в мс    /* USER CODE BEGIN 3 */
+    HAL_Delay(1000); //задержка в мс
  8000f7c:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8000f80:	f7ff f9a0 	bl	80002c4 <HAL_Delay>
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin

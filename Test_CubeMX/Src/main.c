@@ -102,7 +102,8 @@ int main(void)
     // HAL_Delay(5000); //задержка в мс
 
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); //Toggle the state of pin
-    HAL_Delay(1000); //задержка в мс    /* USER CODE BEGIN 3 */
+    HAL_Delay(1000); //задержка в мс
+    /* USER CODE BEGIN 3 */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
