@@ -2537,20 +2537,20 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin
  8000f68:	f44f 7180 	mov.w	r1, #256	; 0x100
  8000f6c:	4806      	ldr	r0, [pc, #24]	; (8000f88 <main+0x30>)
  8000f6e:	f7ff fc21 	bl	80007b4 <HAL_GPIO_TogglePin>
-	    // HAL_Delay(5000); //задержка в мс
+    // HAL_Delay(5000); //задержка в мс
 
-	    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); //Toggle the state of pin
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); //Toggle the state of pin
  8000f72:	f44f 7100 	mov.w	r1, #512	; 0x200
  8000f76:	4804      	ldr	r0, [pc, #16]	; (8000f88 <main+0x30>)
  8000f78:	f7ff fc1c 	bl	80007b4 <HAL_GPIO_TogglePin>
-	    HAL_Delay(1000); //задержка в мс    /* USER CODE BEGIN 3 */
+    HAL_Delay(1000); //задержка в мс    /* USER CODE BEGIN 3 */
  8000f7c:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8000f80:	f7ff f9a0 	bl	80002c4 <HAL_Delay>
-	    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin
  8000f84:	e7f0      	b.n	8000f68 <main+0x10>
  8000f86:	bf00      	nop
  8000f88:	40011000 	.word	0x40011000
