@@ -99,7 +99,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_8); //Toggle the state of pin
-    // HAL_Delay(5000); //задержка в мс
+    // HAL_Delay(500); //задержка в мс
 
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_9); //Toggle the state of pin
     HAL_Delay(1000); //задержка в мс
