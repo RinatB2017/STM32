@@ -1,3 +1,0 @@
-c:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_1.1.0.201910081157\tools\bin\ST-LINK_gdbserver.exe -d -v -cp "c:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin"
-
-https://notes.iopush.net/stm32-custom-usb-hid-step-by-step-2/

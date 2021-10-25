@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<History> 
-  <File usedCount="2" path="stm_lib/inc/stm32f10x_flash.h"/>  
-  <File usedCount="2" path="stm_lib/src/stm32f10x_flash.c"/>
-</History>
